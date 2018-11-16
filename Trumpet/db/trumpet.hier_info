@@ -1,0 +1,68 @@
+|trumpet
+SW[0] => SW[0].IN1
+SW[1] => SW[1].IN1
+KEY[1] => KEY[1].IN1
+KEY[2] => KEY[2].IN1
+KEY[3] => KEY[3].IN1
+HEX0[0] <= hex_decoder:H0.segments
+HEX0[1] <= hex_decoder:H0.segments
+HEX0[2] <= hex_decoder:H0.segments
+HEX0[3] <= hex_decoder:H0.segments
+HEX0[4] <= hex_decoder:H0.segments
+HEX0[5] <= hex_decoder:H0.segments
+HEX0[6] <= hex_decoder:H0.segments
+
+
+|trumpet|note_Select:u0
+keys[0] => Equal0.IN2
+keys[0] => Equal1.IN1
+keys[0] => Equal2.IN1
+keys[0] => Equal3.IN2
+keys[0] => Equal4.IN2
+keys[0] => Equal5.IN2
+keys[0] => Equal6.IN2
+keys[1] => Equal0.IN1
+keys[1] => Equal1.IN2
+keys[1] => Equal2.IN0
+keys[1] => Equal3.IN1
+keys[1] => Equal4.IN1
+keys[1] => Equal5.IN1
+keys[1] => Equal6.IN0
+keys[2] => Equal0.IN0
+keys[2] => Equal1.IN0
+keys[2] => Equal2.IN2
+keys[2] => Equal3.IN0
+keys[2] => Equal4.IN0
+keys[2] => Equal5.IN0
+keys[2] => Equal6.IN1
+airflow[0] => Decoder0.IN1
+airflow[0] => Mux0.IN5
+airflow[0] => Mux1.IN5
+airflow[0] => Mux2.IN5
+airflow[0] => Mux3.IN5
+airflow[1] => Decoder0.IN0
+airflow[1] => Mux0.IN4
+airflow[1] => Mux1.IN4
+airflow[1] => Mux2.IN4
+airflow[1] => Mux3.IN4
+note[0] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+note[1] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+note[2] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+note[3] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+note[4] <= note.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|trumpet|hex_decoder:H0
+hex_digit[0] => Decoder0.IN3
+hex_digit[1] => Decoder0.IN2
+hex_digit[2] => Decoder0.IN1
+hex_digit[3] => Decoder0.IN0
+segments[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+segments[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+segments[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+segments[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+segments[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+segments[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+segments[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
