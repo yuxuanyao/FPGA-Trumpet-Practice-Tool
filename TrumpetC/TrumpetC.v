@@ -71,10 +71,7 @@ assign resetcounter = KEY[1];
 
 reg [14:0] delay_cnt;
 wire [14:0] delay;
-reg [15:0] m;
-reg [15:0] rate = 16'd 5000;
-reg [15:0] counter ;
-reg [15:0] a;
+
 reg snd;
 
 reg [8:0] cnt ;
@@ -106,45 +103,15 @@ ram_c memory1(
  *                             Sequential Logic                              *
  *****************************************************************************/
 always @(posedge CLOCK_50)begin
-	if(clk_count == 11'd1200)  begin
 		if(address_count_reg == 13'd5000) begin
 			address_count_reg <= 13'b0;
 		end 
-	else address_count_reg <= address_count_reg + 1;
-	clk_count <= 0;
-	
+		else address_count_reg <= address_count_reg + 1;
 end 
-else
-	clk_count <= clk_count + 1;
-end
+
+
 assign address_count = address_count_reg;
-	
-	/*
-	if (!resetcounter) begin
-		m <= 16'd0;
-		counter <= 16'd0;
-		end
-	else if (counter == rate) begin
-		m <= m + 1;
-		counter <= 16'd0;
-		end
-	else
-		counter <= counter + 1;
-  */
- 
-/* always @(m)
-	 begin
-	 if ( m < count)
-		a <= m;
-		else
-		m <= 16'd0;
-	end */
- 
-/*always @(m)
-	if(delay_cnt == delay) begin
-		delay_cnt <= 0;
-		snd <= !snd;
-	end else delay_cnt <= delay_cnt + 1;*/
+
 
 /*****************************************************************************
  *                            Combinational Logic                            *
@@ -152,13 +119,14 @@ assign address_count = address_count_reg;
 
 assign delay = {15'd100};
 
-//wire [31:0] sound = (SW == 0) ? 0 : snd ? 32'd10000000 : -32'd10000000;
+wire [31:0] sound = {audio_from_ram, 29'b0};
+
+assign read_audio_in = audio_in_available & audio_out_allowed;
 
 
-assign read_audio_in			= audio_in_available & audio_out_allowed;
 
-assign left_channel_audio_out	= {audio_from_ram, 29'b0};
-assign right_channel_audio_out	= 32'b0;
+assign left_channel_audio_out	= sound;
+assign right_channel_audio_out	= sound;
 
 assign write_audio_out			= audio_in_available & audio_out_allowed;
 
