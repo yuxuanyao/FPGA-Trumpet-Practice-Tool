@@ -1,0 +1,17 @@
+Analysis & Synthesis Status : Successful - Sun Nov 18 18:14:58 2018
+Quartus Prime Version : 18.0.0 Build 614 04/24/2018 SJ Lite Edition
+Revision Name : DE1_SoC_Audio_Example
+Top-level Entity Name : DE1_SoC_Audio_Example
+Family : Cyclone V
+Logic utilization (in ALMs) : N/A
+Total registers : 237
+Total pins : 25
+Total virtual pins : 0
+Total block memory bits : 8,192
+Total DSP Blocks : 0
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 1
+Total DLLs : 0
