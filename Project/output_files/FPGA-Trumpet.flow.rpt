@@ -1,0 +1,141 @@
+Flow report for FPGA-Trumpet
+Fri Nov 23 19:22:44 2018
+Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+  3. Flow Settings
+  4. Flow Non-Default Global Settings
+  5. Flow Elapsed Time
+  6. Flow OS Summary
+  7. Flow Log
+  8. Flow Messages
+  9. Flow Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Flow Summary                                                                  ;
++---------------------------------+---------------------------------------------+
+; Flow Status                     ; Successful - Fri Nov 23 19:22:30 2018       ;
+; Quartus Prime Version           ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
+; Revision Name                   ; FPGA-Trumpet                                ;
+; Top-level Entity Name           ; FPGATrumpet                                 ;
+; Family                          ; Cyclone V                                   ;
+; Device                          ; 5CSEMA5F31C6                                ;
+; Timing Models                   ; Final                                       ;
+; Logic utilization (in ALMs)     ; 448 / 32,070 ( 1 % )                        ;
+; Total registers                 ; 390                                         ;
+; Total pins                      ; 67 / 457 ( 15 % )                           ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 2,142,208 / 4,065,280 ( 53 % )              ;
+; Total DSP Blocks                ; 0 / 87 ( 0 % )                              ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 1 / 6 ( 17 % )                              ;
+; Total DLLs                      ; 0 / 4 ( 0 % )                               ;
++---------------------------------+---------------------------------------------+
+
+
++-----------------------------------------+
+; Flow Settings                           ;
++-------------------+---------------------+
+; Option            ; Setting             ;
++-------------------+---------------------+
+; Start date & time ; 11/23/2018 19:20:42 ;
+; Main task         ; Compilation         ;
+; Revision Name     ; FPGA-Trumpet        ;
++-------------------+---------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                        ;
++-------------------------------------+----------------------------------------+---------------+-------------+------------+
+; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
++-------------------------------------+----------------------------------------+---------------+-------------+------------+
+; COMPILER_SIGNATURE_ID               ; 88491851385743.154301884218320         ; --            ; --          ; --         ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
+; MISC_FILE                           ; c4_bb.v                                ; --            ; --          ; --         ;
+; MISC_FILE                           ; cs4_bb.v                               ; --            ; --          ; --         ;
+; MISC_FILE                           ; d4_bb.v                                ; --            ; --          ; --         ;
+; MISC_FILE                           ; ds4_bb.v                               ; --            ; --          ; --         ;
+; MISC_FILE                           ; e4_bb.v                                ; --            ; --          ; --         ;
+; MISC_FILE                           ; f4_bb.v                                ; --            ; --          ; --         ;
+; MISC_FILE                           ; g4_bb.v                                ; --            ; --          ; --         ;
+; MISC_FILE                           ; gs4_bb.v                               ; --            ; --          ; --         ;
+; MISC_FILE                           ; a4_bb.v                                ; --            ; --          ; --         ;
+; MISC_FILE                           ; as4_bb.v                               ; --            ; --          ; --         ;
+; MISC_FILE                           ; b4_bb.v                                ; --            ; --          ; --         ;
+; MISC_FILE                           ; c5_bb.v                                ; --            ; --          ; --         ;
+; MISC_FILE                           ; newnewfs4_bb.v                         ; --            ; --          ; --         ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; FPGATrumpet ; Top        ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; FPGATrumpet ; Top        ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; FPGATrumpet ; Top        ;
+; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --          ; --         ;
+; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --         ;
+; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --          ; --         ;
+; TOP_LEVEL_ENTITY                    ; FPGATrumpet                            ; FPGA-Trumpet  ; --          ; --         ;
++-------------------------------------+----------------------------------------+---------------+-------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                        ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis ; 00:00:19     ; 1.0                     ; 4908 MB             ; 00:00:33                           ;
+; Fitter               ; 00:01:15     ; 1.2                     ; 6764 MB             ; 00:02:56                           ;
+; Assembler            ; 00:00:10     ; 1.0                     ; 4895 MB             ; 00:00:10                           ;
+; Timing Analyzer      ; 00:00:13     ; 1.8                     ; 5254 MB             ; 00:00:18                           ;
+; Total                ; 00:01:57     ; --                      ; --                  ; 00:03:57                           ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+
+
++------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                    ;
++----------------------+------------------+------------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
++----------------------+------------------+------------+------------+----------------+
+; Analysis & Synthesis ; LAPTOP-6F2FINU4  ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; LAPTOP-6F2FINU4  ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; LAPTOP-6F2FINU4  ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; LAPTOP-6F2FINU4  ; Windows 10 ; 10.0       ; x86_64         ;
++----------------------+------------------+------------+------------+----------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_map --read_settings_files=on --write_settings_files=off FPGA-Trumpet -c FPGA-Trumpet
+quartus_fit --read_settings_files=off --write_settings_files=off FPGA-Trumpet -c FPGA-Trumpet
+quartus_asm --read_settings_files=off --write_settings_files=off FPGA-Trumpet -c FPGA-Trumpet
+quartus_sta FPGA-Trumpet -c FPGA-Trumpet
+
+
+
