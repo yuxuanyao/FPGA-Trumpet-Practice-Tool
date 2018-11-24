@@ -1,7 +1,10 @@
 
-
-//KEY[0] is reset
+/*****************************************************************************
+ *                            Top Level Entity                               *
+ *****************************************************************************/
 module FPGATrumpet(
+//KEY[0] is reset
+
 	// Inputs
 	CLOCK_50,
 	KEY,
@@ -13,6 +16,7 @@ module FPGATrumpet(
 	HEX4,
 	HEX5,
 
+	// Audio ports
 	AUD_ADCDAT,
 
 	// Bidirectionals
@@ -27,7 +31,18 @@ module FPGATrumpet(
 	AUD_DACDAT,
 
 	FPGA_I2C_SCLK,
-	SW
+	SW,
+	
+	
+	// VGA ports
+	VGA_CLK,   						//	VGA Clock
+	VGA_HS,							//	VGA H_SYNC
+	VGA_VS,							//	VGA V_SYNC
+	VGA_BLANK_N,						//	VGA BLANK
+	VGA_SYNC_N,						//	VGA SYNC
+	VGA_R,   						//	VGA Red[9:0]
+	VGA_G,	 						//	VGA Green[9:0]
+	VGA_B   						//	VGA Blue[9:0]
 );
 
 /*****************************************************************************
@@ -36,7 +51,7 @@ module FPGATrumpet(
 
 
 /*****************************************************************************
- *                             Port Declarations                             *
+ *                            Audio Port Declarations                        *
  *****************************************************************************/
 // Inputs
 input				CLOCK_50;
@@ -65,6 +80,20 @@ output				AUD_DACDAT;
 
 output				FPGA_I2C_SCLK;
 
+/*****************************************************************************
+ *                            VGA Port Declarations                          *
+ *****************************************************************************/
+output			VGA_CLK;   				//	VGA Clock
+output			VGA_HS;					//	VGA H_SYNC
+output			VGA_VS;					//	VGA V_SYNC
+output			VGA_BLANK_N;				//	VGA BLANK
+output			VGA_SYNC_N;				//	VGA SYNC
+output	[7:0]	VGA_R;   				//	VGA Red[7:0] Changed from 10 to 8-bit DAC
+output	[7:0]	VGA_G;	 				//	VGA Green[7:0]
+output	[7:0]	VGA_B;   				//	VGA Blue[7:0]
+
+wire resetn;
+assign resetn = KEY[0];
 /*****************************************************************************
  *                 			     Trumpet Sound		       	                 *
  *****************************************************************************/
@@ -101,7 +130,7 @@ assign left_channel_audio_out	= sound;
 assign right_channel_audio_out	= sound;
 
 /*****************************************************************************
- *                              Internal Modules                             *
+ *                         Audio Controller Module 		                    *
  *****************************************************************************/
 
 Audio_Controller Audio_Controller (
@@ -144,9 +173,41 @@ avconf #(.USE_MIC_INPUT(1)) avc (
 	.reset						(~KEY[0])
 );
 	
-	
-	
-//**************************************************************************************
+/*****************************************************************************
+ *                         VGA Adapter Module 		 		                    *
+ *****************************************************************************/
+
+// wires  
+wire [2:0] colour;
+wire [7:0] x;
+wire [6:0] y;
+wire writeEn;
+
+// instantiate VGA module
+vga_adapter VGA(
+		.resetn(resetn),
+		.clock(CLOCK_50),
+		.colour(colour),
+		.x(x),
+		.y(y),
+		.plot(writeEn),
+		
+		/* Signals for the DAC to drive the monitor. */
+		.VGA_R(VGA_R),
+		.VGA_G(VGA_G),
+		.VGA_B(VGA_B),
+		.VGA_HS(VGA_HS),
+		.VGA_VS(VGA_VS),
+		.VGA_BLANK(VGA_BLANK_N),
+		.VGA_SYNC(VGA_SYNC_N),
+		.VGA_CLK(VGA_CLK));
+defparam VGA.RESOLUTION = "160x120";
+defparam VGA.MONOCHROME = "FALSE";
+defparam VGA.BITS_PER_COLOUR_CHANNEL = 1;
+defparam VGA.BACKGROUND_IMAGE = "scalestaff.mif";
+/*****************************************************************************
+ *                         Microphone Input Module 		                    *
+ *****************************************************************************/
 	wire [1:0] air;
 	
 	
@@ -174,7 +235,8 @@ avconf #(.USE_MIC_INPUT(1)) avc (
 		.q(RDiv)
 		);
 	
-	
+// Display microphone input on the HEX 
+
 	hex_decoder H0(
         .hex_digit(lCount[3:0]), 
         .segments(HEX0)
@@ -205,8 +267,10 @@ avconf #(.USE_MIC_INPUT(1)) avc (
 	
 	
 endmodule
-//*****************************************************************************************************************************************
 
+/*****************************************************************************
+ *                          Note Select Module 				                    *
+ *****************************************************************************/
 module note_Select (clock, keys, airflow, audio_out_allowed, note, write);
 	input clock;
 	input [2:0] keys;
@@ -232,6 +296,8 @@ module note_Select (clock, keys, airflow, audio_out_allowed, note, write);
 	wire [9:0] as4_audio;
 	wire [9:0] b4_audio;
 	wire [9:0] c5_audio;
+
+// instantiating ram for each note
 	
 	c4 c0(
 	.address(address_count),
@@ -340,13 +406,13 @@ module note_Select (clock, keys, airflow, audio_out_allowed, note, write);
 	
 	assign address_count = address_count_reg;
 
-	
-	always @(posedge clock)	//declare always block
+// determining output note	
+
+	always @(posedge clock)	
 	begin
 		case (airflow[1:0])
-			//alternate code used for testing
 			2'b00: note = 10'b00000;	//case 0: no airflow
-			2'b01:
+			2'b01:							//case 1: level 1 airflow
 				begin
 					if (keys == 3'b000)			//Middle C 523
 						note = c4_audio;
@@ -365,7 +431,7 @@ module note_Select (clock, keys, airflow, audio_out_allowed, note, write);
 					else
 						note = 10'b0;
 				end
-			2'b10:
+			2'b10:							//case 2: level 2 airflow
 				begin
 					if (keys == 3'b000)			//G 784
 						note = g4_audio;
@@ -382,107 +448,15 @@ module note_Select (clock, keys, airflow, audio_out_allowed, note, write);
 					else
 						note = 10'b0; 
 				end
-			/*2'b11: 
-				begin
-					if (keys == 3'b000)			//High C 1047
-						note = 19'd95510;
-					else if (keys == 3'b110)		//C# 	1109
-						note = 19'd90171;
-					else if (keys == 3'b100)		//D 1175
-						note = 19'd85106;
-					else if (keys == 3'b010)		//D# 1245
-						note = 19'd80321;
-					else
-						note = 19'b0;
-				end
-				*/
 			default: note = 10'b0;	//default case
 		endcase
 	end
 
 endmodule
 
-/*
-module subReg(D, clk, reset, Q);
-	input [31:0]D;
-	input clk;
-	input reset;
-	output reg [31:0]Q;
-	
-	always @(posedge clk)
-	begin
-		if (reset == 1)
-			Q<=0;
-		else
-			Q<=D;
-	end
-endmodule
-*/
-
-/*
-module test(in1, D, clk, out1);
-	input [31:0] in1;
-	input clk;
-	input D;
-	output reg out1;
-	
-	wire en;
-	
-	assign en = (in1[31] ==1)?0:1;
-	
-	
-	
-	always @(posedge clk)
-	begin
-		if (en ==1)
-			begin
-				if (in1 > 32'b00000000000010110000000000000000 )
-					out1<=1;
-				else
-					out1<=0;
-			end
-		else
-			out1<=D;
-	end
-endmodule
-
-module test2(in1, clk, out1);
-	input [31:0] in1;
-	input clk;
-	output reg [2:0]out1;
-	
-	
-	always @(posedge clk)
-	begin
-			if (in1 > 32'b00000000111111111110000000000000)
-				out1<=3'b010;
-			else if (in1 > 32'b00000000000111100000000000000000)
-				out1<=3'b001;
-			else
-				out1<=3'b000;
-
-	end
-endmodule
-
-module test3(in1, clk, out1);
-	input [31:0] in1;
-	input clk;
-	output reg [1:0]out1;
-	
-	
-	always @(posedge clk)
-	begin
-			if (in1 > 32'b00000001111000000000000000000000)
-				out1<=2'b10;
-			else if (in1 > 32'b00000000000111111100000000000000)
-				out1<=3'b01;
-			else
-				out1<=3'b00;
-
-	end
-endmodule
-*/
-
+/*****************************************************************************
+ *                       Microphone Input/ Airflow Module             		  *
+ *****************************************************************************/
 
 module micCheck (audio_in, clk, mute, lCount, mCount, hCount, q, air);
 	input [31:0]audio_in;
@@ -535,7 +509,9 @@ module micCheck (audio_in, clk, mute, lCount, mCount, hCount, q, air);
 	end
 endmodule
 
-
+/*****************************************************************************
+ *                          Rate Divider Module 			                    *
+ *****************************************************************************/
 module hex_decoder(hex_digit, segments);
     input [3:0] hex_digit;
     output reg [6:0] segments;

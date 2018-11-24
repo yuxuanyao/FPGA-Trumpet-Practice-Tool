@@ -1,16 +1,16 @@
-Fitter Status : Successful - Fri Nov 23 19:22:17 2018
+Fitter Status : Successful - Fri Nov 23 22:16:07 2018
 Quartus Prime Version : 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 Revision Name : FPGA-Trumpet
 Top-level Entity Name : FPGATrumpet
 Family : Cyclone V
 Device : 5CSEMA5F31C6
 Timing Models : Final
-Logic utilization (in ALMs) : 448 / 32,070 ( 1 % )
-Total registers : 390
-Total pins : 67 / 457 ( 15 % )
+Logic utilization (in ALMs) : 473 / 32,070 ( 1 % )
+Total registers : 425
+Total pins : 96 / 457 ( 21 % )
 Total virtual pins : 0
-Total block memory bits : 2,142,208 / 4,065,280 ( 53 % )
-Total RAM Blocks : 263 / 397 ( 66 % )
+Total block memory bits : 2,199,808 / 4,065,280 ( 54 % )
+Total RAM Blocks : 271 / 397 ( 68 % )
 Total DSP Blocks : 0 / 87 ( 0 % )
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0
