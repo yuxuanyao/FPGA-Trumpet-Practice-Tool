@@ -206,6 +206,11 @@ defparam VGA.MONOCHROME = "FALSE";
 defparam VGA.BITS_PER_COLOUR_CHANNEL = 1;
 defparam VGA.BACKGROUND_IMAGE = "scalestaff.mif";
 /*****************************************************************************
+ *                         	FSM and Datapath 			 		                 *
+ *****************************************************************************/
+ 
+ 
+/*****************************************************************************
  *                         Microphone Input Module 		                    *
  *****************************************************************************/
 	wire [1:0] air;
@@ -267,7 +272,30 @@ defparam VGA.BACKGROUND_IMAGE = "scalestaff.mif";
 	
 	
 endmodule
-
+/*****************************************************************************
+ *                         		Drawing Datapath	 		                    *
+ *****************************************************************************/
+/*****************************************************************************
+ *                         		ID chart		 		 		                    *
+ *****************************************************************************/
+module drawNote(clock, resetn, id, xin, yin, xout, yout, colour);
+	input clock; 
+	input resetn; 
+	input id;
+	input xin;
+	input yin;
+	output xout;
+	output colour;
+	
+	always@(posedge clock)begin
+		if
+	
+	end
+	
+	
+	
+	
+endmodule
 /*****************************************************************************
  *                          Note Select Module 				                    *
  *****************************************************************************/
@@ -537,7 +565,6 @@ module hex_decoder(hex_digit, segments);
             default: segments = 7'h7f;
         endcase
 endmodule
-
 
 module RateDivider (Clock, q);
 	input Clock;

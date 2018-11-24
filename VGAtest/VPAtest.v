@@ -30,7 +30,7 @@ module VGAtest
 	output	[7:0]	VGA_B;   				//	VGA Blue[7:0]
 	
 	wire resetn;
-	assign resetn = KEY[0];
+	assign resetn = ~KEY[0];
 	
 	// Create the colour, x, y and writeEn wires that are inputs to the controller.
 
@@ -43,7 +43,7 @@ module VGAtest
 	// Define the number of colours as well as the initial background
 	// image file (.MIF) for the controller.
 	vga_adapter VGA(
-			.resetn(resetn),
+			.resetn(~resetn),
 			.clock(CLOCK_50),
 			.colour(colour),
 			.x(x),
@@ -65,6 +65,110 @@ module VGAtest
 			
 	// Put your code here. Your code should produce signals x,y,colour and writeEn
 	// for the VGA controller, in addition to any other functionality your design may require.
+	reg note; 
+	reg scalestaff;
+	reg writeEnable; 
+	reg [7:0] x_counter;
+	reg [6:0] y_counter;
+
+	
+	wire [14:0] address;
+	reg [14:0] address_count;
+	wire x_counter_clear;
+	wire y_counter_clear;
+	
+	spacenote s0(
+	.address(address),
+	.clock(CLOCK_50),
+	.data(),
+	.wren(0),
+	.q(colour));
+	
+//always@(posedge CLOCK_50)begin
+//	if(~KEY[3])
+//		writeEnable <= 1;
+//	else
+//		writeEnable <= 0;
+//end	
+
+
+//always@(posedge CLOCK_50) begin
+//	if(resetn) begin
+//		x_counter <= 0;
+//		y_counter <= 0;
+//		address_count <= 0;
+//	end
+//	
+//	if(address_count == 14'd47) begin
+//		address_count <= 0;
+//	end
+//	else
+//		address_count <= address_count + 1;
+		
+//		
+//	if(x_counter_clear) begin
+//		x_counter <= 0;
+//		y_counter <= y_counter + 1;
+//	end
+//	else if(x_counter_clear && y_counter_clear) begin
+//		x_counter <= 0;
+//		y_counter <= 0;
+//	end
+//	else begin
+//		x_counter <= x_counter + 1;
+//	end
+//	
+//	address_count <= x_counter + y_counter *8;
+//	
+//end
+
+outlet o1 (.clock(CLOCK_50), .resetn(resetn), .x(x), .y(y));
+
+assign address = x + y*8;
+
+
+
+//assign x_counter_clear = (x_counter == 8'd7);
+//assign y_counter_clear = (y_counter == 7'd5);
+//assign writeEn = address <= 47;//writeEnable;
+//assign address = address_count;
+//assign x = x_counter;
+//assign y = y_counter;
 	
 	
 endmodule
+
+module outlet(clock, resetn, x, y);
+	input clock, resetn;
+	output reg [7:0] x;
+	output reg [6:0] y;
+	
+	/* A counter to scan through a horizontal line. */
+	always @(posedge clock)
+	begin
+		if (resetn)
+			xCounter <= 8'd0;
+		else if (xCounter_clear)
+			xCounter <= 8'd0;
+		else
+		begin
+			xCounter <= xCounter + 1'b1;
+		end
+	end
+	assign xCounter_clear = (xCounter == (7));
+
+
+	always @(posedge clock)
+	begin
+		if (!resetn)
+			yCounter <= 7'd0;
+		else if (xCounter_clear && yCounter_clear)
+			yCounter <= 7'd0;
+		else if (xCounter_clear)		//Increment when x counter resets
+			yCounter <= yCounter + 1'b1;
+	end
+	assign yCounter_clear = (yCounter == (5)); 
+	
+	
+endmodule
+	
