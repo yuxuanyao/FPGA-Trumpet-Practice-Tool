@@ -46,8 +46,8 @@ module VGAtest
 			.resetn(~resetn),
 			.clock(CLOCK_50),
 			.colour(colour),
-			.x(x),
-			.y(y),
+			.x(x + 7'd50),
+			.y(y + 7'd50),
 			.plot(writeEn),
 			/* Signals for the DAC to drive the monitor. */
 			.VGA_R(VGA_R),
@@ -124,13 +124,13 @@ module VGAtest
 
 outlet o1 (.clock(CLOCK_50), .resetn(resetn), .x(x), .y(y));
 
-assign address = x + y*8;
+assign address = (x + (y*8));
 
 
 
 //assign x_counter_clear = (x_counter == 8'd7);
 //assign y_counter_clear = (y_counter == 7'd5);
-//assign writeEn = address <= 47;//writeEnable;
+assign writeEn = address <= 47;//writeEnable;
 //assign address = address_count;
 //assign x = x_counter;
 //assign y = y_counter;
@@ -140,35 +140,40 @@ endmodule
 
 module outlet(clock, resetn, x, y);
 	input clock, resetn;
-	output reg [7:0] x;
-	output reg [6:0] y;
+	output [7:0] x;
+	output [6:0] y;
 	
+	reg [7:0] xCounter;
+	reg [6:0] yCounter;
 	/* A counter to scan through a horizontal line. */
 	always @(posedge clock)
 	begin
 		if (resetn)
-			xCounter <= 8'd0;
+			xCounter <= 8'd1;
 		else if (xCounter_clear)
-			xCounter <= 8'd0;
+			xCounter <= 8'd1;
 		else
 		begin
 			xCounter <= xCounter + 1'b1;
 		end
 	end
-	assign xCounter_clear = (xCounter == (7));
+	
+	assign xCounter_clear = (xCounter == (8'd9));
 
 
 	always @(posedge clock)
 	begin
-		if (!resetn)
+		if (resetn)
 			yCounter <= 7'd0;
 		else if (xCounter_clear && yCounter_clear)
 			yCounter <= 7'd0;
 		else if (xCounter_clear)		//Increment when x counter resets
 			yCounter <= yCounter + 1'b1;
 	end
-	assign yCounter_clear = (yCounter == (5)); 
 	
+	assign yCounter_clear = (yCounter == (7'd6)); 
 	
+	assign x = xCounter;
+	assign y = yCounter;
 endmodule
 	

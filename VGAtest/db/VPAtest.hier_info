@@ -1,5 +1,5 @@
 |VGAtest
-CLOCK_50 => CLOCK_50.IN2
+CLOCK_50 => CLOCK_50.IN3
 KEY[0] => KEY[0].IN1
 KEY[1] => ~NO_FANOUT~
 KEY[2] => ~NO_FANOUT~
@@ -874,5 +874,53 @@ q_a[2] <= ram_block1a2.PORTADATAOUT
 wren_a => ram_block1a0.PORTAWE
 wren_a => ram_block1a1.PORTAWE
 wren_a => ram_block1a2.PORTAWE
+
+
+|VGAtest|outlet:o1
+clock => yCounter[0].CLK
+clock => yCounter[1].CLK
+clock => yCounter[2].CLK
+clock => yCounter[3].CLK
+clock => yCounter[4].CLK
+clock => yCounter[5].CLK
+clock => yCounter[6].CLK
+clock => xCounter[0].CLK
+clock => xCounter[1].CLK
+clock => xCounter[2].CLK
+clock => xCounter[3].CLK
+clock => xCounter[4].CLK
+clock => xCounter[5].CLK
+clock => xCounter[6].CLK
+clock => xCounter[7].CLK
+resetn => xCounter.OUTPUTSELECT
+resetn => xCounter.OUTPUTSELECT
+resetn => xCounter.OUTPUTSELECT
+resetn => xCounter.OUTPUTSELECT
+resetn => xCounter.OUTPUTSELECT
+resetn => xCounter.OUTPUTSELECT
+resetn => xCounter.OUTPUTSELECT
+resetn => xCounter.OUTPUTSELECT
+resetn => yCounter.OUTPUTSELECT
+resetn => yCounter.OUTPUTSELECT
+resetn => yCounter.OUTPUTSELECT
+resetn => yCounter.OUTPUTSELECT
+resetn => yCounter.OUTPUTSELECT
+resetn => yCounter.OUTPUTSELECT
+resetn => yCounter.OUTPUTSELECT
+x[0] <= xCounter[0].DB_MAX_OUTPUT_PORT_TYPE
+x[1] <= xCounter[1].DB_MAX_OUTPUT_PORT_TYPE
+x[2] <= xCounter[2].DB_MAX_OUTPUT_PORT_TYPE
+x[3] <= xCounter[3].DB_MAX_OUTPUT_PORT_TYPE
+x[4] <= xCounter[4].DB_MAX_OUTPUT_PORT_TYPE
+x[5] <= xCounter[5].DB_MAX_OUTPUT_PORT_TYPE
+x[6] <= xCounter[6].DB_MAX_OUTPUT_PORT_TYPE
+x[7] <= xCounter[7].DB_MAX_OUTPUT_PORT_TYPE
+y[0] <= yCounter[0].DB_MAX_OUTPUT_PORT_TYPE
+y[1] <= yCounter[1].DB_MAX_OUTPUT_PORT_TYPE
+y[2] <= yCounter[2].DB_MAX_OUTPUT_PORT_TYPE
+y[3] <= yCounter[3].DB_MAX_OUTPUT_PORT_TYPE
+y[4] <= yCounter[4].DB_MAX_OUTPUT_PORT_TYPE
+y[5] <= yCounter[5].DB_MAX_OUTPUT_PORT_TYPE
+y[6] <= yCounter[6].DB_MAX_OUTPUT_PORT_TYPE
 
 

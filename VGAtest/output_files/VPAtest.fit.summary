@@ -1,12 +1,12 @@
-Fitter Status : Successful - Sat Nov 24 15:03:43 2018
+Fitter Status : Successful - Sat Nov 24 17:32:35 2018
 Quartus Prime Version : 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 Revision Name : VPAtest
 Top-level Entity Name : VGAtest
 Family : Cyclone V
 Device : 5CSEMA5F31C6
 Timing Models : Final
-Logic utilization (in ALMs) : 47 / 32,070 ( < 1 % )
-Total registers : 62
+Logic utilization (in ALMs) : 64 / 32,070 ( < 1 % )
+Total registers : 48
 Total pins : 34 / 457 ( 7 % )
 Total virtual pins : 0
 Total block memory bits : 57,744 / 4,065,280 ( 1 % )
