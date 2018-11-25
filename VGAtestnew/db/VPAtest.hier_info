@@ -789,94 +789,6 @@ mem_address[13] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
 mem_address[14] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|VGAtest|linenote:s0
-address[0] => address[0].IN1
-address[1] => address[1].IN1
-address[2] => address[2].IN1
-address[3] => address[3].IN1
-address[4] => address[4].IN1
-address[5] => address[5].IN1
-clock => clock.IN1
-data[0] => data[0].IN1
-data[1] => data[1].IN1
-data[2] => data[2].IN1
-wren => wren.IN1
-q[0] <= altsyncram:altsyncram_component.q_a
-q[1] <= altsyncram:altsyncram_component.q_a
-q[2] <= altsyncram:altsyncram_component.q_a
-
-
-|VGAtest|linenote:s0|altsyncram:altsyncram_component
-wren_a => altsyncram_1pm1:auto_generated.wren_a
-rden_a => ~NO_FANOUT~
-wren_b => ~NO_FANOUT~
-rden_b => ~NO_FANOUT~
-data_a[0] => altsyncram_1pm1:auto_generated.data_a[0]
-data_a[1] => altsyncram_1pm1:auto_generated.data_a[1]
-data_a[2] => altsyncram_1pm1:auto_generated.data_a[2]
-data_b[0] => ~NO_FANOUT~
-address_a[0] => altsyncram_1pm1:auto_generated.address_a[0]
-address_a[1] => altsyncram_1pm1:auto_generated.address_a[1]
-address_a[2] => altsyncram_1pm1:auto_generated.address_a[2]
-address_a[3] => altsyncram_1pm1:auto_generated.address_a[3]
-address_a[4] => altsyncram_1pm1:auto_generated.address_a[4]
-address_a[5] => altsyncram_1pm1:auto_generated.address_a[5]
-address_b[0] => ~NO_FANOUT~
-addressstall_a => ~NO_FANOUT~
-addressstall_b => ~NO_FANOUT~
-clock0 => altsyncram_1pm1:auto_generated.clock0
-clock1 => ~NO_FANOUT~
-clocken0 => ~NO_FANOUT~
-clocken1 => ~NO_FANOUT~
-clocken2 => ~NO_FANOUT~
-clocken3 => ~NO_FANOUT~
-aclr0 => ~NO_FANOUT~
-aclr1 => ~NO_FANOUT~
-byteena_a[0] => ~NO_FANOUT~
-byteena_b[0] => ~NO_FANOUT~
-q_a[0] <= altsyncram_1pm1:auto_generated.q_a[0]
-q_a[1] <= altsyncram_1pm1:auto_generated.q_a[1]
-q_a[2] <= altsyncram_1pm1:auto_generated.q_a[2]
-q_b[0] <= <GND>
-eccstatus[0] <= <GND>
-eccstatus[1] <= <GND>
-eccstatus[2] <= <GND>
-
-
-|VGAtest|linenote:s0|altsyncram:altsyncram_component|altsyncram_1pm1:auto_generated
-address_a[0] => ram_block1a0.PORTAADDR
-address_a[0] => ram_block1a1.PORTAADDR
-address_a[0] => ram_block1a2.PORTAADDR
-address_a[1] => ram_block1a0.PORTAADDR1
-address_a[1] => ram_block1a1.PORTAADDR1
-address_a[1] => ram_block1a2.PORTAADDR1
-address_a[2] => ram_block1a0.PORTAADDR2
-address_a[2] => ram_block1a1.PORTAADDR2
-address_a[2] => ram_block1a2.PORTAADDR2
-address_a[3] => ram_block1a0.PORTAADDR3
-address_a[3] => ram_block1a1.PORTAADDR3
-address_a[3] => ram_block1a2.PORTAADDR3
-address_a[4] => ram_block1a0.PORTAADDR4
-address_a[4] => ram_block1a1.PORTAADDR4
-address_a[4] => ram_block1a2.PORTAADDR4
-address_a[5] => ram_block1a0.PORTAADDR5
-address_a[5] => ram_block1a1.PORTAADDR5
-address_a[5] => ram_block1a2.PORTAADDR5
-clock0 => ram_block1a0.CLK0
-clock0 => ram_block1a1.CLK0
-clock0 => ram_block1a2.CLK0
-data_a[0] => ram_block1a0.PORTADATAIN
-data_a[1] => ram_block1a1.PORTADATAIN
-data_a[2] => ram_block1a2.PORTADATAIN
-q_a[0] <= ram_block1a0.PORTADATAOUT
-q_a[1] <= ram_block1a1.PORTADATAOUT
-q_a[2] <= ram_block1a2.PORTADATAOUT
-wren_a => ram_block1a0.IN0
-wren_a => ram_block1a0.PORTAWE
-wren_a => ram_block1a1.PORTAWE
-wren_a => ram_block1a2.PORTAWE
-
-
 |VGAtest|newscalestaff:n0
 address[0] => address[0].IN1
 address[1] => address[1].IN1
@@ -1153,7 +1065,7 @@ sel[1] => data2_wire[0].IN1
 sel[1] => _.IN0
 
 
-|VGAtest|outlet:o2
+|VGAtest|BGoutlet:sc1
 clock => yCounter[0].CLK
 clock => yCounter[1].CLK
 clock => yCounter[2].CLK
@@ -1251,6 +1163,15 @@ address[2] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
 address[3] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
 address[4] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
 address[5] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
+address[6] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
+address[7] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
+address[8] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
+address[9] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
+address[10] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
+address[11] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
+address[12] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
+address[13] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
+address[14] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |VGAtest|vga_RateDivider:vrd0
