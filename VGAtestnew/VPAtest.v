@@ -46,8 +46,8 @@ module VGAtest
 			.resetn(~resetn),
 			.clock(CLOCK_50),
 			.colour(colour),
-			.x(x + 7'd69),
-			.y(y + 7'd35),
+			.x(x + 7'd34),
+			.y(y + 7'd99),
 			.plot(writeEn),
 			/* Signals for the DAC to drive the monitor. */
 			.VGA_R(VGA_R),
@@ -77,7 +77,7 @@ module VGAtest
 	wire x_counter_clear;
 	wire y_counter_clear;
 	
-	spacenote s0(
+	linenote s0(
 	.address(address),
 	.clock(CLOCK_50),
 	.data(),
@@ -122,7 +122,7 @@ module VGAtest
 //	
 //end
 
-outlet o1 (.clock(CLOCK_50), .resetn(resetn), .x(x), .y(y), .wren(writeEn), .address(address));
+outlet o1 (.clock(vEnable), .resetn(resetn), .x(x), .y(y), .wren(writeEn), .address(address));
 
 
 
@@ -133,6 +133,14 @@ outlet o1 (.clock(CLOCK_50), .resetn(resetn), .x(x), .y(y), .wren(writeEn), .add
 //assign x = x_counter;
 //assign y = y_counter;
 	
+	wire vEnable;
+	wire [8:0]vRDiv;
+	assign vEnable = (vRDiv == 9'b000000000)?1:0;
+	
+	vga_RateDivider vrd0 (
+		.Clock(CLOCK_50),
+		.q(vRDiv)
+		);
 	
 endmodule
 
@@ -149,6 +157,8 @@ module outlet(clock, resetn, x, y, wren, address);
 	wire xCounter_clear;
 	wire yCounter_clear;
 	/* A counter to scan through a horizontal line. */
+	
+	
 	always @(posedge clock)
 	begin
 		if (resetn)
@@ -161,7 +171,7 @@ module outlet(clock, resetn, x, y, wren, address);
 		end
 	end
 	
-	assign xCounter_clear = (xCounter == (8'd7));
+	assign xCounter_clear = (xCounter == (8'd9));
 
 
 	always @(posedge clock)
@@ -178,7 +188,25 @@ module outlet(clock, resetn, x, y, wren, address);
 	
 	assign x = xCounter;
 	assign y = yCounter;
-	assign address = (x + (y*8));
-	assign wren = (address <= 47);
+	assign address = (x + (y*10));
+	assign wren = (address <= 59);
 endmodule
 	
+	
+	
+module vga_RateDivider (Clock, q);
+	input Clock;
+	
+	output reg [8:0] q; // declare q
+
+	always @(posedge Clock) // triggered every time clock rises
+	begin
+		if (q == 9'b000000000) // when q is the min value for the counter
+			//Real code value
+			q <= 9'b111111111;//something bit something; // q reset to 0
+
+		else
+			q <= q - 1; // decrement q
+	end
+
+endmodule

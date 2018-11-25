@@ -789,7 +789,7 @@ mem_address[13] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
 mem_address[14] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|VGAtest|spacenote:s0
+|VGAtest|linenote:s0
 address[0] => address[0].IN1
 address[1] => address[1].IN1
 address[2] => address[2].IN1
@@ -806,25 +806,25 @@ q[1] <= altsyncram:altsyncram_component.q_a
 q[2] <= altsyncram:altsyncram_component.q_a
 
 
-|VGAtest|spacenote:s0|altsyncram:altsyncram_component
-wren_a => altsyncram_avn1:auto_generated.wren_a
+|VGAtest|linenote:s0|altsyncram:altsyncram_component
+wren_a => altsyncram_1pm1:auto_generated.wren_a
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
 rden_b => ~NO_FANOUT~
-data_a[0] => altsyncram_avn1:auto_generated.data_a[0]
-data_a[1] => altsyncram_avn1:auto_generated.data_a[1]
-data_a[2] => altsyncram_avn1:auto_generated.data_a[2]
+data_a[0] => altsyncram_1pm1:auto_generated.data_a[0]
+data_a[1] => altsyncram_1pm1:auto_generated.data_a[1]
+data_a[2] => altsyncram_1pm1:auto_generated.data_a[2]
 data_b[0] => ~NO_FANOUT~
-address_a[0] => altsyncram_avn1:auto_generated.address_a[0]
-address_a[1] => altsyncram_avn1:auto_generated.address_a[1]
-address_a[2] => altsyncram_avn1:auto_generated.address_a[2]
-address_a[3] => altsyncram_avn1:auto_generated.address_a[3]
-address_a[4] => altsyncram_avn1:auto_generated.address_a[4]
-address_a[5] => altsyncram_avn1:auto_generated.address_a[5]
+address_a[0] => altsyncram_1pm1:auto_generated.address_a[0]
+address_a[1] => altsyncram_1pm1:auto_generated.address_a[1]
+address_a[2] => altsyncram_1pm1:auto_generated.address_a[2]
+address_a[3] => altsyncram_1pm1:auto_generated.address_a[3]
+address_a[4] => altsyncram_1pm1:auto_generated.address_a[4]
+address_a[5] => altsyncram_1pm1:auto_generated.address_a[5]
 address_b[0] => ~NO_FANOUT~
 addressstall_a => ~NO_FANOUT~
 addressstall_b => ~NO_FANOUT~
-clock0 => altsyncram_avn1:auto_generated.clock0
+clock0 => altsyncram_1pm1:auto_generated.clock0
 clock1 => ~NO_FANOUT~
 clocken0 => ~NO_FANOUT~
 clocken1 => ~NO_FANOUT~
@@ -834,16 +834,16 @@ aclr0 => ~NO_FANOUT~
 aclr1 => ~NO_FANOUT~
 byteena_a[0] => ~NO_FANOUT~
 byteena_b[0] => ~NO_FANOUT~
-q_a[0] <= altsyncram_avn1:auto_generated.q_a[0]
-q_a[1] <= altsyncram_avn1:auto_generated.q_a[1]
-q_a[2] <= altsyncram_avn1:auto_generated.q_a[2]
+q_a[0] <= altsyncram_1pm1:auto_generated.q_a[0]
+q_a[1] <= altsyncram_1pm1:auto_generated.q_a[1]
+q_a[2] <= altsyncram_1pm1:auto_generated.q_a[2]
 q_b[0] <= <GND>
 eccstatus[0] <= <GND>
 eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|VGAtest|spacenote:s0|altsyncram:altsyncram_component|altsyncram_avn1:auto_generated
+|VGAtest|linenote:s0|altsyncram:altsyncram_component|altsyncram_1pm1:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -871,6 +871,7 @@ data_a[2] => ram_block1a2.PORTADATAIN
 q_a[0] <= ram_block1a0.PORTADATAOUT
 q_a[1] <= ram_block1a1.PORTADATAOUT
 q_a[2] <= ram_block1a2.PORTADATAOUT
+wren_a => ram_block1a0.IN0
 wren_a => ram_block1a0.PORTAWE
 wren_a => ram_block1a1.PORTAWE
 wren_a => ram_block1a2.PORTAWE
@@ -924,10 +925,31 @@ y[5] <= yCounter[5].DB_MAX_OUTPUT_PORT_TYPE
 y[6] <= yCounter[6].DB_MAX_OUTPUT_PORT_TYPE
 wren <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
 address[0] <= xCounter[0].DB_MAX_OUTPUT_PORT_TYPE
-address[1] <= xCounter[1].DB_MAX_OUTPUT_PORT_TYPE
-address[2] <= xCounter[2].DB_MAX_OUTPUT_PORT_TYPE
-address[3] <= Add2.DB_MAX_OUTPUT_PORT_TYPE
-address[4] <= Add2.DB_MAX_OUTPUT_PORT_TYPE
-address[5] <= Add2.DB_MAX_OUTPUT_PORT_TYPE
+address[1] <= Add3.DB_MAX_OUTPUT_PORT_TYPE
+address[2] <= Add3.DB_MAX_OUTPUT_PORT_TYPE
+address[3] <= Add3.DB_MAX_OUTPUT_PORT_TYPE
+address[4] <= Add3.DB_MAX_OUTPUT_PORT_TYPE
+address[5] <= Add3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VGAtest|vga_RateDivider:vrd0
+Clock => q[0]~reg0.CLK
+Clock => q[1]~reg0.CLK
+Clock => q[2]~reg0.CLK
+Clock => q[3]~reg0.CLK
+Clock => q[4]~reg0.CLK
+Clock => q[5]~reg0.CLK
+Clock => q[6]~reg0.CLK
+Clock => q[7]~reg0.CLK
+Clock => q[8]~reg0.CLK
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[4] <= q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[5] <= q[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[6] <= q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[7] <= q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[8] <= q[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 

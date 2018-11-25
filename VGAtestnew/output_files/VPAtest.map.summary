@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Sat Nov 24 19:08:32 2018
+Analysis & Synthesis Status : Successful - Sat Nov 24 22:17:50 2018
 Quartus Prime Version : 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 Revision Name : VPAtest
 Top-level Entity Name : VGAtest
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 45
+Total registers : 54
 Total pins : 34
 Total virtual pins : 0
-Total block memory bits : 57,744
+Total block memory bits : 57,780
 Total DSP Blocks : 0
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0
