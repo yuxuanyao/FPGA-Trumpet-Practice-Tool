@@ -46,8 +46,8 @@ module VGAtest
 			.resetn(~resetn),
 			.clock(CLOCK_50),
 			.colour(colour),
-			.x(x + 7'd50),
-			.y(y + 7'd50),
+			.x(x + 7'd69),
+			.y(y + 7'd35),
 			.plot(writeEn),
 			/* Signals for the DAC to drive the monitor. */
 			.VGA_R(VGA_R),
@@ -72,8 +72,8 @@ module VGAtest
 	reg [6:0] y_counter;
 
 	
-	wire [14:0] address;
-	reg [14:0] address_count;
+	wire [5:0] address;
+	reg [5:0] address_count;
 	wire x_counter_clear;
 	wire y_counter_clear;
 	
@@ -122,15 +122,13 @@ module VGAtest
 //	
 //end
 
-outlet o1 (.clock(CLOCK_50), .resetn(resetn), .x(x), .y(y));
-
-assign address = (x + (y*8));
+outlet o1 (.clock(CLOCK_50), .resetn(resetn), .x(x), .y(y), .wren(writeEn), .address(address));
 
 
 
 //assign x_counter_clear = (x_counter == 8'd7);
 //assign y_counter_clear = (y_counter == 7'd5);
-assign writeEn = address <= 47;//writeEnable;
+//assign writeEn = address <= 47;//writeEnable;
 //assign address = address_count;
 //assign x = x_counter;
 //assign y = y_counter;
@@ -138,27 +136,32 @@ assign writeEn = address <= 47;//writeEnable;
 	
 endmodule
 
-module outlet(clock, resetn, x, y);
+module outlet(clock, resetn, x, y, wren, address);
 	input clock, resetn;
 	output [7:0] x;
 	output [6:0] y;
+	output [5:0] address;
+	output wren;
 	
 	reg [7:0] xCounter;
 	reg [6:0] yCounter;
+
+	wire xCounter_clear;
+	wire yCounter_clear;
 	/* A counter to scan through a horizontal line. */
 	always @(posedge clock)
 	begin
 		if (resetn)
-			xCounter <= 8'd1;
+			xCounter <= 8'd0;
 		else if (xCounter_clear)
-			xCounter <= 8'd1;
+			xCounter <= 8'd0;
 		else
 		begin
 			xCounter <= xCounter + 1'b1;
 		end
 	end
 	
-	assign xCounter_clear = (xCounter == (8'd9));
+	assign xCounter_clear = (xCounter == (8'd7));
 
 
 	always @(posedge clock)
@@ -171,9 +174,11 @@ module outlet(clock, resetn, x, y);
 			yCounter <= yCounter + 1'b1;
 	end
 	
-	assign yCounter_clear = (yCounter == (7'd6)); 
+	assign yCounter_clear = (yCounter == (7'd5)); 
 	
 	assign x = xCounter;
 	assign y = yCounter;
+	assign address = (x + (y*8));
+	assign wren = (address <= 47);
 endmodule
 	

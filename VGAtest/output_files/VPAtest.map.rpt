@@ -1,5 +1,5 @@
 Analysis & Synthesis report for VPAtest
-Sat Nov 24 17:31:58 2018
+Sat Nov 24 19:08:32 2018
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -58,7 +58,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sat Nov 24 17:31:58 2018       ;
+; Analysis & Synthesis Status     ; Successful - Sat Nov 24 19:08:32 2018       ;
 ; Quartus Prime Version           ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                   ; VPAtest                                     ;
 ; Top-level Entity Name           ; VGAtest                                     ;
@@ -222,14 +222,14 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+----------------------------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                                                  ;
 +---------------------------------------------+----------------------------------------------------------------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 67                                                                                     ;
+; Estimate of Logic utilization (ALMs needed) ; 66                                                                                     ;
 ;                                             ;                                                                                        ;
-; Combinational ALUT usage for logic          ; 120                                                                                    ;
+; Combinational ALUT usage for logic          ; 118                                                                                    ;
 ;     -- 7 input functions                    ; 0                                                                                      ;
-;     -- 6 input functions                    ; 12                                                                                     ;
-;     -- 5 input functions                    ; 17                                                                                     ;
-;     -- 4 input functions                    ; 6                                                                                      ;
-;     -- <=3 input functions                  ; 85                                                                                     ;
+;     -- 6 input functions                    ; 13                                                                                     ;
+;     -- 5 input functions                    ; 10                                                                                     ;
+;     -- 4 input functions                    ; 3                                                                                      ;
+;     -- <=3 input functions                  ; 92                                                                                     ;
 ;                                             ;                                                                                        ;
 ; Dedicated logic registers                   ; 45                                                                                     ;
 ;                                             ;                                                                                        ;
@@ -244,8 +244,8 @@ refer to the applicable agreement for further details.
 ;                                             ;                                                                                        ;
 ; Maximum fan-out node                        ; vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated|clk[0] ;
 ; Maximum fan-out                             ; 41                                                                                     ;
-; Total fan-out                               ; 875                                                                                    ;
-; Average fan-out                             ; 3.56                                                                                   ;
+; Total fan-out                               ; 843                                                                                    ;
+; Average fan-out                             ; 3.45                                                                                   ;
 +---------------------------------------------+----------------------------------------------------------------------------------------+
 
 
@@ -254,8 +254,8 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------+------------------------+--------------+
 ; Compilation Hierarchy Node                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                     ; Entity Name            ; Library Name ;
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------+------------------------+--------------+
-; |VGAtest                                                ; 120 (20)            ; 45 (0)                    ; 57744             ; 0          ; 34   ; 0            ; |VGAtest                                                                                                ; VGAtest                ; work         ;
-;    |outlet:o1|                                          ; 28 (28)             ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |VGAtest|outlet:o1                                                                                      ; outlet                 ; work         ;
+; |VGAtest                                                ; 118 (16)            ; 45 (0)                    ; 57744             ; 0          ; 34   ; 0            ; |VGAtest                                                                                                ; VGAtest                ; work         ;
+;    |outlet:o1|                                          ; 30 (30)             ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |VGAtest|outlet:o1                                                                                      ; outlet                 ; work         ;
 ;    |spacenote:s0|                                       ; 0 (0)               ; 0 (0)                     ; 144               ; 0          ; 0    ; 0            ; |VGAtest|spacenote:s0                                                                                   ; spacenote              ; work         ;
 ;       |altsyncram:altsyncram_component|                 ; 0 (0)               ; 0 (0)                     ; 144               ; 0          ; 0    ; 0            ; |VGAtest|spacenote:s0|altsyncram:altsyncram_component                                                   ; altsyncram             ; work         ;
 ;          |altsyncram_avn1:auto_generated|               ; 0 (0)               ; 0 (0)                     ; 144               ; 0          ; 0    ; 0            ; |VGAtest|spacenote:s0|altsyncram:altsyncram_component|altsyncram_avn1:auto_generated                    ; altsyncram_avn1        ; work         ;
@@ -300,8 +300,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
 ; Total registers                              ; 45    ;
-; Number of registers using Synchronous Clear  ; 27    ;
-; Number of registers using Synchronous Load   ; 1     ;
+; Number of registers using Synchronous Clear  ; 28    ;
+; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 20    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 10    ;
@@ -314,7 +314,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                 ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |VGAtest|outlet:o1|xCounter[7]                                                                             ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |VGAtest|outlet:o1|xCounter[7]                                                                             ;
 ; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |VGAtest|vga_adapter:VGA|vga_controller:controller|yCounter[1]                                             ;
 ; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |VGAtest|outlet:o1|yCounter[1]                                                                             ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |VGAtest|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_lnm1:auto_generated|mux_ifb:mux3|result_node[1] ;
@@ -941,7 +941,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port     ; Type  ; Severity ; Details                                                                                                                                                                            ;
 +----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; address  ; Input ; Warning  ; Input port expression (15 bits) is wider than the input port (6 bits) it drives.  The 9 most-significant bit(s) in the expression will be dangling if they have no other fanouts.  ;
 ; data     ; Input ; Info     ; Explicitly unconnected                                                                                                                                                             ;
 ; wren     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
 ; wren[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
@@ -967,23 +966,20 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; arriav_ff             ; 45                          ;
 ;     CLR SCLR          ; 10                          ;
 ;     ENA CLR SCLR      ; 10                          ;
-;     SCLR              ; 7                           ;
-;     SLD               ; 1                           ;
+;     SCLR              ; 8                           ;
 ;     plain             ; 17                          ;
-; arriav_lcell_comb     ; 121                         ;
+; arriav_lcell_comb     ; 119                         ;
 ;     arith             ; 68                          ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 59                          ;
+;         2 data inputs ; 8                           ;
+;     normal            ; 41                          ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 51                          ;
-;         2 data inputs ; 10                          ;
-;         3 data inputs ; 2                           ;
+;         2 data inputs ; 6                           ;
+;         3 data inputs ; 7                           ;
 ;         4 data inputs ; 3                           ;
-;     normal            ; 43                          ;
-;         0 data inputs ; 2                           ;
-;         2 data inputs ; 5                           ;
-;         3 data inputs ; 4                           ;
-;         4 data inputs ; 3                           ;
-;         5 data inputs ; 17                          ;
-;         6 data inputs ; 12                          ;
+;         5 data inputs ; 10                          ;
+;         6 data inputs ; 13                          ;
 ;     shared            ; 10                          ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 2                           ;
@@ -993,8 +989,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; generic_pll           ; 1                           ;
 ; stratixv_ram_block    ; 12                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 4.40                        ;
-; Average LUT depth     ; 2.46                        ;
+; Max LUT depth         ; 4.90                        ;
+; Average LUT depth     ; 2.59                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1013,7 +1009,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-    Info: Processing started: Sat Nov 24 17:31:44 2018
+    Info: Processing started: Sat Nov 24 19:08:19 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off VPAtest -c VPAtest
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -1027,15 +1023,12 @@ Info (12021): Found 1 design units, including 1 entities, in source file vga_ada
     Info (12023): Found entity 1: vga_adapter File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtest/vga_adapter/vga_adapter.v Line: 78
 Info (12021): Found 2 design units, including 2 entities, in source file vpatest.v
     Info (12023): Found entity 1: VGAtest File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtest/VPAtest.v Line: 3
-    Info (12023): Found entity 2: outlet File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtest/VPAtest.v Line: 141
+    Info (12023): Found entity 2: outlet File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtest/VPAtest.v Line: 139
 Info (12021): Found 1 design units, including 1 entities, in source file scalestaff.v
     Info (12023): Found entity 1: scalestaff File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtest/scalestaff.v Line: 39
 Info (12021): Found 1 design units, including 1 entities, in source file spacenote.v
     Info (12023): Found entity 1: spacenote File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtest/spacenote.v Line: 39
-Warning (10236): Verilog HDL Implicit Net warning at VPAtest.v(161): created implicit net for "xCounter_clear" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtest/VPAtest.v Line: 161
-Warning (10236): Verilog HDL Implicit Net warning at VPAtest.v(174): created implicit net for "yCounter_clear" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtest/VPAtest.v Line: 174
 Info (12127): Elaborating entity "VGAtest" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at VPAtest.v(127): truncated value with size 32 to match size of target (15) File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtest/VPAtest.v Line: 127
 Info (12128): Elaborating entity "vga_adapter" for hierarchy "vga_adapter:VGA" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtest/VPAtest.v Line: 60
 Info (12128): Elaborating entity "vga_address_translator" for hierarchy "vga_adapter:VGA|vga_address_translator:user_input_translator" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtest/vga_adapter/vga_adapter.v Line: 192
 Info (12128): Elaborating entity "altsyncram" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtest/vga_adapter/vga_adapter.v Line: 213
@@ -1110,6 +1103,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/alts
     Info (12023): Found entity 1: altsyncram_avn1 File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtest/db/altsyncram_avn1.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_avn1" for hierarchy "spacenote:s0|altsyncram:altsyncram_component|altsyncram_avn1:auto_generated" File: c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
 Info (12128): Elaborating entity "outlet" for hierarchy "outlet:o1" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtest/VPAtest.v Line: 125
+Warning (10230): Verilog HDL assignment warning at VPAtest.v(181): truncated value with size 32 to match size of target (6) File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtest/VPAtest.v Line: 181
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtest/VPAtest.v Line: 27
@@ -1122,16 +1116,16 @@ Warning (21074): Design contains 3 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtest/VPAtest.v Line: 20
     Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtest/VPAtest.v Line: 20
     Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtest/VPAtest.v Line: 20
-Info (21057): Implemented 174 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 172 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
     Info (21059): Implemented 29 output pins
-    Info (21061): Implemented 127 logic cells
+    Info (21061): Implemented 125 logic cells
     Info (21064): Implemented 12 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 12 warnings
-    Info: Peak virtual memory: 4871 megabytes
-    Info: Processing ended: Sat Nov 24 17:31:58 2018
-    Info: Elapsed time: 00:00:14
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 10 warnings
+    Info: Peak virtual memory: 4870 megabytes
+    Info: Processing ended: Sat Nov 24 19:08:32 2018
+    Info: Elapsed time: 00:00:13
     Info: Total CPU time (on all processors): 00:00:29
 
 

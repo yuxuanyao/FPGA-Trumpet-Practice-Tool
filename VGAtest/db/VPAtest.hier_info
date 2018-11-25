@@ -922,5 +922,12 @@ y[3] <= yCounter[3].DB_MAX_OUTPUT_PORT_TYPE
 y[4] <= yCounter[4].DB_MAX_OUTPUT_PORT_TYPE
 y[5] <= yCounter[5].DB_MAX_OUTPUT_PORT_TYPE
 y[6] <= yCounter[6].DB_MAX_OUTPUT_PORT_TYPE
+wren <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
+address[0] <= xCounter[0].DB_MAX_OUTPUT_PORT_TYPE
+address[1] <= xCounter[1].DB_MAX_OUTPUT_PORT_TYPE
+address[2] <= xCounter[2].DB_MAX_OUTPUT_PORT_TYPE
+address[3] <= Add2.DB_MAX_OUTPUT_PORT_TYPE
+address[4] <= Add2.DB_MAX_OUTPUT_PORT_TYPE
+address[5] <= Add2.DB_MAX_OUTPUT_PORT_TYPE
 
 
