@@ -1,5 +1,5 @@
 Assembler report for VPAtest
-Sun Nov 25 04:18:53 2018
+Sun Nov 25 16:15:21 2018
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -10,7 +10,7 @@ Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
   2. Assembler Summary
   3. Assembler Settings
   4. Assembler Generated Files
-  5. Assembler Device Options: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/output_files/VPAtest.sof
+  5. Assembler Device Options: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/output_files/VPAtest.sof
   6. Assembler Messages
 
 
@@ -37,7 +37,7 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Sun Nov 25 04:18:53 2018 ;
+; Assembler Status      ; Successful - Sun Nov 25 16:15:21 2018 ;
 ; Revision Name         ; VPAtest                               ;
 ; Top-level Entity Name ; VGAtest                               ;
 ; Family                ; Cyclone V                             ;
@@ -52,23 +52,23 @@ refer to the applicable agreement for further details.
 +--------+---------+---------------+
 
 
-+-------------------------------------------------------------------------------------+
-; Assembler Generated Files                                                           ;
-+-------------------------------------------------------------------------------------+
-; File Name                                                                           ;
-+-------------------------------------------------------------------------------------+
-; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/output_files/VPAtest.sof ;
-+-------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------+
+; Assembler Generated Files                                                                ;
++------------------------------------------------------------------------------------------+
+; File Name                                                                                ;
++------------------------------------------------------------------------------------------+
+; C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/output_files/VPAtest.sof ;
++------------------------------------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------+
-; Assembler Device Options: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/output_files/VPAtest.sof ;
-+----------------+----------------------------------------------------------------------------------------------+
-; Option         ; Setting                                                                                      ;
-+----------------+----------------------------------------------------------------------------------------------+
-; JTAG usercode  ; 0x00FDC0FB                                                                                   ;
-; Checksum       ; 0x00FDC0FB                                                                                   ;
-+----------------+----------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------+
+; Assembler Device Options: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/output_files/VPAtest.sof ;
++----------------+---------------------------------------------------------------------------------------------------+
+; Option         ; Setting                                                                                           ;
++----------------+---------------------------------------------------------------------------------------------------+
+; JTAG usercode  ; 0x00FDC0FB                                                                                        ;
+; Checksum       ; 0x00FDC0FB                                                                                        ;
++----------------+---------------------------------------------------------------------------------------------------+
 
 
 +--------------------+
@@ -77,14 +77,14 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-    Info: Processing started: Sun Nov 25 04:18:35 2018
+    Info: Processing started: Sun Nov 25 16:15:11 2018
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off VPAtest -c VPAtest
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4864 megabytes
-    Info: Processing ended: Sun Nov 25 04:18:53 2018
-    Info: Elapsed time: 00:00:18
-    Info: Total CPU time (on all processors): 00:00:18
+    Info: Peak virtual memory: 4855 megabytes
+    Info: Processing ended: Sun Nov 25 16:15:21 2018
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:08
 
 

@@ -1,14 +1,14 @@
-Analysis & Synthesis Status : Successful - Fri Nov 23 22:14:37 2018
+Analysis & Synthesis Status : Successful - Sun Nov 25 17:27:19 2018
 Quartus Prime Version : 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 Revision Name : FPGA-Trumpet
 Top-level Entity Name : FPGATrumpet
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 407
+Total registers : 498
 Total pins : 96
 Total virtual pins : 0
-Total block memory bits : 2,199,808
-Total DSP Blocks : 0
+Total block memory bits : 2,203,912
+Total DSP Blocks : 15
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0
 Total HSSI TX PCSs : 0

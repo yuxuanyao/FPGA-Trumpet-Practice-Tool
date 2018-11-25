@@ -109,8 +109,17 @@ wire				write_audio_out;
 
 wire [9:0] audio_from_ram;
 wire write;
+wire [3:0]note_id;
 
-note_Select n0 (.clock(CLOCK_50), .keys(~KEY[3:1]), .airflow(air), .audio_out_allowed(audio_out_allowed), .note(audio_from_ram), .write(write));
+note_Select n0 (
+	.clock(CLOCK_50), 
+	.keys(~KEY[3:1]), 
+	.airflow(air), 
+	.audio_out_allowed(audio_out_allowed), 
+	.note(audio_from_ram), 
+	.write(write), 
+	.id (note_id)
+	);
 
 
 assign write_audio_out			= write & audio_out_allowed;
@@ -181,7 +190,7 @@ avconf #(.USE_MIC_INPUT(1)) avc (
 wire [2:0] colour;
 wire [7:0] x;
 wire [6:0] y;
-wire writeEn;
+wire VGAwriteEn;
 
 // instantiate VGA module
 vga_adapter VGA(
@@ -190,7 +199,7 @@ vga_adapter VGA(
 		.colour(colour),
 		.x(x),
 		.y(y),
-		.plot(writeEn),
+		.plot(VGAwriteEn),
 		
 		/* Signals for the DAC to drive the monitor. */
 		.VGA_R(VGA_R),
@@ -205,10 +214,15 @@ defparam VGA.RESOLUTION = "160x120";
 defparam VGA.MONOCHROME = "FALSE";
 defparam VGA.BITS_PER_COLOUR_CHANNEL = 1;
 defparam VGA.BACKGROUND_IMAGE = "scalestaff.mif";
-/*****************************************************************************
- *                         	FSM and Datapath 			 		                 *
- *****************************************************************************/
- 
+
+ note_info ni(
+	.id(note_id), 
+	.clock(CLOCK_50), 
+	.x(x), 
+	.y(y), 
+	.colour(colour), 
+	.writeEn(VGAwriteEn)
+);
  
 /*****************************************************************************
  *                         Microphone Input Module 		                    *
@@ -272,34 +286,440 @@ defparam VGA.BACKGROUND_IMAGE = "scalestaff.mif";
 	
 	
 endmodule
+
 /*****************************************************************************
- *                         		Drawing Datapath	 		                    *
+ *                         	Note Graphics Module		 		                 *
  *****************************************************************************/
-/*****************************************************************************
- *                         		ID chart		 		 		                    *
- *****************************************************************************/
-module drawNote(clock, resetn, id, xin, yin, xout, yout, colour);
-	input clock; 
-	input resetn; 
-	input id;
-	input xin;
-	input yin;
-	output xout;
-	output colour;
+ module note_info (id, clock, x, y, colour, writeEn);
+	input [3:0]id;
+	input clock;
+	output reg [7:0] x;
+	output reg [6:0] y;
+	output reg [2:0] colour;
+	output writeEn;
 	
+	wire [7:0] caddress, csaddress, daddress, dsaddress, eaddress, faddress, fsaddress, gaddress, gsaddress, aaddress, asaddress, baddress, hcaddress;
+	wire [14:0] sc_address;
+	
+	
+	// wires for x, y, and colour 
+	wire [7:0] cx, csx, dx, dsx, ex, fx, fsx, gx, gsx, ax, asx, bx, hcx;
+	wire [6:0] cy, csy, dy, dsy, ey, fy, fsy, gy, gsy, ay, asy, by, hcy;
+
+	wire [7:0] scalex;
+	wire [6:0] scaley;
+
+	
+	wire [2:0] ccolour, cscolour, dcolour, dscolour, ecolour, fcolour, fscolour, gcolour, gscolour, acolour, ascolour, bcolour, hccolour;
+
+	wire [2:0] scalecolour;
+	
+	
+	wire vEnable;
+	wire [8:0]vRDiv;
+	assign vEnable = (vRDiv == 9'b000000000)?1:0;
+		
+	vga_RateDivider vrd0 (
+		.Clock(clock),
+		.q(vRDiv)
+	);
+	
+	
+	
+// select which to draw
+
 	always@(posedge clock)begin
-		if
-	
+		if(id == 4'd0) begin
+			x <= scalex;
+			y <= scaley;
+			colour <= scalecolour;
+		end
+		else if(id == 4'd1) begin
+			x <= cx;
+			y <= cy;
+			colour <= ccolour;
+		end
+		else if(id == 4'd2) begin
+			x <= csx;
+			y <= csy;
+			colour <= cscolour;
+		end
+		else if(id == 4'd3) begin
+			x <= dx;
+			y <= dy;
+			colour <= dcolour;
+		end
+		else if(id == 4'd4) begin
+			x <= dsx;
+			y <= dsy;
+			colour <= dscolour;
+		end
+		else if(id == 4'd5) begin
+			x <= ex;
+			y <= ey;
+			colour <= ecolour;
+		end
+		else if(id == 4'd6) begin
+			x <= fx;
+			y <= fy;
+			colour <= fcolour;
+		end
+		else if(id == 4'd7) begin
+			x <= fsx;
+			y <= fsy;
+			colour <= fscolour;
+		end
+		else if(id == 4'd8) begin
+			x <= gx;
+			y <= gy;
+			colour <= gcolour;
+		end
+		else if(id == 4'd9) begin
+			x <= gsx;
+			y <= gsy;
+			colour <= gscolour;
+		end
+		else if(id == 4'd10) begin
+			x <= ax;
+			y <= ay;
+			colour <= acolour;
+		end
+		else if(id == 4'd11) begin
+			x <= asx;
+			y <= asy;
+			colour <= ascolour;
+		end
+		else if(id == 4'd12) begin
+			x <= bx;
+			y <= by;
+			colour <= bcolour;
+		end
+		else if(id == 4'd13) begin
+			x <= hcx;
+			y <= hcy;
+			colour <= hccolour;
+		end
+		else begin
+			x <= scalex;
+			y <= scaley;
+			colour <= scalecolour;
+		end
+
 	end
+
+// Image RAM instantiations 
+
+// D sharp RAM
+	Dsharp dsram(
+	.address(dsaddress),
+	.clock(CLOCK_50),
+	.data(),
+	.wren(0),
+	.q(dscolour));
+
+// Line Note RAM C, E, G, B	
+	linenote cram(
+	.address(caddress),
+	.clock(CLOCK_50),
+	.data(),
+	.wren(0),
+	.q(ccolour));
 	
+	linenote eram(
+	.address(eaddress),
+	.clock(CLOCK_50),
+	.data(),
+	.wren(0),
+	.q(ecolour));
 	
+	linenote gram(
+	.address(gaddress),
+	.clock(CLOCK_50),
+	.data(),
+	.wren(0),
+	.q(gcolour));
 	
+	linenote bram(
+	.address(baddress),
+	.clock(CLOCK_50),
+	.data(),
+	.wren(0),
+	.q(bcolour));
+
+// line Sharp Note RAM Cs, Gs
+	linesharpnote csram(
+	.address(csaddress),
+	.clock(CLOCK_50),
+	.data(),
+	.wren(0),
+	.q(cscolour));
 	
-endmodule
+	linesharpnote gsram(
+	.address(gsaddress),
+	.clock(CLOCK_50),
+	.data(),
+	.wren(0),
+	.q(gscolour));
+	
+// Space Note RAM D, F, A, HC
+	spacenote dram(
+	.address(daddress),
+	.clock(CLOCK_50),
+	.data(),
+	.wren(0),
+	.q(dcolour));
+	
+	spacenote fram(
+	.address(faddress),
+	.clock(CLOCK_50),
+	.data(),
+	.wren(0),
+	.q(fcolour));
+	
+	spacenote aram(
+	.address(aaddress),
+	.clock(CLOCK_50),
+	.data(),
+	.wren(0),
+	.q(acolour));
+	
+	spacenote hcram(
+	.address(hcaddress),
+	.clock(CLOCK_50),
+	.data(),
+	.wren(0),
+	.q(hccolour));
+
+// Space Sharp Note RAM Fs	As
+	spacesharpnote fsram(
+	.address(fsaddress),
+	.clock(CLOCK_50),
+	.data(),
+	.wren(0),
+	.q(fscolour));
+	
+	spacesharpnote asram(
+	.address(asaddress),
+	.clock(CLOCK_50),
+	.data(),
+	.wren(0),
+	.q(ascolour));
+
+// Scale/background RAM 	
+	scale sc(
+	.address(sc_address),
+	.clock(CLOCK_50),
+	.data(),
+	.wren(0),
+	.q(sccolour));
+	
+// outlet/ drawing module instantiation 
+
+// Background outlet
+BGoutlet bg (
+	.clock(CLOCK_50), 
+	.resetn(resetn), 
+	.xin(0),
+	.yin(0),
+	.width(159),
+	.height(119),
+	.x(scalex), 
+	.y(scaley), 
+	.wren(writeEn), 
+	.address(sc_address)
+);	
+	
+// note outlets
+
+// C
+outlet notec (
+	.clock(vEnable), 
+	.resetn(resetn), 
+	.xin(8'd33),
+	.yin(7'd39),
+	.width(8'd9),
+	.height(7'd5),
+	.x(cx), 
+	.y(cy), 
+	.wren(), 
+	.address(caddress)
+);	
+
+// C sharp
+outlet notecs (
+	.clock(vEnable), 
+	.resetn(resetn), 
+	.xin(8'd47),
+	.yin(7'd35),
+	.width(8'd14),
+	.height(7'd12),
+	.x(csx), 
+	.y(csy), 
+	.wren(), 
+	.address(csaddress)
+);	
+
+// D
+outlet noted (
+	.clock(vEnable), 
+	.resetn(resetn), 
+	.xin(8'd68),
+	.yin(7'd35),
+	.width(8'd7),
+	.height(7'd5),
+	.x(dx), 
+	.y(dy), 
+	.wren(), 
+	.address(daddress)
+);	
+
+// D sharp
+outlet noteds (
+	.clock(vEnable), 
+	.resetn(resetn), 
+	.xin(8'd82),
+	.yin(7'd31),
+	.width(8'd13),
+	.height(7'd12),
+	.x(dsx), 
+	.y(dsy), 
+	.wren(), 
+	.address(dsaddress)
+);	
+
+// E
+outlet notee (
+	.clock(vEnable), 
+	.resetn(resetn), 
+	.xin(8'd102),
+	.yin(7'd32),
+	.width(8'd9),
+	.height(7'd5),
+	.x(ex), 
+	.y(ey), 
+	.wren(), 
+	.address(eaddress)
+);	
+
+// F
+outlet notef (
+	.clock(vEnable), 
+	.resetn(resetn), 
+	.xin(8'd118),
+	.yin(7'd28),
+	.width(8'd7),
+	.height(7'd5),
+	.x(fx), 
+	.y(fy), 
+	.wren(), 
+	.address(faddress)
+);	
+
+// F sharp
+outlet notefs (
+	.clock(vEnable), 
+	.resetn(resetn), 
+	.xin(8'd132),
+	.yin(7'd24),
+	.width(8'd13),
+	.height(7'd12),
+	.x(fsx), 
+	.y(fsy), 
+	.wren(), 
+	.address(fsaddress)
+);	
+
+// G
+outlet noteg (
+	.clock(vEnable), 
+	.resetn(resetn), 
+	.xin(8'd33),
+	.yin(7'd99),
+	.width(8'd9),
+	.height(7'd5),
+	.x(gx), 
+	.y(gy), 
+	.wren(), 
+	.address(gaddress)
+);	
+
+// G sharp
+outlet notegs (
+	.clock(vEnable), 
+	.resetn(resetn), 
+	.xin(8'd50),
+	.yin(7'd95),
+	.width(8'd14),
+	.height(7'd12),
+	.x(gsx), 
+	.y(gsy), 
+	.wren(), 
+	.address(gsaddress)
+);	
+
+// A
+outlet notea (
+	.clock(vEnable), 
+	.resetn(resetn), 
+	.xin(8'd75),
+	.yin(7'd95),
+	.width(8'd7),
+	.height(7'd5),
+	.x(ax), 
+	.y(ay), 
+	.wren(), 
+	.address(aaddress)
+);	
+
+// A sharp
+outlet noteas (
+	.clock(vEnable), 
+	.resetn(resetn), 
+	.xin(8'd93),
+	.yin(7'd91),
+	.width(8'd13),
+	.height(7'd12),
+	.x(asx), 
+	.y(asy), 
+	.wren(), 
+	.address(asaddress)
+);	
+
+// B
+outlet noteb (
+	.clock(vEnable), 
+	.resetn(resetn), 
+	.xin(8'd116),
+	.yin(7'd92),
+	.width(8'd9),
+	.height(7'd5),
+	.x(bx), 
+	.y(by), 
+	.wren(), 
+	.address(baddress)
+);	
+
+// C
+outlet notehc (
+	.clock(vEnable), 
+	.resetn(resetn), 
+	.xin(8'd135),
+	.yin(7'd88),
+	.width(8'd7),
+	.height(7'd5),
+	.x(hcx), 
+	.y(hcy), 
+	.wren(), 
+	.address(hcaddress)
+);	
+
+
+ 
+endmodule 
 /*****************************************************************************
  *                          Note Select Module 				                    *
  *****************************************************************************/
-module note_Select (clock, keys, airflow, audio_out_allowed, note, write);
+module note_Select (clock, keys, airflow, audio_out_allowed, note, write, id);
 	input clock;
 	input [2:0] keys;
 	input [1:0] airflow;
@@ -307,6 +727,7 @@ module note_Select (clock, keys, airflow, audio_out_allowed, note, write);
 	
 	output reg [9:0] note;
 	output reg write;
+	output reg [3:0] id;
 	
 	wire [15:0] address_count;
 	reg [15:0] address_count_reg;
@@ -442,41 +863,74 @@ module note_Select (clock, keys, airflow, audio_out_allowed, note, write);
 			2'b00: note = 10'b00000;	//case 0: no airflow
 			2'b01:							//case 1: level 1 airflow
 				begin
-					if (keys == 3'b000)			//Middle C 523
+					if (keys == 3'b000)begin			//Middle C 523
 						note = c4_audio;
-					else if (keys == 3'b111)		//C# 554
+						id = 4'd1;
+					end
+					else if (keys == 3'b111)begin		//C# 554
 						note = cs4_audio;
-					else if (keys == 3'b101)		//D 587
+						id = 4'd2;
+					end
+					else if (keys == 3'b101)begin		//D 587
 						note = d4_audio;
-					else if (keys == 3'b011)		//D# 622
+						id = 4'd3;
+					end
+					else if (keys == 3'b011)begin		//D# 622
 						note = ds4_audio;
-					else if (keys == 3'b110)		//E 659
+						id = 4'd4;
+					end
+					else if (keys == 3'b110)begin		//E 659
 						note = e4_audio;
-					else if (keys == 3'b100)		//F 698
+						id = 4'd5;
+					end
+					else if (keys == 3'b100)begin		//F 698
 						note = f4_audio;
-					else if (keys == 3'b010)		//F# 740	
+						id = 4'd6;
+					end
+					else if (keys == 3'b010)begin		//F# 740	
 						note = fs4_audio;
-					else
+						id = 4'd7;
+					end
+					else begin
 						note = 10'b0;
+						id = 4'd0;
+					end
 				end
 			2'b10:							//case 2: level 2 airflow
 				begin
-					if (keys == 3'b000)			//G 784
+					if (keys == 3'b000)begin			//G 784
 						note = g4_audio;
-					else if (keys == 3'b011)		//G# 831	
+						id = 4'd8;
+					end
+					else if (keys == 3'b011)begin		//G# 831	
 						note = gs4_audio;
-					else if (keys == 3'b110)		//A 880
+						id = 4'd9;
+					end
+					else if (keys == 3'b110)begin		//A 880
 						note = a4_audio;
-					else if (keys == 3'b100)		//A# 932
+						id = 4'd10;
+					end
+					else if (keys == 3'b100)begin		//A# 932
 						note = as4_audio;
-					else if (keys == 3'b010)		//B 988
+						id = 4'd11;
+					end
+					else if (keys == 3'b010)begin		//B 988
 						note = b4_audio;
-					else if (keys == 3'b001)
+						id = 4'd12;
+					end
+					else if (keys == 3'b001)begin
 						note = c5_audio;
-					else
+						id = 4'd12;
+					end
+					else begin
 						note = 10'b0; 
+						id = 4'd0;
+					end
 				end
-			default: note = 10'b0;	//default case
+			default: begin 
+				note = 10'b0;
+				id = 4'd0;
+			end	//default case
 		endcase
 	end
 
@@ -537,6 +991,137 @@ module micCheck (audio_in, clk, mute, lCount, mCount, hCount, q, air);
 	end
 endmodule
 
+/*****************************************************************************
+ *                          Draw Note Module 					                 *
+ *****************************************************************************/
+module outlet(clock, resetn, xin, yin, width, height, x, y, wren, address);
+	input clock, resetn;
+	input [7:0] xin;
+	input [6:0] yin;
+	input [7:0] width;
+	input [6:0] height;
+	output [7:0] x;
+	output [6:0] y;
+	output [7:0] address;
+	output wren;
+	
+	reg [7:0] xCounter;
+	reg [6:0] yCounter;
+
+	wire xCounter_clear;
+	wire yCounter_clear;
+	/* A counter to scan through a horizontal line. */
+	
+	
+	always @(posedge clock)
+	begin
+		if (resetn)
+			xCounter <= 8'd0;
+		else if (xCounter_clear)
+			xCounter <= 8'd0;
+		else
+		begin
+			xCounter <= xCounter + 1'b1;
+		end
+	end
+	
+	assign xCounter_clear = (xCounter == (width));
+
+
+	always @(posedge clock)
+	begin
+		if (resetn)
+			yCounter <= 7'd0;
+		else if (xCounter_clear && yCounter_clear)
+			yCounter <= 7'd0;
+		else if (xCounter_clear)		//Increment when x counter resets
+			yCounter <= yCounter + 1'b1;
+	end
+	
+	assign yCounter_clear = (yCounter == (height)); 
+	
+	assign x = xCounter + xin;
+	assign y = yCounter + yin;
+	assign address = (xCounter + (yCounter*(width + 1)));
+	assign wren = (address <= (((height + 1)*(width + 1)) -1));
+endmodule
+
+		
+/*****************************************************************************
+ *                          Draw Background Module 			                 *
+ *****************************************************************************/
+module BGoutlet(clock, resetn, xin, yin, width, height, x, y, wren, address);
+	input clock, resetn;
+	input [7:0] xin;
+	input [6:0] yin;
+	input [7:0] width;
+	input [6:0] height;
+	output [7:0] x;
+	output [6:0] y;
+	output [14:0] address;
+	output wren;
+	
+	reg [7:0] xCounter;
+	reg [6:0] yCounter;
+
+	wire xCounter_clear;
+	wire yCounter_clear;
+	/* A counter to scan through a horizontal line. */
+	
+	
+	always @(posedge clock)
+	begin
+		if (resetn)
+			xCounter <= 8'd0;
+		else if (xCounter_clear)
+			xCounter <= 8'd0;
+		else
+		begin
+			xCounter <= xCounter + 1'b1;
+		end
+	end
+	
+	assign xCounter_clear = (xCounter == (width));
+
+
+	always @(posedge clock)
+	begin
+		if (resetn)
+			yCounter <= 7'd0;
+		else if (xCounter_clear && yCounter_clear)
+			yCounter <= 7'd0;
+		else if (xCounter_clear)		//Increment when x counter resets
+			yCounter <= yCounter + 1'b1;
+	end
+	
+	assign yCounter_clear = (yCounter == (height)); 
+	
+	assign x = xCounter + xin;
+	assign y = yCounter + yin;
+	assign address = (xCounter + (yCounter*(width + 1)));
+	assign wren = (address <= (((height + 1)*(width + 1)) -1));
+endmodule
+
+/*****************************************************************************
+ *                          VGA Rate Divider Module 			                 *
+ *****************************************************************************/
+		
+module vga_RateDivider (Clock, q);
+	input Clock;
+	
+	output reg [8:0] q; // declare q
+
+	always @(posedge Clock) // triggered every time clock rises
+	begin
+		if (q == 9'b000000000) // when q is the min value for the counter
+			//Real code value
+			q <= 9'b111111111;//something bit something; // q reset to 0
+
+		else
+			q <= q - 1; // decrement q
+	end
+
+endmodule
 /*****************************************************************************
  *                          Rate Divider Module 			                    *
  *****************************************************************************/

@@ -1,5 +1,5 @@
 Timing Analyzer report for FPGA-Trumpet
-Fri Nov 23 22:16:35 2018
+Sun Nov 25 17:29:36 2018
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -99,14 +99,14 @@ refer to the applicable agreement for further details.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.79        ;
+; Average used               ; 1.90        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  26.8%      ;
-;     Processor 3            ;  26.2%      ;
-;     Processor 4            ;  26.1%      ;
+;     Processor 2            ;  30.6%      ;
+;     Processor 3            ;  30.0%      ;
+;     Processor 4            ;  29.9%      ;
 +----------------------------+-------------+
 
 
@@ -118,6 +118,7 @@ refer to the applicable agreement for further details.
 ; Audio_Controller|Audio_Clock|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; Generated ; 80.000 ; 12.5 MHz   ; 0.000 ; 40.000 ; 50.00      ; 24        ; 1           ;       ;        ;           ;            ; false    ; VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0] ; Audio_Controller|Audio_Clock|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|vco0ph[0] ; { Audio_Controller|Audio_Clock|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk } ;
 ; avconf:avc|mI2C_CTRL_CLK                                                                            ; Base      ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500  ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                                ;                                                                                                        ; { avconf:avc|mI2C_CTRL_CLK }                                                                            ;
 ; CLOCK_50                                                                                            ; Base      ; 20.000 ; 50.0 MHz   ; 0.000 ; 10.000 ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                                ;                                                                                                        ; { CLOCK_50 }                                                                                            ;
+; note_info:ni|vga_RateDivider:vrd0|q[0]                                                              ; Base      ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500  ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                                ;                                                                                                        ; { note_info:ni|vga_RateDivider:vrd0|q[0] }                                                              ;
 ; RateDivider:rd0|q[0]                                                                                ; Base      ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500  ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                                ;                                                                                                        ; { RateDivider:rd0|q[0] }                                                                                ;
 ; VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]                      ; Generated ; 3.333  ; 300.0 MHz  ; 0.000 ; 1.666  ; 50.00      ; 2         ; 12          ;       ;        ;           ;            ; false    ; CLOCK_50                                                                       ; VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|refclkin                         ; { VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0] }                      ;
 ; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk                    ; Generated ; 40.000 ; 25.0 MHz   ; 0.000 ; 20.000 ; 50.00      ; 12        ; 1           ;       ;        ;           ;            ; false    ; VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0] ; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|vco0ph[0]                    ; { VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk }                    ;
@@ -129,10 +130,11 @@ refer to the applicable agreement for further details.
 +------------+-----------------+----------------------------------------------------------------------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name                                                                       ; Note ;
 +------------+-----------------+----------------------------------------------------------------------------------+------+
-; 82.18 MHz  ; 82.18 MHz       ; CLOCK_50                                                                         ;      ;
-; 173.55 MHz ; 173.55 MHz      ; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ;      ;
-; 193.01 MHz ; 193.01 MHz      ; RateDivider:rd0|q[0]                                                             ;      ;
-; 309.69 MHz ; 309.69 MHz      ; avconf:avc|mI2C_CTRL_CLK                                                         ;      ;
+; 90.08 MHz  ; 90.08 MHz       ; CLOCK_50                                                                         ;      ;
+; 184.4 MHz  ; 184.4 MHz       ; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ;      ;
+; 205.09 MHz ; 205.09 MHz      ; RateDivider:rd0|q[0]                                                             ;      ;
+; 287.52 MHz ; 287.52 MHz      ; avconf:avc|mI2C_CTRL_CLK                                                         ;      ;
+; 318.57 MHz ; 318.57 MHz      ; note_info:ni|vga_RateDivider:vrd0|q[0]                                           ;      ;
 +------------+-----------------+----------------------------------------------------------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -148,10 +150,11 @@ HTML report is unavailable in plain text report export.
 +----------------------------------------------------------------------------------+---------+---------------+
 ; Clock                                                                            ; Slack   ; End Point TNS ;
 +----------------------------------------------------------------------------------+---------+---------------+
-; RateDivider:rd0|q[0]                                                             ; -10.527 ; -373.775      ;
-; CLOCK_50                                                                         ; -4.829  ; -141.785      ;
-; avconf:avc|mI2C_CTRL_CLK                                                         ; -2.229  ; -123.665      ;
-; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 34.238  ; 0.000         ;
+; RateDivider:rd0|q[0]                                                             ; -10.078 ; -361.674      ;
+; CLOCK_50                                                                         ; -7.494  ; -272.846      ;
+; avconf:avc|mI2C_CTRL_CLK                                                         ; -2.478  ; -148.201      ;
+; note_info:ni|vga_RateDivider:vrd0|q[0]                                           ; -2.139  ; -191.964      ;
+; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 34.577  ; 0.000         ;
 +----------------------------------------------------------------------------------+---------+---------------+
 
 
@@ -160,10 +163,11 @@ HTML report is unavailable in plain text report export.
 +----------------------------------------------------------------------------------+-------+---------------+
 ; Clock                                                                            ; Slack ; End Point TNS ;
 +----------------------------------------------------------------------------------+-------+---------------+
-; CLOCK_50                                                                         ; 0.075 ; 0.000         ;
-; avconf:avc|mI2C_CTRL_CLK                                                         ; 0.253 ; 0.000         ;
-; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 0.297 ; 0.000         ;
-; RateDivider:rd0|q[0]                                                             ; 0.437 ; 0.000         ;
+; CLOCK_50                                                                         ; 0.085 ; 0.000         ;
+; avconf:avc|mI2C_CTRL_CLK                                                         ; 0.389 ; 0.000         ;
+; RateDivider:rd0|q[0]                                                             ; 0.400 ; 0.000         ;
+; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 0.413 ; 0.000         ;
+; note_info:ni|vga_RateDivider:vrd0|q[0]                                           ; 0.512 ; 0.000         ;
 +----------------------------------------------------------------------------------+-------+---------------+
 
 
@@ -184,11 +188,12 @@ No paths to report.
 +----------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                            ; Slack  ; End Point TNS ;
 +----------------------------------------------------------------------------------+--------+---------------+
-; avconf:avc|mI2C_CTRL_CLK                                                         ; -0.394 ; -36.393       ;
-; RateDivider:rd0|q[0]                                                             ; -0.394 ; -31.915       ;
+; note_info:ni|vga_RateDivider:vrd0|q[0]                                           ; -0.403 ; -76.758       ;
+; avconf:avc|mI2C_CTRL_CLK                                                         ; -0.394 ; -37.302       ;
+; RateDivider:rd0|q[0]                                                             ; -0.394 ; -33.311       ;
 ; VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]   ; 1.666  ; 0.000         ;
-; CLOCK_50                                                                         ; 8.823  ; 0.000         ;
-; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 18.763 ; 0.000         ;
+; CLOCK_50                                                                         ; 8.820  ; 0.000         ;
+; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 18.771 ; 0.000         ;
 +----------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -199,7 +204,7 @@ The design MTBF is not calculated because there are no specified synchronizers i
 Number of Synchronizer Chains Found: 1
 Shortest Synchronizer Chain: 2 Registers
 Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-Worst Case Available Settling Time: 18.107 ns
+Worst Case Available Settling Time: 18.478 ns
 
 
 
@@ -209,10 +214,11 @@ Worst Case Available Settling Time: 18.107 ns
 +------------+-----------------+----------------------------------------------------------------------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name                                                                       ; Note ;
 +------------+-----------------+----------------------------------------------------------------------------------+------+
-; 86.13 MHz  ; 86.13 MHz       ; CLOCK_50                                                                         ;      ;
-; 177.37 MHz ; 177.37 MHz      ; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ;      ;
-; 197.51 MHz ; 197.51 MHz      ; RateDivider:rd0|q[0]                                                             ;      ;
-; 309.6 MHz  ; 309.6 MHz       ; avconf:avc|mI2C_CTRL_CLK                                                         ;      ;
+; 93.08 MHz  ; 93.08 MHz       ; CLOCK_50                                                                         ;      ;
+; 186.01 MHz ; 186.01 MHz      ; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ;      ;
+; 207.0 MHz  ; 207.0 MHz       ; RateDivider:rd0|q[0]                                                             ;      ;
+; 287.94 MHz ; 287.94 MHz      ; avconf:avc|mI2C_CTRL_CLK                                                         ;      ;
+; 321.75 MHz ; 321.75 MHz      ; note_info:ni|vga_RateDivider:vrd0|q[0]                                           ;      ;
 +------------+-----------------+----------------------------------------------------------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -222,10 +228,11 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +----------------------------------------------------------------------------------+---------+---------------+
 ; Clock                                                                            ; Slack   ; End Point TNS ;
 +----------------------------------------------------------------------------------+---------+---------------+
-; RateDivider:rd0|q[0]                                                             ; -10.901 ; -386.203      ;
-; CLOCK_50                                                                         ; -4.500  ; -127.879      ;
-; avconf:avc|mI2C_CTRL_CLK                                                         ; -2.230  ; -120.532      ;
-; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 34.362  ; 0.000         ;
+; RateDivider:rd0|q[0]                                                             ; -10.275 ; -368.386      ;
+; CLOCK_50                                                                         ; -7.070  ; -250.572      ;
+; avconf:avc|mI2C_CTRL_CLK                                                         ; -2.473  ; -143.788      ;
+; note_info:ni|vga_RateDivider:vrd0|q[0]                                           ; -2.108  ; -190.001      ;
+; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 34.624  ; 0.000         ;
 +----------------------------------------------------------------------------------+---------+---------------+
 
 
@@ -234,10 +241,11 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +----------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                            ; Slack  ; End Point TNS ;
 +----------------------------------------------------------------------------------+--------+---------------+
-; CLOCK_50                                                                         ; -0.298 ; -1.291        ;
-; avconf:avc|mI2C_CTRL_CLK                                                         ; 0.237  ; 0.000         ;
-; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 0.287  ; 0.000         ;
-; RateDivider:rd0|q[0]                                                             ; 0.454  ; 0.000         ;
+; CLOCK_50                                                                         ; -0.258 ; -0.258        ;
+; RateDivider:rd0|q[0]                                                             ; 0.381  ; 0.000         ;
+; avconf:avc|mI2C_CTRL_CLK                                                         ; 0.390  ; 0.000         ;
+; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 0.412  ; 0.000         ;
+; note_info:ni|vga_RateDivider:vrd0|q[0]                                           ; 0.486  ; 0.000         ;
 +----------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -258,11 +266,12 @@ No paths to report.
 +----------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                            ; Slack  ; End Point TNS ;
 +----------------------------------------------------------------------------------+--------+---------------+
-; avconf:avc|mI2C_CTRL_CLK                                                         ; -0.394 ; -36.052       ;
-; RateDivider:rd0|q[0]                                                             ; -0.394 ; -32.549       ;
+; note_info:ni|vga_RateDivider:vrd0|q[0]                                           ; -0.419 ; -78.406       ;
+; avconf:avc|mI2C_CTRL_CLK                                                         ; -0.394 ; -36.968       ;
+; RateDivider:rd0|q[0]                                                             ; -0.394 ; -33.777       ;
 ; VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]   ; 1.666  ; 0.000         ;
-; CLOCK_50                                                                         ; 8.781  ; 0.000         ;
-; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 18.743 ; 0.000         ;
+; CLOCK_50                                                                         ; 8.776  ; 0.000         ;
+; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 18.746 ; 0.000         ;
 +----------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -273,7 +282,7 @@ The design MTBF is not calculated because there are no specified synchronizers i
 Number of Synchronizer Chains Found: 1
 Shortest Synchronizer Chain: 2 Registers
 Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-Worst Case Available Settling Time: 18.210 ns
+Worst Case Available Settling Time: 18.566 ns
 
 
 
@@ -283,10 +292,11 @@ Worst Case Available Settling Time: 18.210 ns
 +----------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                            ; Slack  ; End Point TNS ;
 +----------------------------------------------------------------------------------+--------+---------------+
-; RateDivider:rd0|q[0]                                                             ; -5.700 ; -199.722      ;
-; CLOCK_50                                                                         ; -3.673 ; -107.746      ;
-; avconf:avc|mI2C_CTRL_CLK                                                         ; -1.025 ; -53.066       ;
-; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 36.190 ; 0.000         ;
+; CLOCK_50                                                                         ; -5.543 ; -203.550      ;
+; RateDivider:rd0|q[0]                                                             ; -5.523 ; -195.473      ;
+; note_info:ni|vga_RateDivider:vrd0|q[0]                                           ; -1.165 ; -74.159       ;
+; avconf:avc|mI2C_CTRL_CLK                                                         ; -1.163 ; -63.977       ;
+; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 36.637 ; 0.000         ;
 +----------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -295,10 +305,11 @@ Worst Case Available Settling Time: 18.210 ns
 +----------------------------------------------------------------------------------+-------+---------------+
 ; Clock                                                                            ; Slack ; End Point TNS ;
 +----------------------------------------------------------------------------------+-------+---------------+
-; avconf:avc|mI2C_CTRL_CLK                                                         ; 0.082 ; 0.000         ;
-; RateDivider:rd0|q[0]                                                             ; 0.165 ; 0.000         ;
-; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 0.171 ; 0.000         ;
+; avconf:avc|mI2C_CTRL_CLK                                                         ; 0.143 ; 0.000         ;
+; RateDivider:rd0|q[0]                                                             ; 0.164 ; 0.000         ;
 ; CLOCK_50                                                                         ; 0.182 ; 0.000         ;
+; note_info:ni|vga_RateDivider:vrd0|q[0]                                           ; 0.224 ; 0.000         ;
+; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 0.238 ; 0.000         ;
 +----------------------------------------------------------------------------------+-------+---------------+
 
 
@@ -319,11 +330,12 @@ No paths to report.
 +----------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                            ; Slack  ; End Point TNS ;
 +----------------------------------------------------------------------------------+--------+---------------+
-; RateDivider:rd0|q[0]                                                             ; -0.122 ; -1.709        ;
-; avconf:avc|mI2C_CTRL_CLK                                                         ; 0.066  ; 0.000         ;
+; note_info:ni|vga_RateDivider:vrd0|q[0]                                           ; -0.108 ; -3.112        ;
+; RateDivider:rd0|q[0]                                                             ; -0.066 ; -0.909        ;
+; avconf:avc|mI2C_CTRL_CLK                                                         ; 0.071  ; 0.000         ;
 ; VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]   ; 1.666  ; 0.000         ;
-; CLOCK_50                                                                         ; 8.817  ; 0.000         ;
-; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 18.883 ; 0.000         ;
+; CLOCK_50                                                                         ; 8.818  ; 0.000         ;
+; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 18.888 ; 0.000         ;
 +----------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -334,7 +346,7 @@ The design MTBF is not calculated because there are no specified synchronizers i
 Number of Synchronizer Chains Found: 1
 Shortest Synchronizer Chain: 2 Registers
 Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-Worst Case Available Settling Time: 18.728 ns
+Worst Case Available Settling Time: 18.963 ns
 
 
 
@@ -344,10 +356,11 @@ Worst Case Available Settling Time: 18.728 ns
 +----------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                            ; Slack  ; End Point TNS ;
 +----------------------------------------------------------------------------------+--------+---------------+
-; RateDivider:rd0|q[0]                                                             ; -5.554 ; -193.648      ;
-; CLOCK_50                                                                         ; -3.048 ; -85.145       ;
-; avconf:avc|mI2C_CTRL_CLK                                                         ; -0.902 ; -45.099       ;
-; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 36.627 ; 0.000         ;
+; RateDivider:rd0|q[0]                                                             ; -5.344 ; -187.618      ;
+; CLOCK_50                                                                         ; -4.679 ; -163.098      ;
+; avconf:avc|mI2C_CTRL_CLK                                                         ; -1.026 ; -55.279       ;
+; note_info:ni|vga_RateDivider:vrd0|q[0]                                           ; -0.967 ; -62.640       ;
+; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 36.961 ; 0.000         ;
 +----------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -356,10 +369,11 @@ Worst Case Available Settling Time: 18.728 ns
 +----------------------------------------------------------------------------------+-------+---------------+
 ; Clock                                                                            ; Slack ; End Point TNS ;
 +----------------------------------------------------------------------------------+-------+---------------+
-; CLOCK_50                                                                         ; 0.040 ; 0.000         ;
-; avconf:avc|mI2C_CTRL_CLK                                                         ; 0.063 ; 0.000         ;
-; RateDivider:rd0|q[0]                                                             ; 0.151 ; 0.000         ;
-; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 0.158 ; 0.000         ;
+; CLOCK_50                                                                         ; 0.092 ; 0.000         ;
+; avconf:avc|mI2C_CTRL_CLK                                                         ; 0.130 ; 0.000         ;
+; RateDivider:rd0|q[0]                                                             ; 0.136 ; 0.000         ;
+; note_info:ni|vga_RateDivider:vrd0|q[0]                                           ; 0.198 ; 0.000         ;
+; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 0.222 ; 0.000         ;
 +----------------------------------------------------------------------------------+-------+---------------+
 
 
@@ -380,11 +394,12 @@ No paths to report.
 +----------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                            ; Slack  ; End Point TNS ;
 +----------------------------------------------------------------------------------+--------+---------------+
-; RateDivider:rd0|q[0]                                                             ; -0.092 ; -1.155        ;
-; avconf:avc|mI2C_CTRL_CLK                                                         ; 0.085  ; 0.000         ;
+; note_info:ni|vga_RateDivider:vrd0|q[0]                                           ; -0.077 ; -1.449        ;
+; RateDivider:rd0|q[0]                                                             ; -0.044 ; -0.507        ;
+; avconf:avc|mI2C_CTRL_CLK                                                         ; 0.090  ; 0.000         ;
 ; VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]   ; 1.666  ; 0.000         ;
 ; CLOCK_50                                                                         ; 8.811  ; 0.000         ;
-; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 18.884 ; 0.000         ;
+; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 18.886 ; 0.000         ;
 +----------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -395,7 +410,7 @@ The design MTBF is not calculated because there are no specified synchronizers i
 Number of Synchronizer Chains Found: 1
 Shortest Synchronizer Chain: 2 Registers
 Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-Worst Case Available Settling Time: 18.865 ns
+Worst Case Available Settling Time: 19.071 ns
 
 
 
@@ -405,18 +420,20 @@ Worst Case Available Settling Time: 18.865 ns
 +-----------------------------------------------------------------------------------+----------+--------+----------+---------+---------------------+
 ; Clock                                                                             ; Setup    ; Hold   ; Recovery ; Removal ; Minimum Pulse Width ;
 +-----------------------------------------------------------------------------------+----------+--------+----------+---------+---------------------+
-; Worst-case Slack                                                                  ; -10.901  ; -0.298 ; N/A      ; N/A     ; -0.394              ;
-;  CLOCK_50                                                                         ; -4.829   ; -0.298 ; N/A      ; N/A     ; 8.781               ;
-;  RateDivider:rd0|q[0]                                                             ; -10.901  ; 0.151  ; N/A      ; N/A     ; -0.394              ;
+; Worst-case Slack                                                                  ; -10.275  ; -0.258 ; N/A      ; N/A     ; -0.419              ;
+;  CLOCK_50                                                                         ; -7.494   ; -0.258 ; N/A      ; N/A     ; 8.776               ;
+;  RateDivider:rd0|q[0]                                                             ; -10.275  ; 0.136  ; N/A      ; N/A     ; -0.394              ;
 ;  VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]   ; N/A      ; N/A    ; N/A      ; N/A     ; 1.666               ;
-;  VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 34.238   ; 0.158  ; N/A      ; N/A     ; 18.743              ;
-;  avconf:avc|mI2C_CTRL_CLK                                                         ; -2.230   ; 0.063  ; N/A      ; N/A     ; -0.394              ;
-; Design-wide TNS                                                                   ; -639.225 ; -1.291 ; 0.0      ; 0.0     ; -68.601             ;
-;  CLOCK_50                                                                         ; -141.785 ; -1.291 ; N/A      ; N/A     ; 0.000               ;
-;  RateDivider:rd0|q[0]                                                             ; -386.203 ; 0.000  ; N/A      ; N/A     ; -32.549             ;
+;  VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 34.577   ; 0.222  ; N/A      ; N/A     ; 18.746              ;
+;  avconf:avc|mI2C_CTRL_CLK                                                         ; -2.478   ; 0.130  ; N/A      ; N/A     ; -0.394              ;
+;  note_info:ni|vga_RateDivider:vrd0|q[0]                                           ; -2.139   ; 0.198  ; N/A      ; N/A     ; -0.419              ;
+; Design-wide TNS                                                                   ; -974.685 ; -0.258 ; 0.0      ; 0.0     ; -149.151            ;
+;  CLOCK_50                                                                         ; -272.846 ; -0.258 ; N/A      ; N/A     ; 0.000               ;
+;  RateDivider:rd0|q[0]                                                             ; -368.386 ; 0.000  ; N/A      ; N/A     ; -33.777             ;
 ;  VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]   ; N/A      ; N/A    ; N/A      ; N/A     ; 0.000               ;
 ;  VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 0.000    ; 0.000  ; N/A      ; N/A     ; 0.000               ;
-;  avconf:avc|mI2C_CTRL_CLK                                                         ; -123.665 ; 0.000  ; N/A      ; N/A     ; -36.393             ;
+;  avconf:avc|mI2C_CTRL_CLK                                                         ; -148.201 ; 0.000  ; N/A      ; N/A     ; -37.302             ;
+;  note_info:ni|vga_RateDivider:vrd0|q[0]                                           ; -191.964 ; 0.000  ; N/A      ; N/A     ; -78.406             ;
 +-----------------------------------------------------------------------------------+----------+--------+----------+---------+---------------------+
 
 
@@ -893,13 +910,15 @@ Worst Case Available Settling Time: 18.865 ns
 +----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+----------+----------+----------+----------+
 ; From Clock                                                                       ; To Clock                                                                         ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+----------+----------+----------+----------+
-; avconf:avc|mI2C_CTRL_CLK                                                         ; avconf:avc|mI2C_CTRL_CLK                                                         ; 789      ; 0        ; 0        ; 0        ;
+; avconf:avc|mI2C_CTRL_CLK                                                         ; avconf:avc|mI2C_CTRL_CLK                                                         ; 809      ; 0        ; 0        ; 0        ;
 ; avconf:avc|mI2C_CTRL_CLK                                                         ; CLOCK_50                                                                         ; 1        ; 1        ; 0        ; 0        ;
-; CLOCK_50                                                                         ; CLOCK_50                                                                         ; 8161     ; 0        ; 0        ; 0        ;
-; RateDivider:rd0|q[0]                                                             ; CLOCK_50                                                                         ; 33       ; 73       ; 0        ; 0        ;
+; CLOCK_50                                                                         ; CLOCK_50                                                                         ; 10735    ; 0        ; 0        ; 0        ;
+; note_info:ni|vga_RateDivider:vrd0|q[0]                                           ; CLOCK_50                                                                         ; 9        ; 661      ; 0        ; 0        ;
+; RateDivider:rd0|q[0]                                                             ; CLOCK_50                                                                         ; 33       ; 81       ; 0        ; 0        ;
+; note_info:ni|vga_RateDivider:vrd0|q[0]                                           ; note_info:ni|vga_RateDivider:vrd0|q[0]                                           ; 0        ; 0        ; 0        ; 1630     ;
 ; CLOCK_50                                                                         ; RateDivider:rd0|q[0]                                                             ; 0        ; 0        ; 23485    ; 0        ;
-; RateDivider:rd0|q[0]                                                             ; RateDivider:rd0|q[0]                                                             ; 0        ; 0        ; 0        ; 1849     ;
-; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 2086     ; 0        ; 0        ; 0        ;
+; RateDivider:rd0|q[0]                                                             ; RateDivider:rd0|q[0]                                                             ; 0        ; 0        ; 0        ; 1870     ;
+; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 2159     ; 0        ; 0        ; 0        ;
 +----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -909,13 +928,15 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+----------+----------+----------+----------+
 ; From Clock                                                                       ; To Clock                                                                         ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+----------+----------+----------+----------+
-; avconf:avc|mI2C_CTRL_CLK                                                         ; avconf:avc|mI2C_CTRL_CLK                                                         ; 789      ; 0        ; 0        ; 0        ;
+; avconf:avc|mI2C_CTRL_CLK                                                         ; avconf:avc|mI2C_CTRL_CLK                                                         ; 809      ; 0        ; 0        ; 0        ;
 ; avconf:avc|mI2C_CTRL_CLK                                                         ; CLOCK_50                                                                         ; 1        ; 1        ; 0        ; 0        ;
-; CLOCK_50                                                                         ; CLOCK_50                                                                         ; 8161     ; 0        ; 0        ; 0        ;
-; RateDivider:rd0|q[0]                                                             ; CLOCK_50                                                                         ; 33       ; 73       ; 0        ; 0        ;
+; CLOCK_50                                                                         ; CLOCK_50                                                                         ; 10735    ; 0        ; 0        ; 0        ;
+; note_info:ni|vga_RateDivider:vrd0|q[0]                                           ; CLOCK_50                                                                         ; 9        ; 661      ; 0        ; 0        ;
+; RateDivider:rd0|q[0]                                                             ; CLOCK_50                                                                         ; 33       ; 81       ; 0        ; 0        ;
+; note_info:ni|vga_RateDivider:vrd0|q[0]                                           ; note_info:ni|vga_RateDivider:vrd0|q[0]                                           ; 0        ; 0        ; 0        ; 1630     ;
 ; CLOCK_50                                                                         ; RateDivider:rd0|q[0]                                                             ; 0        ; 0        ; 23485    ; 0        ;
-; RateDivider:rd0|q[0]                                                             ; RateDivider:rd0|q[0]                                                             ; 0        ; 0        ; 0        ; 1849     ;
-; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 2086     ; 0        ; 0        ; 0        ;
+; RateDivider:rd0|q[0]                                                             ; RateDivider:rd0|q[0]                                                             ; 0        ; 0        ; 0        ; 1870     ;
+; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 2159     ; 0        ; 0        ; 0        ;
 +----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -940,7 +961,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
 ; Unconstrained Input Ports       ; 10    ; 10   ;
-; Unconstrained Input Port Paths  ; 341   ; 341  ;
+; Unconstrained Input Port Paths  ; 358   ; 358  ;
 ; Unconstrained Output Ports      ; 76    ; 76   ;
 ; Unconstrained Output Port Paths ; 305   ; 305  ;
 +---------------------------------+-------+------+
@@ -957,6 +978,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]                      ; VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]                      ; Generated ; Constrained ;
 ; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk                    ; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk                    ; Generated ; Constrained ;
 ; avconf:avc|mI2C_CTRL_CLK                                                                            ; avconf:avc|mI2C_CTRL_CLK                                                                            ; Base      ; Constrained ;
+; note_info:ni|vga_RateDivider:vrd0|q[0]                                                              ; note_info:ni|vga_RateDivider:vrd0|q[0]                                                              ; Base      ; Constrained ;
 +-----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+-----------+-------------+
 
 
@@ -1170,7 +1192,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-    Info: Processing started: Fri Nov 23 22:16:22 2018
+    Info: Processing started: Sun Nov 25 17:29:22 2018
 Info: Command: quartus_sta FPGA-Trumpet -c FPGA-Trumpet
 Info: qsta_default_script.tcl version: #2
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -1187,6 +1209,7 @@ Info (332110): Deriving PLL clocks
 Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
 Info (332105): Deriving Clocks
     Info (332105): create_clock -period 1.000 -name RateDivider:rd0|q[0] RateDivider:rd0|q[0]
+    Info (332105): create_clock -period 1.000 -name note_info:ni|vga_RateDivider:vrd0|q[0] note_info:ni|vga_RateDivider:vrd0|q[0]
     Info (332105): create_clock -period 1.000 -name avconf:avc|mI2C_CTRL_CLK avconf:avc|mI2C_CTRL_CLK
 Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
     Info (332098): Cell: Audio_Controller|Audio_Clock|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
@@ -1199,36 +1222,39 @@ Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1100mV 85C Model
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -10.527
+Info (332146): Worst-case setup slack is -10.078
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):   -10.527            -373.775 RateDivider:rd0|q[0] 
-    Info (332119):    -4.829            -141.785 CLOCK_50 
-    Info (332119):    -2.229            -123.665 avconf:avc|mI2C_CTRL_CLK 
-    Info (332119):    34.238               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
-Info (332146): Worst-case hold slack is 0.075
+    Info (332119):   -10.078            -361.674 RateDivider:rd0|q[0] 
+    Info (332119):    -7.494            -272.846 CLOCK_50 
+    Info (332119):    -2.478            -148.201 avconf:avc|mI2C_CTRL_CLK 
+    Info (332119):    -2.139            -191.964 note_info:ni|vga_RateDivider:vrd0|q[0] 
+    Info (332119):    34.577               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
+Info (332146): Worst-case hold slack is 0.085
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.075               0.000 CLOCK_50 
-    Info (332119):     0.253               0.000 avconf:avc|mI2C_CTRL_CLK 
-    Info (332119):     0.297               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):     0.437               0.000 RateDivider:rd0|q[0] 
+    Info (332119):     0.085               0.000 CLOCK_50 
+    Info (332119):     0.389               0.000 avconf:avc|mI2C_CTRL_CLK 
+    Info (332119):     0.400               0.000 RateDivider:rd0|q[0] 
+    Info (332119):     0.413               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.512               0.000 note_info:ni|vga_RateDivider:vrd0|q[0] 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is -0.394
+Info (332146): Worst-case minimum pulse width slack is -0.403
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.394             -36.393 avconf:avc|mI2C_CTRL_CLK 
-    Info (332119):    -0.394             -31.915 RateDivider:rd0|q[0] 
+    Info (332119):    -0.403             -76.758 note_info:ni|vga_RateDivider:vrd0|q[0] 
+    Info (332119):    -0.394             -37.302 avconf:avc|mI2C_CTRL_CLK 
+    Info (332119):    -0.394             -33.311 RateDivider:rd0|q[0] 
     Info (332119):     1.666               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0] 
-    Info (332119):     8.823               0.000 CLOCK_50 
-    Info (332119):    18.763               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     8.820               0.000 CLOCK_50 
+    Info (332119):    18.771               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
 Info (332114): Report Metastability: Found 1 synchronizer chains.
     Info (332114): The design MTBF is not calculated because there are no specified synchronizers in the design.
     Info (332114): Number of Synchronizer Chains Found: 1
     Info (332114): Shortest Synchronizer Chain: 2 Registers
     Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-    Info (332114): Worst Case Available Settling Time: 18.107 ns
+    Info (332114): Worst Case Available Settling Time: 18.478 ns
     Info (332114): 
 Info: Analyzing Slow 1100mV 0C Model
 Info (334003): Started post-fitting delay annotation
@@ -1241,36 +1267,39 @@ Info (332097): The following timing edges are non-unate.  The Timing Analyzer wi
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -10.901
+Info (332146): Worst-case setup slack is -10.275
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):   -10.901            -386.203 RateDivider:rd0|q[0] 
-    Info (332119):    -4.500            -127.879 CLOCK_50 
-    Info (332119):    -2.230            -120.532 avconf:avc|mI2C_CTRL_CLK 
-    Info (332119):    34.362               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
-Info (332146): Worst-case hold slack is -0.298
+    Info (332119):   -10.275            -368.386 RateDivider:rd0|q[0] 
+    Info (332119):    -7.070            -250.572 CLOCK_50 
+    Info (332119):    -2.473            -143.788 avconf:avc|mI2C_CTRL_CLK 
+    Info (332119):    -2.108            -190.001 note_info:ni|vga_RateDivider:vrd0|q[0] 
+    Info (332119):    34.624               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
+Info (332146): Worst-case hold slack is -0.258
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.298              -1.291 CLOCK_50 
-    Info (332119):     0.237               0.000 avconf:avc|mI2C_CTRL_CLK 
-    Info (332119):     0.287               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):     0.454               0.000 RateDivider:rd0|q[0] 
+    Info (332119):    -0.258              -0.258 CLOCK_50 
+    Info (332119):     0.381               0.000 RateDivider:rd0|q[0] 
+    Info (332119):     0.390               0.000 avconf:avc|mI2C_CTRL_CLK 
+    Info (332119):     0.412               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.486               0.000 note_info:ni|vga_RateDivider:vrd0|q[0] 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is -0.394
+Info (332146): Worst-case minimum pulse width slack is -0.419
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.394             -36.052 avconf:avc|mI2C_CTRL_CLK 
-    Info (332119):    -0.394             -32.549 RateDivider:rd0|q[0] 
+    Info (332119):    -0.419             -78.406 note_info:ni|vga_RateDivider:vrd0|q[0] 
+    Info (332119):    -0.394             -36.968 avconf:avc|mI2C_CTRL_CLK 
+    Info (332119):    -0.394             -33.777 RateDivider:rd0|q[0] 
     Info (332119):     1.666               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0] 
-    Info (332119):     8.781               0.000 CLOCK_50 
-    Info (332119):    18.743               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     8.776               0.000 CLOCK_50 
+    Info (332119):    18.746               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
 Info (332114): Report Metastability: Found 1 synchronizer chains.
     Info (332114): The design MTBF is not calculated because there are no specified synchronizers in the design.
     Info (332114): Number of Synchronizer Chains Found: 1
     Info (332114): Shortest Synchronizer Chain: 2 Registers
     Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-    Info (332114): Worst Case Available Settling Time: 18.210 ns
+    Info (332114): Worst Case Available Settling Time: 18.566 ns
     Info (332114): 
 Info: Analyzing Fast 1100mV 85C Model
 Info (334003): Started post-fitting delay annotation
@@ -1283,36 +1312,39 @@ Info (332097): The following timing edges are non-unate.  The Timing Analyzer wi
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -5.700
+Info (332146): Worst-case setup slack is -5.543
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -5.700            -199.722 RateDivider:rd0|q[0] 
-    Info (332119):    -3.673            -107.746 CLOCK_50 
-    Info (332119):    -1.025             -53.066 avconf:avc|mI2C_CTRL_CLK 
-    Info (332119):    36.190               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
-Info (332146): Worst-case hold slack is 0.082
+    Info (332119):    -5.543            -203.550 CLOCK_50 
+    Info (332119):    -5.523            -195.473 RateDivider:rd0|q[0] 
+    Info (332119):    -1.165             -74.159 note_info:ni|vga_RateDivider:vrd0|q[0] 
+    Info (332119):    -1.163             -63.977 avconf:avc|mI2C_CTRL_CLK 
+    Info (332119):    36.637               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
+Info (332146): Worst-case hold slack is 0.143
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.082               0.000 avconf:avc|mI2C_CTRL_CLK 
-    Info (332119):     0.165               0.000 RateDivider:rd0|q[0] 
-    Info (332119):     0.171               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.143               0.000 avconf:avc|mI2C_CTRL_CLK 
+    Info (332119):     0.164               0.000 RateDivider:rd0|q[0] 
     Info (332119):     0.182               0.000 CLOCK_50 
+    Info (332119):     0.224               0.000 note_info:ni|vga_RateDivider:vrd0|q[0] 
+    Info (332119):     0.238               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is -0.122
+Info (332146): Worst-case minimum pulse width slack is -0.108
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.122              -1.709 RateDivider:rd0|q[0] 
-    Info (332119):     0.066               0.000 avconf:avc|mI2C_CTRL_CLK 
+    Info (332119):    -0.108              -3.112 note_info:ni|vga_RateDivider:vrd0|q[0] 
+    Info (332119):    -0.066              -0.909 RateDivider:rd0|q[0] 
+    Info (332119):     0.071               0.000 avconf:avc|mI2C_CTRL_CLK 
     Info (332119):     1.666               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0] 
-    Info (332119):     8.817               0.000 CLOCK_50 
-    Info (332119):    18.883               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     8.818               0.000 CLOCK_50 
+    Info (332119):    18.888               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
 Info (332114): Report Metastability: Found 1 synchronizer chains.
     Info (332114): The design MTBF is not calculated because there are no specified synchronizers in the design.
     Info (332114): Number of Synchronizer Chains Found: 1
     Info (332114): Shortest Synchronizer Chain: 2 Registers
     Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-    Info (332114): Worst Case Available Settling Time: 18.728 ns
+    Info (332114): Worst Case Available Settling Time: 18.963 ns
     Info (332114): 
 Info: Analyzing Fast 1100mV 0C Model
 Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
@@ -1323,43 +1355,46 @@ Info (332097): The following timing edges are non-unate.  The Timing Analyzer wi
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -5.554
+Info (332146): Worst-case setup slack is -5.344
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -5.554            -193.648 RateDivider:rd0|q[0] 
-    Info (332119):    -3.048             -85.145 CLOCK_50 
-    Info (332119):    -0.902             -45.099 avconf:avc|mI2C_CTRL_CLK 
-    Info (332119):    36.627               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
-Info (332146): Worst-case hold slack is 0.040
+    Info (332119):    -5.344            -187.618 RateDivider:rd0|q[0] 
+    Info (332119):    -4.679            -163.098 CLOCK_50 
+    Info (332119):    -1.026             -55.279 avconf:avc|mI2C_CTRL_CLK 
+    Info (332119):    -0.967             -62.640 note_info:ni|vga_RateDivider:vrd0|q[0] 
+    Info (332119):    36.961               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
+Info (332146): Worst-case hold slack is 0.092
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.040               0.000 CLOCK_50 
-    Info (332119):     0.063               0.000 avconf:avc|mI2C_CTRL_CLK 
-    Info (332119):     0.151               0.000 RateDivider:rd0|q[0] 
-    Info (332119):     0.158               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.092               0.000 CLOCK_50 
+    Info (332119):     0.130               0.000 avconf:avc|mI2C_CTRL_CLK 
+    Info (332119):     0.136               0.000 RateDivider:rd0|q[0] 
+    Info (332119):     0.198               0.000 note_info:ni|vga_RateDivider:vrd0|q[0] 
+    Info (332119):     0.222               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is -0.092
+Info (332146): Worst-case minimum pulse width slack is -0.077
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.092              -1.155 RateDivider:rd0|q[0] 
-    Info (332119):     0.085               0.000 avconf:avc|mI2C_CTRL_CLK 
+    Info (332119):    -0.077              -1.449 note_info:ni|vga_RateDivider:vrd0|q[0] 
+    Info (332119):    -0.044              -0.507 RateDivider:rd0|q[0] 
+    Info (332119):     0.090               0.000 avconf:avc|mI2C_CTRL_CLK 
     Info (332119):     1.666               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0] 
     Info (332119):     8.811               0.000 CLOCK_50 
-    Info (332119):    18.884               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):    18.886               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
 Info (332114): Report Metastability: Found 1 synchronizer chains.
     Info (332114): The design MTBF is not calculated because there are no specified synchronizers in the design.
     Info (332114): Number of Synchronizer Chains Found: 1
     Info (332114): Shortest Synchronizer Chain: 2 Registers
     Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-    Info (332114): Worst Case Available Settling Time: 18.865 ns
+    Info (332114): Worst Case Available Settling Time: 19.071 ns
     Info (332114): 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 5261 megabytes
-    Info: Processing ended: Fri Nov 23 22:16:35 2018
-    Info: Elapsed time: 00:00:13
-    Info: Total CPU time (on all processors): 00:00:20
+    Info: Peak virtual memory: 5271 megabytes
+    Info: Processing ended: Sun Nov 25 17:29:36 2018
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:23
 
 

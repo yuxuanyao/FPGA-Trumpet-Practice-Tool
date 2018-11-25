@@ -1,0 +1,37 @@
+ module note_info (id, clk, x, y, width, height);
+	input [3:0]id;
+	input clk;
+	output reg [7:0]x;
+	output reg [6:0]y;
+	output reg [7:0]width;
+	output reg [6:0]height;
+	
+	
+	always @ (posedge clk)
+		begin
+		if (id == 4'd1) begin
+			x <= 8'd33; 
+			y <= 7'd39;
+			width <= 8'd9;
+			height <= 7'd5;
+			end
+		else if (id == 4'd2) begin
+			x <= 8'd47; 
+			y <= 7'd35;
+			width <= 8'd14;
+			height <= 7'd12;
+			end
+		else if (id == 4'd3) begin
+			x <= 8'd68; 
+			y <= 7'd35;
+			width <= 8'd7;
+			height <= 7'd5;
+			end
+		else if (id == 4'd3) begin
+			x <= 8'd68; 
+			y <= 7'd35;
+			width <= 8'd7;
+			height <= 7'd5;
+			end
+		
+		end

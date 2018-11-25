@@ -75,16 +75,10 @@ module VGAtest
 	
 	wire [5:0] noteaddress;
 	
-	wire [7:0] gx;
-	wire [6:0] gy;
-	wire [7:0] gsx;
-	wire [6:0] gsy;
-	wire [7:0] ax;
-	wire [6:0] ay;
-	wire [7:0] asx;
-	wire [6:0] asy;
-	wire [7:0] scalex;
-	wire [6:0] scaley;
+	wire [7:0] gx, gsx, ax, asx, scalex;
+	wire [6:0] gy, gsy, ay, asy, scaley;
+
+
 
 	
 	wire [2:0] gcolour;

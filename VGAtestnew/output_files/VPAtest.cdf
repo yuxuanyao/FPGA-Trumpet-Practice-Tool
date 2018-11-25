@@ -6,7 +6,7 @@ JedecChain;
 	P ActionCode(Ign)
 		Device PartName(SOCVHPS) MfrSpec(OpMask(0));
 	P ActionCode(Cfg)
-		Device PartName(5CSEMA5F31) Path("C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/output_files/") File("VPAtest.sof") MfrSpec(OpMask(1));
+		Device PartName(5CSEMA5F31) Path("C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/output_files/") File("FPGA-Trumpet.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

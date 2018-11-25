@@ -1,5 +1,5 @@
 Analysis & Synthesis report for VPAtest
-Sun Nov 25 04:16:07 2018
+Sun Nov 25 16:14:15 2018
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -78,7 +78,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun Nov 25 04:16:07 2018       ;
+; Analysis & Synthesis Status     ; Successful - Sun Nov 25 16:14:15 2018       ;
 ; Quartus Prime Version           ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                   ; VPAtest                                     ;
 ; Top-level Entity Name           ; VGAtest                                     ;
@@ -190,63 +190,64 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 4           ;
-; Maximum allowed            ; 2           ;
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 2           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.0%      ;
+;     Processors 3-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                                                           ;
-+---------------------------------------------------------------------------+-----------------+----------------------------------------+-------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path                                          ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                                    ; Library ;
-+---------------------------------------------------------------------------+-----------------+----------------------------------------+-------------------------------------------------------------------------------------------------+---------+
-; vga_adapter/vga_pll.v                                                     ; yes             ; User Wizard-Generated File             ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_pll.v                ;         ;
-; vga_adapter/vga_controller.v                                              ; yes             ; User Verilog HDL File                  ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_controller.v         ;         ;
-; vga_adapter/vga_address_translator.v                                      ; yes             ; User Verilog HDL File                  ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_address_translator.v ;         ;
-; vga_adapter/vga_adapter.v                                                 ; yes             ; User Verilog HDL File                  ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_adapter.v            ;         ;
-; VPAtest.v                                                                 ; yes             ; User Verilog HDL File                  ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v                            ;         ;
-; linenote.v                                                                ; yes             ; User Wizard-Generated File             ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/linenote.v                           ;         ;
-; newscalestaff.v                                                           ; yes             ; User Wizard-Generated File             ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/newscalestaff.v                      ;         ;
-; linesharpnote.v                                                           ; yes             ; User Wizard-Generated File             ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/linesharpnote.v                      ;         ;
-; newspacenote.v                                                            ; yes             ; User Wizard-Generated File             ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/newspacenote.v                       ;         ;
-; spacesharpnote.v                                                          ; yes             ; User Wizard-Generated File             ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/spacesharpnote.v                     ;         ;
-; altsyncram.tdf                                                            ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altsyncram.tdf                           ;         ;
-; stratix_ram_block.inc                                                     ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/stratix_ram_block.inc                    ;         ;
-; lpm_mux.inc                                                               ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/lpm_mux.inc                              ;         ;
-; lpm_decode.inc                                                            ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/lpm_decode.inc                           ;         ;
-; aglobal180.inc                                                            ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/aglobal180.inc                           ;         ;
-; a_rdenreg.inc                                                             ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/a_rdenreg.inc                            ;         ;
-; altrom.inc                                                                ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altrom.inc                               ;         ;
-; altram.inc                                                                ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altram.inc                               ;         ;
-; altdpram.inc                                                              ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altdpram.inc                             ;         ;
-; db/altsyncram_m6m1.tdf                                                    ; yes             ; Auto-Generated Megafunction            ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_m6m1.tdf               ;         ;
-; black.mif                                                                 ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/black.mif                            ;         ;
-; db/decode_7la.tdf                                                         ; yes             ; Auto-Generated Megafunction            ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/decode_7la.tdf                    ;         ;
-; db/decode_01a.tdf                                                         ; yes             ; Auto-Generated Megafunction            ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/decode_01a.tdf                    ;         ;
-; db/mux_ifb.tdf                                                            ; yes             ; Auto-Generated Megafunction            ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/mux_ifb.tdf                       ;         ;
-; altpll.tdf                                                                ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altpll.tdf                               ;         ;
-; stratix_pll.inc                                                           ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/stratix_pll.inc                          ;         ;
-; stratixii_pll.inc                                                         ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/stratixii_pll.inc                        ;         ;
-; cycloneii_pll.inc                                                         ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/cycloneii_pll.inc                        ;         ;
-; db/altpll_80u.tdf                                                         ; yes             ; Auto-Generated Megafunction            ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altpll_80u.tdf                    ;         ;
-; db/altsyncram_1pm1.tdf                                                    ; yes             ; Auto-Generated Megafunction            ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_1pm1.tdf               ;         ;
-; linenote.mif                                                              ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/linenote.mif                         ;         ;
-; db/altsyncram_m2p1.tdf                                                    ; yes             ; Auto-Generated Megafunction            ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_m2p1.tdf               ;         ;
-; /users/yao/desktop/fpga-trumpet-practice-tool/imagemifs/spacenote.mif     ; yes             ; Auto-Found Memory Initialization File  ; /users/yao/desktop/fpga-trumpet-practice-tool/imagemifs/spacenote.mif                           ;         ;
-; db/altsyncram_6fo1.tdf                                                    ; yes             ; Auto-Generated Megafunction            ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_6fo1.tdf               ;         ;
-; /users/yao/desktop/fpga-trumpet-practice-tool/imagemifs/linesharpnote.mif ; yes             ; Auto-Found Memory Initialization File  ; /users/yao/desktop/fpga-trumpet-practice-tool/imagemifs/linesharpnote.mif                       ;         ;
-; db/altsyncram_njp1.tdf                                                    ; yes             ; Auto-Generated Megafunction            ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_njp1.tdf               ;         ;
-; imagemifs/spacesharpnote.mif                                              ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/imagemifs/spacesharpnote.mif         ;         ;
-; db/altsyncram_fco1.tdf                                                    ; yes             ; Auto-Generated Megafunction            ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_fco1.tdf               ;         ;
-; scalestaff.mif                                                            ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/scalestaff.mif                       ;         ;
-+---------------------------------------------------------------------------+-----------------+----------------------------------------+-------------------------------------------------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                           ;
++--------------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path     ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                                         ; Library ;
++--------------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------------------------------+---------+
+; vga_adapter/vga_pll.v                ; yes             ; User Wizard-Generated File             ; C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_pll.v                ;         ;
+; vga_adapter/vga_controller.v         ; yes             ; User Verilog HDL File                  ; C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_controller.v         ;         ;
+; vga_adapter/vga_address_translator.v ; yes             ; User Verilog HDL File                  ; C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_address_translator.v ;         ;
+; vga_adapter/vga_adapter.v            ; yes             ; User Verilog HDL File                  ; C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_adapter.v            ;         ;
+; VPAtest.v                            ; yes             ; User Verilog HDL File                  ; C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v                            ;         ;
+; linenote.v                           ; yes             ; User Wizard-Generated File             ; C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/linenote.v                           ;         ;
+; newscalestaff.v                      ; yes             ; User Wizard-Generated File             ; C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/newscalestaff.v                      ;         ;
+; linesharpnote.v                      ; yes             ; User Wizard-Generated File             ; C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/linesharpnote.v                      ;         ;
+; newspacenote.v                       ; yes             ; User Wizard-Generated File             ; C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/newspacenote.v                       ;         ;
+; spacesharpnote.v                     ; yes             ; User Wizard-Generated File             ; C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/spacesharpnote.v                     ;         ;
+; altsyncram.tdf                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altsyncram.tdf                                ;         ;
+; stratix_ram_block.inc                ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/stratix_ram_block.inc                         ;         ;
+; lpm_mux.inc                          ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/lpm_mux.inc                                   ;         ;
+; lpm_decode.inc                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/lpm_decode.inc                                ;         ;
+; aglobal180.inc                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/aglobal180.inc                                ;         ;
+; a_rdenreg.inc                        ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/a_rdenreg.inc                                 ;         ;
+; altrom.inc                           ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altrom.inc                                    ;         ;
+; altram.inc                           ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altram.inc                                    ;         ;
+; altdpram.inc                         ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altdpram.inc                                  ;         ;
+; db/altsyncram_m6m1.tdf               ; yes             ; Auto-Generated Megafunction            ; C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_m6m1.tdf               ;         ;
+; black.mif                            ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/black.mif                            ;         ;
+; db/decode_7la.tdf                    ; yes             ; Auto-Generated Megafunction            ; C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/decode_7la.tdf                    ;         ;
+; db/decode_01a.tdf                    ; yes             ; Auto-Generated Megafunction            ; C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/decode_01a.tdf                    ;         ;
+; db/mux_ifb.tdf                       ; yes             ; Auto-Generated Megafunction            ; C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/mux_ifb.tdf                       ;         ;
+; altpll.tdf                           ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altpll.tdf                                    ;         ;
+; stratix_pll.inc                      ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/stratix_pll.inc                               ;         ;
+; stratixii_pll.inc                    ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/stratixii_pll.inc                             ;         ;
+; cycloneii_pll.inc                    ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/cycloneii_pll.inc                             ;         ;
+; db/altpll_80u.tdf                    ; yes             ; Auto-Generated Megafunction            ; C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altpll_80u.tdf                    ;         ;
+; db/altsyncram_1pm1.tdf               ; yes             ; Auto-Generated Megafunction            ; C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_1pm1.tdf               ;         ;
+; linenote.mif                         ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/linenote.mif                         ;         ;
+; db/altsyncram_m2p1.tdf               ; yes             ; Auto-Generated Megafunction            ; C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_m2p1.tdf               ;         ;
+; ../ImageMIFs/spacenote.mif           ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/ImageMIFs/spacenote.mif              ;         ;
+; db/altsyncram_6fo1.tdf               ; yes             ; Auto-Generated Megafunction            ; C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_6fo1.tdf               ;         ;
+; ../ImageMIFs/linesharpnote.mif       ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/ImageMIFs/linesharpnote.mif          ;         ;
+; db/altsyncram_njp1.tdf               ; yes             ; Auto-Generated Megafunction            ; C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_njp1.tdf               ;         ;
+; imagemifs/spacesharpnote.mif         ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/imagemifs/spacesharpnote.mif         ;         ;
+; db/altsyncram_fco1.tdf               ; yes             ; Auto-Generated Megafunction            ; C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_fco1.tdf               ;         ;
+; scalestaff.mif                       ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/scalestaff.mif                       ;         ;
++--------------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------------------------------+---------+
 
 
 +--------------------------------------------------------------+
@@ -1598,7 +1599,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:02     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -1608,49 +1609,49 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-    Info: Processing started: Sun Nov 25 04:15:30 2018
+    Info: Processing started: Sun Nov 25 16:14:00 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off VPAtest -c VPAtest
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter/vga_pll.v
-    Info (12023): Found entity 1: vga_pll File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_pll.v Line: 36
+    Info (12023): Found entity 1: vga_pll File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_pll.v Line: 36
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter/vga_controller.v
-    Info (12023): Found entity 1: vga_controller File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_controller.v Line: 9
+    Info (12023): Found entity 1: vga_controller File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_controller.v Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter/vga_address_translator.v
-    Info (12023): Found entity 1: vga_address_translator File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_address_translator.v Line: 4
+    Info (12023): Found entity 1: vga_address_translator File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_address_translator.v Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter/vga_adapter.v
-    Info (12023): Found entity 1: vga_adapter File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_adapter.v Line: 78
-Warning (10090): Verilog HDL syntax warning at VPAtest.v(98): extra block comment delimiter characters /* within block comment File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 98
-Warning (10090): Verilog HDL syntax warning at VPAtest.v(125): extra block comment delimiter characters /* within block comment File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 125
-Warning (10090): Verilog HDL syntax warning at VPAtest.v(151): extra block comment delimiter characters /* within block comment File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 151
-Warning (10090): Verilog HDL syntax warning at VPAtest.v(178): extra block comment delimiter characters /* within block comment File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 178
-Warning (10090): Verilog HDL syntax warning at VPAtest.v(209): extra block comment delimiter characters /* within block comment File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 209
+    Info (12023): Found entity 1: vga_adapter File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_adapter.v Line: 78
+Warning (10090): Verilog HDL syntax warning at VPAtest.v(92): extra block comment delimiter characters /* within block comment File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 92
+Warning (10090): Verilog HDL syntax warning at VPAtest.v(119): extra block comment delimiter characters /* within block comment File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 119
+Warning (10090): Verilog HDL syntax warning at VPAtest.v(145): extra block comment delimiter characters /* within block comment File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 145
+Warning (10090): Verilog HDL syntax warning at VPAtest.v(172): extra block comment delimiter characters /* within block comment File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 172
+Warning (10090): Verilog HDL syntax warning at VPAtest.v(203): extra block comment delimiter characters /* within block comment File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 203
 Info (12021): Found 4 design units, including 4 entities, in source file vpatest.v
-    Info (12023): Found entity 1: VGAtest File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 3
-    Info (12023): Found entity 2: outlet File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 272
-    Info (12023): Found entity 3: BGoutlet File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 325
-    Info (12023): Found entity 4: vga_RateDivider File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 377
+    Info (12023): Found entity 1: VGAtest File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 3
+    Info (12023): Found entity 2: outlet File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 266
+    Info (12023): Found entity 3: BGoutlet File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 319
+    Info (12023): Found entity 4: vga_RateDivider File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 371
 Info (12021): Found 1 design units, including 1 entities, in source file scalestaff.v
-    Info (12023): Found entity 1: scalestaff File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/scalestaff.v Line: 39
+    Info (12023): Found entity 1: scalestaff File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/scalestaff.v Line: 39
 Info (12021): Found 1 design units, including 1 entities, in source file spacenote.v
-    Info (12023): Found entity 1: spacenote File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/spacenote.v Line: 39
+    Info (12023): Found entity 1: spacenote File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/spacenote.v Line: 39
 Info (12021): Found 1 design units, including 1 entities, in source file linenote.v
-    Info (12023): Found entity 1: linenote File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/linenote.v Line: 39
+    Info (12023): Found entity 1: linenote File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/linenote.v Line: 39
 Info (12021): Found 1 design units, including 1 entities, in source file newscalestaff.v
-    Info (12023): Found entity 1: newscalestaff File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/newscalestaff.v Line: 39
+    Info (12023): Found entity 1: newscalestaff File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/newscalestaff.v Line: 39
 Info (12021): Found 1 design units, including 1 entities, in source file linesharpnote.v
-    Info (12023): Found entity 1: linesharpnote File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/linesharpnote.v Line: 39
+    Info (12023): Found entity 1: linesharpnote File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/linesharpnote.v Line: 39
 Info (12021): Found 1 design units, including 1 entities, in source file newspacenote.v
-    Info (12023): Found entity 1: newspacenote File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/newspacenote.v Line: 39
+    Info (12023): Found entity 1: newspacenote File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/newspacenote.v Line: 39
 Info (12021): Found 1 design units, including 1 entities, in source file spacesharpnote.v
-    Info (12023): Found entity 1: spacesharpnote File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/spacesharpnote.v Line: 39
+    Info (12023): Found entity 1: spacesharpnote File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/spacesharpnote.v Line: 39
 Info (12127): Elaborating entity "VGAtest" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at VPAtest.v(263): truncated value with size 32 to match size of target (1) File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 263
-Info (12128): Elaborating entity "vga_adapter" for hierarchy "vga_adapter:VGA" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 60
-Info (12128): Elaborating entity "vga_address_translator" for hierarchy "vga_adapter:VGA|vga_address_translator:user_input_translator" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_adapter.v Line: 192
-Info (12128): Elaborating entity "altsyncram" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_adapter.v Line: 213
-Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|altsyncram:VideoMemory" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_adapter.v Line: 213
-Info (12133): Instantiated megafunction "vga_adapter:VGA|altsyncram:VideoMemory" with the following parameter: File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_adapter.v Line: 213
+Warning (10230): Verilog HDL assignment warning at VPAtest.v(257): truncated value with size 32 to match size of target (1) File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 257
+Info (12128): Elaborating entity "vga_adapter" for hierarchy "vga_adapter:VGA" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 60
+Info (12128): Elaborating entity "vga_address_translator" for hierarchy "vga_adapter:VGA|vga_address_translator:user_input_translator" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_adapter.v Line: 192
+Info (12128): Elaborating entity "altsyncram" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_adapter.v Line: 213
+Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|altsyncram:VideoMemory" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_adapter.v Line: 213
+Info (12133): Instantiated megafunction "vga_adapter:VGA|altsyncram:VideoMemory" with the following parameter: File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_adapter.v Line: 213
     Info (12134): Parameter "WIDTH_A" = "3"
     Info (12134): Parameter "WIDTH_B" = "3"
     Info (12134): Parameter "INTENDED_DEVICE_FAMILY" = "Cyclone II"
@@ -1667,21 +1668,21 @@ Info (12133): Instantiated megafunction "vga_adapter:VGA|altsyncram:VideoMemory"
     Info (12134): Parameter "POWER_UP_UNINITIALIZED" = "FALSE"
     Info (12134): Parameter "INIT_FILE" = "black.mif"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_m6m1.tdf
-    Info (12023): Found entity 1: altsyncram_m6m1 File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_m6m1.tdf Line: 33
+    Info (12023): Found entity 1: altsyncram_m6m1 File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_m6m1.tdf Line: 33
 Info (12128): Elaborating entity "altsyncram_m6m1" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated" File: c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_7la.tdf
-    Info (12023): Found entity 1: decode_7la File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/decode_7la.tdf Line: 22
-Info (12128): Elaborating entity "decode_7la" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|decode_7la:decode2" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_m6m1.tdf Line: 46
+    Info (12023): Found entity 1: decode_7la File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/decode_7la.tdf Line: 22
+Info (12128): Elaborating entity "decode_7la" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|decode_7la:decode2" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_m6m1.tdf Line: 46
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_01a.tdf
-    Info (12023): Found entity 1: decode_01a File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/decode_01a.tdf Line: 22
-Info (12128): Elaborating entity "decode_01a" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|decode_01a:rden_decode_b" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_m6m1.tdf Line: 47
+    Info (12023): Found entity 1: decode_01a File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/decode_01a.tdf Line: 22
+Info (12128): Elaborating entity "decode_01a" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|decode_01a:rden_decode_b" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_m6m1.tdf Line: 47
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_ifb.tdf
-    Info (12023): Found entity 1: mux_ifb File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/mux_ifb.tdf Line: 22
-Info (12128): Elaborating entity "mux_ifb" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|mux_ifb:mux3" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_m6m1.tdf Line: 49
-Info (12128): Elaborating entity "vga_pll" for hierarchy "vga_adapter:VGA|vga_pll:mypll" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_adapter.v Line: 231
-Info (12128): Elaborating entity "altpll" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_pll.v Line: 53
-Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_pll.v Line: 53
-Info (12133): Instantiated megafunction "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" with the following parameter: File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_pll.v Line: 53
+    Info (12023): Found entity 1: mux_ifb File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/mux_ifb.tdf Line: 22
+Info (12128): Elaborating entity "mux_ifb" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|mux_ifb:mux3" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_m6m1.tdf Line: 49
+Info (12128): Elaborating entity "vga_pll" for hierarchy "vga_adapter:VGA|vga_pll:mypll" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_adapter.v Line: 231
+Info (12128): Elaborating entity "altpll" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_pll.v Line: 53
+Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_pll.v Line: 53
+Info (12133): Instantiated megafunction "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" with the following parameter: File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_pll.v Line: 53
     Info (12134): Parameter "operation_mode" = "NORMAL"
     Info (12134): Parameter "intended_device_family" = "Cyclone II"
     Info (12134): Parameter "lpm_type" = "altpll"
@@ -1694,13 +1695,13 @@ Info (12133): Instantiated megafunction "vga_adapter:VGA|vga_pll:mypll|altpll:al
     Info (12134): Parameter "clk0_multiply_by" = "1"
     Info (12134): Parameter "clk0_duty_cycle" = "50"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altpll_80u.tdf
-    Info (12023): Found entity 1: altpll_80u File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altpll_80u.tdf Line: 25
+    Info (12023): Found entity 1: altpll_80u File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altpll_80u.tdf Line: 25
 Info (12128): Elaborating entity "altpll_80u" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated" File: c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altpll.tdf Line: 897
-Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_adapter:VGA|vga_controller:controller" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_adapter.v Line: 262
-Info (12128): Elaborating entity "linenote" for hierarchy "linenote:g" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 107
-Info (12128): Elaborating entity "altsyncram" for hierarchy "linenote:g|altsyncram:altsyncram_component" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/linenote.v Line: 85
-Info (12130): Elaborated megafunction instantiation "linenote:g|altsyncram:altsyncram_component" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/linenote.v Line: 85
-Info (12133): Instantiated megafunction "linenote:g|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/linenote.v Line: 85
+Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_adapter:VGA|vga_controller:controller" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_adapter.v Line: 262
+Info (12128): Elaborating entity "linenote" for hierarchy "linenote:g" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 101
+Info (12128): Elaborating entity "altsyncram" for hierarchy "linenote:g|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/linenote.v Line: 85
+Info (12130): Elaborated megafunction instantiation "linenote:g|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/linenote.v Line: 85
+Info (12133): Instantiated megafunction "linenote:g|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/linenote.v Line: 85
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
     Info (12134): Parameter "init_file" = "linenote.mif"
@@ -1717,14 +1718,14 @@ Info (12133): Instantiated megafunction "linenote:g|altsyncram:altsyncram_compon
     Info (12134): Parameter "width_a" = "3"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_1pm1.tdf
-    Info (12023): Found entity 1: altsyncram_1pm1 File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_1pm1.tdf Line: 27
+    Info (12023): Found entity 1: altsyncram_1pm1 File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_1pm1.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_1pm1" for hierarchy "linenote:g|altsyncram:altsyncram_component|altsyncram_1pm1:auto_generated" File: c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "outlet" for hierarchy "outlet:g0" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 120
-Warning (10230): Verilog HDL assignment warning at VPAtest.v(320): truncated value with size 32 to match size of target (8) File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 320
-Info (12128): Elaborating entity "newspacenote" for hierarchy "newspacenote:a" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 134
-Info (12128): Elaborating entity "altsyncram" for hierarchy "newspacenote:a|altsyncram:altsyncram_component" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/newspacenote.v Line: 85
-Info (12130): Elaborated megafunction instantiation "newspacenote:a|altsyncram:altsyncram_component" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/newspacenote.v Line: 85
-Info (12133): Instantiated megafunction "newspacenote:a|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/newspacenote.v Line: 85
+Info (12128): Elaborating entity "outlet" for hierarchy "outlet:g0" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 114
+Warning (10230): Verilog HDL assignment warning at VPAtest.v(314): truncated value with size 32 to match size of target (8) File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 314
+Info (12128): Elaborating entity "newspacenote" for hierarchy "newspacenote:a" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 128
+Info (12128): Elaborating entity "altsyncram" for hierarchy "newspacenote:a|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/newspacenote.v Line: 85
+Info (12130): Elaborated megafunction instantiation "newspacenote:a|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/newspacenote.v Line: 85
+Info (12133): Instantiated megafunction "newspacenote:a|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/newspacenote.v Line: 85
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
     Info (12134): Parameter "init_file" = "../ImageMIFs/spacenote.mif"
@@ -1741,12 +1742,12 @@ Info (12133): Instantiated megafunction "newspacenote:a|altsyncram:altsyncram_co
     Info (12134): Parameter "width_a" = "3"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_m2p1.tdf
-    Info (12023): Found entity 1: altsyncram_m2p1 File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_m2p1.tdf Line: 27
+    Info (12023): Found entity 1: altsyncram_m2p1 File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_m2p1.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_m2p1" for hierarchy "newspacenote:a|altsyncram:altsyncram_component|altsyncram_m2p1:auto_generated" File: c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "linesharpnote" for hierarchy "linesharpnote:gs" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 160
-Info (12128): Elaborating entity "altsyncram" for hierarchy "linesharpnote:gs|altsyncram:altsyncram_component" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/linesharpnote.v Line: 85
-Info (12130): Elaborated megafunction instantiation "linesharpnote:gs|altsyncram:altsyncram_component" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/linesharpnote.v Line: 85
-Info (12133): Instantiated megafunction "linesharpnote:gs|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/linesharpnote.v Line: 85
+Info (12128): Elaborating entity "linesharpnote" for hierarchy "linesharpnote:gs" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 154
+Info (12128): Elaborating entity "altsyncram" for hierarchy "linesharpnote:gs|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/linesharpnote.v Line: 85
+Info (12130): Elaborated megafunction instantiation "linesharpnote:gs|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/linesharpnote.v Line: 85
+Info (12133): Instantiated megafunction "linesharpnote:gs|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/linesharpnote.v Line: 85
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
     Info (12134): Parameter "init_file" = "../ImageMIFs/linesharpnote.mif"
@@ -1763,12 +1764,12 @@ Info (12133): Instantiated megafunction "linesharpnote:gs|altsyncram:altsyncram_
     Info (12134): Parameter "width_a" = "3"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_6fo1.tdf
-    Info (12023): Found entity 1: altsyncram_6fo1 File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_6fo1.tdf Line: 27
+    Info (12023): Found entity 1: altsyncram_6fo1 File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_6fo1.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_6fo1" for hierarchy "linesharpnote:gs|altsyncram:altsyncram_component|altsyncram_6fo1:auto_generated" File: c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "spacesharpnote" for hierarchy "spacesharpnote:as" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 187
-Info (12128): Elaborating entity "altsyncram" for hierarchy "spacesharpnote:as|altsyncram:altsyncram_component" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/spacesharpnote.v Line: 85
-Info (12130): Elaborated megafunction instantiation "spacesharpnote:as|altsyncram:altsyncram_component" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/spacesharpnote.v Line: 85
-Info (12133): Instantiated megafunction "spacesharpnote:as|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/spacesharpnote.v Line: 85
+Info (12128): Elaborating entity "spacesharpnote" for hierarchy "spacesharpnote:as" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 181
+Info (12128): Elaborating entity "altsyncram" for hierarchy "spacesharpnote:as|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/spacesharpnote.v Line: 85
+Info (12130): Elaborated megafunction instantiation "spacesharpnote:as|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/spacesharpnote.v Line: 85
+Info (12133): Instantiated megafunction "spacesharpnote:as|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/spacesharpnote.v Line: 85
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
     Info (12134): Parameter "init_file" = "./ImageMIFs/spacesharpnote.mif"
@@ -1785,12 +1786,12 @@ Info (12133): Instantiated megafunction "spacesharpnote:as|altsyncram:altsyncram
     Info (12134): Parameter "width_a" = "3"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_njp1.tdf
-    Info (12023): Found entity 1: altsyncram_njp1 File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_njp1.tdf Line: 27
+    Info (12023): Found entity 1: altsyncram_njp1 File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_njp1.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_njp1" for hierarchy "spacesharpnote:as|altsyncram:altsyncram_component|altsyncram_njp1:auto_generated" File: c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "newscalestaff" for hierarchy "newscalestaff:n0" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 217
-Info (12128): Elaborating entity "altsyncram" for hierarchy "newscalestaff:n0|altsyncram:altsyncram_component" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/newscalestaff.v Line: 85
-Info (12130): Elaborated megafunction instantiation "newscalestaff:n0|altsyncram:altsyncram_component" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/newscalestaff.v Line: 85
-Info (12133): Instantiated megafunction "newscalestaff:n0|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/newscalestaff.v Line: 85
+Info (12128): Elaborating entity "newscalestaff" for hierarchy "newscalestaff:n0" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 211
+Info (12128): Elaborating entity "altsyncram" for hierarchy "newscalestaff:n0|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/newscalestaff.v Line: 85
+Info (12130): Elaborated megafunction instantiation "newscalestaff:n0|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/newscalestaff.v Line: 85
+Info (12133): Instantiated megafunction "newscalestaff:n0|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/newscalestaff.v Line: 85
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
     Info (12134): Parameter "init_file" = "../scalestaff.mif"
@@ -1807,25 +1808,25 @@ Info (12133): Instantiated megafunction "newscalestaff:n0|altsyncram:altsyncram_
     Info (12134): Parameter "width_a" = "3"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_fco1.tdf
-    Info (12023): Found entity 1: altsyncram_fco1 File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_fco1.tdf Line: 33
+    Info (12023): Found entity 1: altsyncram_fco1 File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_fco1.tdf Line: 33
 Info (12128): Elaborating entity "altsyncram_fco1" for hierarchy "newscalestaff:n0|altsyncram:altsyncram_component|altsyncram_fco1:auto_generated" File: c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "BGoutlet" for hierarchy "BGoutlet:sc1" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 230
-Warning (10230): Verilog HDL assignment warning at VPAtest.v(373): truncated value with size 32 to match size of target (15) File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 373
-Info (12128): Elaborating entity "vga_RateDivider" for hierarchy "vga_RateDivider:vrd0" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 268
-Warning (10230): Verilog HDL assignment warning at VPAtest.v(389): truncated value with size 32 to match size of target (9) File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 389
+Info (12128): Elaborating entity "BGoutlet" for hierarchy "BGoutlet:sc1" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 224
+Warning (10230): Verilog HDL assignment warning at VPAtest.v(367): truncated value with size 32 to match size of target (15) File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 367
+Info (12128): Elaborating entity "vga_RateDivider" for hierarchy "vga_RateDivider:vrd0" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 262
+Warning (10230): Verilog HDL assignment warning at VPAtest.v(383): truncated value with size 32 to match size of target (9) File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 383
 Warning (14284): Synthesized away the following node(s):
     Warning (14285): Synthesized away the following RAM node(s):
-        Warning (14320): Synthesized away node "spacesharpnote:as|altsyncram:altsyncram_component|altsyncram_njp1:auto_generated|q_a[0]" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_njp1.tdf Line: 36
-        Warning (14320): Synthesized away node "spacesharpnote:as|altsyncram:altsyncram_component|altsyncram_njp1:auto_generated|q_a[1]" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_njp1.tdf Line: 61
-        Warning (14320): Synthesized away node "spacesharpnote:as|altsyncram:altsyncram_component|altsyncram_njp1:auto_generated|q_a[2]" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_njp1.tdf Line: 86
+        Warning (14320): Synthesized away node "spacesharpnote:as|altsyncram:altsyncram_component|altsyncram_njp1:auto_generated|q_a[0]" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_njp1.tdf Line: 36
+        Warning (14320): Synthesized away node "spacesharpnote:as|altsyncram:altsyncram_component|altsyncram_njp1:auto_generated|q_a[1]" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_njp1.tdf Line: 61
+        Warning (14320): Synthesized away node "spacesharpnote:as|altsyncram:altsyncram_component|altsyncram_njp1:auto_generated|q_a[2]" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_njp1.tdf Line: 86
 Warning (12241): 8 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 27
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 27
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 15 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 5 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Warning: RST port on the PLL is not properly connected on instance vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated|generic_pll1. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altpll_80u.tdf Line: 33
+Warning: RST port on the PLL is not properly connected on instance vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated|generic_pll1. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altpll_80u.tdf Line: 33
     Info: Must be connected
 Info (21057): Implemented 361 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
@@ -1835,9 +1836,9 @@ Info (21057): Implemented 361 device resources after synthesis - the final resou
     Info (21065): Implemented 1 PLLs
     Info (21062): Implemented 5 DSP elements
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 19 warnings
-    Info: Peak virtual memory: 4875 megabytes
-    Info: Processing ended: Sun Nov 25 04:16:07 2018
-    Info: Elapsed time: 00:00:37
-    Info: Total CPU time (on all processors): 00:01:07
+    Info: Peak virtual memory: 4878 megabytes
+    Info: Processing ended: Sun Nov 25 16:14:15 2018
+    Info: Elapsed time: 00:00:15
+    Info: Total CPU time (on all processors): 00:00:30
 
 
