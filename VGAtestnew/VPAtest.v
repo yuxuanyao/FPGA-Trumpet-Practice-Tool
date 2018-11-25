@@ -46,8 +46,8 @@ module VGAtest
 			.resetn(~resetn),
 			.clock(CLOCK_50),
 			.colour(colour),
-			.x(x + 7'd34),
-			.y(y + 7'd99),
+			.x(x ),
+			.y(y),
 			.plot(writeEn),
 			/* Signals for the DAC to drive the monitor. */
 			.VGA_R(VGA_R),
@@ -61,91 +61,86 @@ module VGAtest
 		defparam VGA.RESOLUTION = "160x120";
 		defparam VGA.MONOCHROME = "FALSE";
 		defparam VGA.BITS_PER_COLOUR_CHANNEL = 1;
-		defparam VGA.BACKGROUND_IMAGE = "scalestaff.mif";
+		defparam VGA.BACKGROUND_IMAGE = "black.mif";
 			
 	// Put your code here. Your code should produce signals x,y,colour and writeEn
 	// for the VGA controller, in addition to any other functionality your design may require.
 	reg note; 
 	reg scalestaff;
 	reg writeEnable; 
-	reg [7:0] x_counter;
-	reg [6:0] y_counter;
-
 	
-	wire [5:0] address;
-	reg [5:0] address_count;
-	wire x_counter_clear;
-	wire y_counter_clear;
+	wire [5:0] noteaddress;
+	wire [15:0] scaleaddress;
+	
+	wire [2:0] noteColour;
+	wire [2:0] scaleColour;
 	
 	linenote s0(
-	.address(address),
+	.address(noteaddress),
+	.clock(CLOCK_50),
+	.data(),
+	.wren(0),
+	.q(noteColour));
+	
+	newscalestaff n0(
+	.address(scaleaddress),
 	.clock(CLOCK_50),
 	.data(),
 	.wren(0),
 	.q(colour));
 	
-//always@(posedge CLOCK_50)begin
-//	if(~KEY[3])
-//		writeEnable <= 1;
-//	else
-//		writeEnable <= 0;
-//end	
-
-
-//always@(posedge CLOCK_50) begin
-//	if(resetn) begin
-//		x_counter <= 0;
-//		y_counter <= 0;
-//		address_count <= 0;
-//	end
-//	
-//	if(address_count == 14'd47) begin
-//		address_count <= 0;
-//	end
-//	else
-//		address_count <= address_count + 1;
-		
-//		
-//	if(x_counter_clear) begin
-//		x_counter <= 0;
-//		y_counter <= y_counter + 1;
-//	end
-//	else if(x_counter_clear && y_counter_clear) begin
-//		x_counter <= 0;
-//		y_counter <= 0;
-//	end
-//	else begin
-//		x_counter <= x_counter + 1;
-//	end
-//	
-//	address_count <= x_counter + y_counter *8;
-//	
-//end
-
-outlet o1 (.clock(vEnable), .resetn(resetn), .x(x), .y(y), .wren(writeEn), .address(address));
-
-
-
-//assign x_counter_clear = (x_counter == 8'd7);
-//assign y_counter_clear = (y_counter == 7'd5);
-//assign writeEn = address <= 47;//writeEnable;
-//assign address = address_count;
-//assign x = x_counter;
-//assign y = y_counter;
 	
-	wire vEnable;
-	wire [8:0]vRDiv;
-	assign vEnable = (vRDiv == 9'b000000000)?1:0;
+wire [7:0] xnote;
+wire [6:0] ynote;
+wire [7:0] xstaff;
+wire [6:0] ystaff;
+
+//outlet o1 (
+//	.clock(vEnable), 
+//	.resetn(resetn), 
+//	.xin(7'd34),
+//	.yin(7'd99),
+//	.width(8'd9),
+//	.height(7'd5),
+//	.x(xnote), 
+//	.y(ynote), 
+//	.wren(writeEn), 
+//	.address(noteaddress)
+//);
+
+outlet o2 (
+	.clock(vEnable), 
+	.resetn(resetn), 
+	.xin(0),
+	.yin(0),
+	.width(8'd159),
+	.height(7'd119),
+	.x(x), 
+	.y(y), 
+	.wren(writeEn), 
+	.address(scaleaddress)
+);
+
+
+
 	
-	vga_RateDivider vrd0 (
-		.Clock(CLOCK_50),
-		.q(vRDiv)
-		);
+wire vEnable;
+wire [8:0]vRDiv;
+assign vEnable = (vRDiv == 9'b000000000)?1:0;
+	
+vga_RateDivider vrd0 (
+	.Clock(CLOCK_50),
+	.q(vRDiv)
+);
 	
 endmodule
 
-module outlet(clock, resetn, x, y, wren, address);
+module outlet(clock, resetn, xin, yin, width, height, x, y, wren, address);
 	input clock, resetn;
+	input [7:0] xin;
+	input [6:0] yin;
+	input [7:0] width;
+	input [6:0] height;
 	output [7:0] x;
 	output [6:0] y;
 	output [5:0] address;
@@ -171,7 +166,7 @@ module outlet(clock, resetn, x, y, wren, address);
 		end
 	end
 	
-	assign xCounter_clear = (xCounter == (8'd9));
+	assign xCounter_clear = (xCounter == (width));
 
 
 	always @(posedge clock)
@@ -184,12 +179,12 @@ module outlet(clock, resetn, x, y, wren, address);
 			yCounter <= yCounter + 1'b1;
 	end
 	
-	assign yCounter_clear = (yCounter == (7'd5)); 
+	assign yCounter_clear = (yCounter == (height)); 
 	
-	assign x = xCounter;
-	assign y = yCounter;
-	assign address = (x + (y*10));
-	assign wren = (address <= 59);
+	assign x = xCounter + xin;
+	assign y = yCounter + yin;
+	assign address = (xCounter + (yCounter*(width + 1)));
+	assign wren = (address <= (((height + 1)*(width + 1)) -1));
 endmodule
 	
 	
