@@ -69,117 +69,135 @@ module VGAtest
 	reg scalestaff;
 	reg writeEnable; 
 	
+	reg [7:0] xselect;
+	reg [6:0] yselect;
+	reg [2:0] colourselect;
+	
 	wire [5:0] noteaddress;
+	
+	wire [7:0] gx;
+	wire [6:0] gy;
+	wire [7:0] gsx;
+	wire [6:0] gsy;
+	wire [7:0] ax;
+	wire [6:0] ay;
+	wire [7:0] asx;
+	wire [6:0] asy;
+	wire [7:0] scalex;
+	wire [6:0] scaley;
 
 	
-	wire [2:0] noteColour;
-	wire [2:0] scaleColour;
-	
+	wire [2:0] gcolour;
+	wire [2:0] gscolour;
+	wire [2:0] acolour;
+	wire [2:0] ascolour;
+	wire [2:0] scalecolour;
+
 /******************************************************************************/
 /*				G works														
 /******************************************************************************/
 	
-//wire [6:0] gaddress;
+wire [6:0] gaddress;
 
-//	linenote s0(
-//	.address(gaddress),
-//	.clock(CLOCK_50),
-//	.data(),
-//	.wren(0),
-//	.q(colour));
+	linenote g(
+	.address(gaddress),
+	.clock(CLOCK_50),
+	.data(),
+	.wren(0),
+	.q(gcolour));
 	
-//outlet g (
-//	.clock(vEnable), 
-//	.resetn(resetn), 
-//	.xin(8'd34),
-//	.yin(7'd99),
-//	.width(8'd9),
-//	.height(7'd5),
-//	.x(x), 
-//	.y(y), 
-//	.wren(writeEn), 
-//	.address(gaddress)
-//);
+outlet g0 (
+	.clock(vEnable), 
+	.resetn(resetn), 
+	.xin(8'd34),
+	.yin(7'd99),
+	.width(8'd9),
+	.height(7'd5),
+	.x(gx), 
+	.y(gy), 
+	.wren(), 
+	.address(gaddress)
+);
 
 
 /******************************************************************************/
 /*				A works																			
 /******************************************************************************/
 //
-//wire [6:0] aaddress;
-//
-//newspacenote s1(
-//	.address(aaddress),
-//	.clock(CLOCK_50),
-//	.data(),
-//	.wren(0),
-//	.q(colour));
-//
-//outlet a (
-//	.clock(vEnable), 
-//	.resetn(resetn), 
-//	.xin(8'd75),
-//	.yin(7'd95),
-//	.width(8'd7),
-//	.height(7'd5),
-//	.x(x), 
-//	.y(y), 
-//	.wren(writeEn), 
-//	.address(aaddress)
-//);
+wire [6:0] aaddress;
+
+newspacenote a(
+	.address(aaddress),
+	.clock(CLOCK_50),
+	.data(),
+	.wren(0),
+	.q(acolour));
+
+outlet a0 (
+	.clock(vEnable), 
+	.resetn(resetn), 
+	.xin(8'd75),
+	.yin(7'd95),
+	.width(8'd7),
+	.height(7'd5),
+	.x(ax), 
+	.y(ay), 
+	.wren(), 
+	.address(aaddress)
+);
 
 /******************************************************************************/
 /*				Gsharp 	works																			
 /******************************************************************************/
 
-//wire [7:0] gsaddress;
-//
-//linesharpnote s1(
-//	.address(gsaddress),
-//	.clock(CLOCK_50),
-//	.data(),
-//	.wren(0),
-//	.q(colour));
-//
-//outlet gs (
-//	.clock(vEnable), 
-//	.resetn(resetn), 
-//	.xin(8'd50),
-//	.yin(7'd95),
-//	.width(8'd14),
-//	.height(7'd12),
-//	.x(x), 
-//	.y(y), 
-//	.wren(writeEn), 
-//	.address(gsaddress)
-//);
+wire [7:0] gsaddress;
+
+linesharpnote gs(
+	.address(gsaddress),
+	.clock(CLOCK_50),
+	.data(),
+	.wren(0),
+	.q(gscolour));
+
+outlet gso (
+	.clock(vEnable), 
+	.resetn(resetn), 
+	.xin(8'd50),
+	.yin(7'd95),
+	.width(8'd14),
+	.height(7'd12),
+	.x(gsx), 
+	.y(gsy), 
+	.wren(), 
+	.address(gsaddress)
+);
 
 
 /******************************************************************************/
 /*				Asharp works																			
 /******************************************************************************/
 
-//wire [7:0] asaddress;
-//
-//spacesharpnote s1(
-//	.address(asaddress),
-//	.clock(CLOCK_50),
-//	.data(),
-//	.wren(0),
-//	.q(colour));
-//
-//outlet as (
-//	.clock(vEnable), 
-//	.resetn(resetn), 
-//	.xin(8'd93),
-//	.yin(7'd91),
-//	.width(8'd13),
-//	.height(7'd12),
-//	.x(x), 
-//	.y(y), 
-//	.wren(writeEn), 
-//	.address(asaddress)
-//);
+wire [7:0] asaddress;
+
+spacesharpnote as(
+	.address(asaddress),
+	.clock(CLOCK_50),
+	.data(),
+	.wren(0),
+	.q(ascolour));
+
+outlet as0 (
+	.clock(vEnable), 
+	.resetn(resetn), 
+	.xin(8'd93),
+	.yin(7'd91),
+	.width(8'd13),
+	.height(7'd12),
+	.x(asx), 
+	.y(asy), 
+	.wren(), 
+	.address(asaddress)
+);
 
 
 
@@ -196,7 +214,7 @@ newscalestaff n0(
 	.clock(CLOCK_50),
 	.data(),
 	.wren(0),
-	.q(colour));
+	.q(scalecolour));
 
 BGoutlet sc1 (
 	.clock(CLOCK_50), 
@@ -205,15 +223,41 @@ BGoutlet sc1 (
 	.yin(0),
 	.width(159),
 	.height(119),
-	.x(x), 
-	.y(y), 
+	.x(scalex), 
+	.y(scaley), 
 	.wren(writeEn), 
 	.address(scaleaddress)
 );
 
 
+always@(posedge CLOCK_50)begin
+	if(~KEY[3]) begin
+		xselect <= gx;
+		yselect <= gy;
+		colourselect <= gcolour;
+	end
+	else if(~KEY[2]) begin
+		xselect <= gsx;
+		yselect <= gsy;
+		colourselect <= gscolour;
+	end
+	else if(~KEY[1]) begin
+		xselect <= ax;
+		yselect <= ay;
+		colourselect <= acolour;
+	end
+	else begin
+		xselect <= scalex;
+		yselect <= scaley;
+		colourselect <= scalecolour;	
+	end
 
+end
 	
+assign x = xselect;	
+assign y = yselect;
+assign colour = colourselect;	
+
 wire vEnable;
 wire [8:0]vRDiv;
 assign vEnable = (vRDiv == 9'b000000000)?1:0;

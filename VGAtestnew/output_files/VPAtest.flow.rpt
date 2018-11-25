@@ -1,5 +1,5 @@
 Flow report for VPAtest
-Sun Nov 25 03:52:46 2018
+Sun Nov 25 04:19:17 2018
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -40,19 +40,19 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Sun Nov 25 03:52:22 2018       ;
+; Flow Status                     ; Successful - Sun Nov 25 04:18:53 2018       ;
 ; Quartus Prime Version           ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                   ; VPAtest                                     ;
 ; Top-level Entity Name           ; VGAtest                                     ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CSEMA5F31C6                                ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 82 / 32,070 ( < 1 % )                       ;
-; Total registers                 ; 60                                          ;
+; Logic utilization (in ALMs)     ; 177 / 32,070 ( < 1 % )                      ;
+; Total registers                 ; 126                                         ;
 ; Total pins                      ; 34 / 457 ( 7 % )                            ;
 ; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 115,200 / 4,065,280 ( 3 % )                 ;
-; Total DSP Blocks                ; 2 / 87 ( 2 % )                              ;
+; Total block memory bits         ; 116,109 / 4,065,280 ( 3 % )                 ;
+; Total DSP Blocks                ; 5 / 87 ( 6 % )                              ;
 ; Total HSSI RX PCSs              ; 0                                           ;
 ; Total HSSI PMA RX Deserializers ; 0                                           ;
 ; Total HSSI TX PCSs              ; 0                                           ;
@@ -67,7 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/25/2018 03:49:16 ;
+; Start date & time ; 11/25/2018 04:15:32 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; VPAtest             ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 75338034003877.154313575506580         ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 75338034003877.154313733108292         ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; MISC_FILE                           ; scalestaff_bb.v                        ; --            ; --          ; --         ;
@@ -103,11 +103,11 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:41     ; 1.0                     ; 4853 MB             ; 00:01:13                           ;
-; Fitter               ; 00:01:59     ; 1.0                     ; 6367 MB             ; 00:02:48                           ;
-; Assembler            ; 00:00:21     ; 1.0                     ; 4854 MB             ; 00:00:20                           ;
-; Timing Analyzer      ; 00:00:22     ; 1.1                     ; 5193 MB             ; 00:00:22                           ;
-; Total                ; 00:03:23     ; --                      ; --                  ; 00:04:43                           ;
+; Analysis & Synthesis ; 00:00:36     ; 1.0                     ; 4855 MB             ; 00:01:06                           ;
+; Fitter               ; 00:02:21     ; 1.0                     ; 6335 MB             ; 00:03:19                           ;
+; Assembler            ; 00:00:18     ; 1.0                     ; 4863 MB             ; 00:00:18                           ;
+; Timing Analyzer      ; 00:00:22     ; 1.2                     ; 5187 MB             ; 00:00:23                           ;
+; Total                ; 00:03:37     ; --                      ; --                  ; 00:05:06                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

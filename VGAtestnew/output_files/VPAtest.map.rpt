@@ -1,5 +1,5 @@
 Analysis & Synthesis report for VPAtest
-Sun Nov 25 03:49:56 2018
+Sun Nov 25 04:16:07 2018
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -16,26 +16,43 @@ Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
   8. Analysis & Synthesis RAM Summary
   9. Analysis & Synthesis DSP Block Usage Summary
  10. Analysis & Synthesis IP Cores Summary
- 11. General Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Source assignments for vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated
- 14. Source assignments for newscalestaff:n0|altsyncram:altsyncram_component|altsyncram_fco1:auto_generated
- 15. Parameter Settings for User Entity Instance: vga_adapter:VGA
- 16. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_address_translator:user_input_translator
- 17. Parameter Settings for User Entity Instance: vga_adapter:VGA|altsyncram:VideoMemory
- 18. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component
- 19. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller
- 20. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator
- 21. Parameter Settings for User Entity Instance: newscalestaff:n0|altsyncram:altsyncram_component
- 22. altsyncram Parameter Settings by Entity Instance
- 23. altpll Parameter Settings by Entity Instance
- 24. Port Connectivity Checks: "vga_RateDivider:vrd0"
- 25. Port Connectivity Checks: "BGoutlet:sc1"
- 26. Port Connectivity Checks: "newscalestaff:n0"
- 27. Port Connectivity Checks: "vga_adapter:VGA|vga_controller:controller"
- 28. Post-Synthesis Netlist Statistics for Top Partition
- 29. Elapsed Time Per Partition
- 30. Analysis & Synthesis Messages
+ 11. Registers Removed During Synthesis
+ 12. Removed Registers Triggering Further Register Optimizations
+ 13. General Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Source assignments for vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated
+ 16. Source assignments for linenote:g|altsyncram:altsyncram_component|altsyncram_1pm1:auto_generated
+ 17. Source assignments for newspacenote:a|altsyncram:altsyncram_component|altsyncram_m2p1:auto_generated
+ 18. Source assignments for linesharpnote:gs|altsyncram:altsyncram_component|altsyncram_6fo1:auto_generated
+ 19. Source assignments for spacesharpnote:as|altsyncram:altsyncram_component|altsyncram_njp1:auto_generated
+ 20. Source assignments for newscalestaff:n0|altsyncram:altsyncram_component|altsyncram_fco1:auto_generated
+ 21. Parameter Settings for User Entity Instance: vga_adapter:VGA
+ 22. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_address_translator:user_input_translator
+ 23. Parameter Settings for User Entity Instance: vga_adapter:VGA|altsyncram:VideoMemory
+ 24. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component
+ 25. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller
+ 26. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator
+ 27. Parameter Settings for User Entity Instance: linenote:g|altsyncram:altsyncram_component
+ 28. Parameter Settings for User Entity Instance: newspacenote:a|altsyncram:altsyncram_component
+ 29. Parameter Settings for User Entity Instance: linesharpnote:gs|altsyncram:altsyncram_component
+ 30. Parameter Settings for User Entity Instance: spacesharpnote:as|altsyncram:altsyncram_component
+ 31. Parameter Settings for User Entity Instance: newscalestaff:n0|altsyncram:altsyncram_component
+ 32. altsyncram Parameter Settings by Entity Instance
+ 33. altpll Parameter Settings by Entity Instance
+ 34. Port Connectivity Checks: "BGoutlet:sc1"
+ 35. Port Connectivity Checks: "newscalestaff:n0"
+ 36. Port Connectivity Checks: "outlet:as0"
+ 37. Port Connectivity Checks: "spacesharpnote:as"
+ 38. Port Connectivity Checks: "outlet:gso"
+ 39. Port Connectivity Checks: "linesharpnote:gs"
+ 40. Port Connectivity Checks: "outlet:a0"
+ 41. Port Connectivity Checks: "newspacenote:a"
+ 42. Port Connectivity Checks: "outlet:g0"
+ 43. Port Connectivity Checks: "linenote:g"
+ 44. Port Connectivity Checks: "vga_adapter:VGA|vga_controller:controller"
+ 45. Post-Synthesis Netlist Statistics for Top Partition
+ 46. Elapsed Time Per Partition
+ 47. Analysis & Synthesis Messages
 
 
 
@@ -61,17 +78,17 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun Nov 25 03:49:56 2018       ;
+; Analysis & Synthesis Status     ; Successful - Sun Nov 25 04:16:07 2018       ;
 ; Quartus Prime Version           ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                   ; VPAtest                                     ;
 ; Top-level Entity Name           ; VGAtest                                     ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 49                                          ;
+; Total registers                 ; 121                                         ;
 ; Total pins                      ; 34                                          ;
 ; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 115,200                                     ;
-; Total DSP Blocks                ; 2                                           ;
+; Total block memory bits         ; 116,109                                     ;
+; Total DSP Blocks                ; 5                                           ;
 ; Total HSSI RX PCSs              ; 0                                           ;
 ; Total HSSI PMA RX Deserializers ; 0                                           ;
 ; Total HSSI TX PCSs              ; 0                                           ;
@@ -185,71 +202,83 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                      ;
-+--------------------------------------+-----------------+----------------------------------------+-------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path     ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                                    ; Library ;
-+--------------------------------------+-----------------+----------------------------------------+-------------------------------------------------------------------------------------------------+---------+
-; vga_adapter/vga_pll.v                ; yes             ; User Wizard-Generated File             ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_pll.v                ;         ;
-; vga_adapter/vga_controller.v         ; yes             ; User Verilog HDL File                  ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_controller.v         ;         ;
-; vga_adapter/vga_address_translator.v ; yes             ; User Verilog HDL File                  ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_address_translator.v ;         ;
-; vga_adapter/vga_adapter.v            ; yes             ; User Verilog HDL File                  ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_adapter.v            ;         ;
-; VPAtest.v                            ; yes             ; User Verilog HDL File                  ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v                            ;         ;
-; newscalestaff.v                      ; yes             ; User Wizard-Generated File             ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/newscalestaff.v                      ;         ;
-; altsyncram.tdf                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altsyncram.tdf                           ;         ;
-; stratix_ram_block.inc                ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/stratix_ram_block.inc                    ;         ;
-; lpm_mux.inc                          ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/lpm_mux.inc                              ;         ;
-; lpm_decode.inc                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/lpm_decode.inc                           ;         ;
-; aglobal180.inc                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/aglobal180.inc                           ;         ;
-; a_rdenreg.inc                        ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/a_rdenreg.inc                            ;         ;
-; altrom.inc                           ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altrom.inc                               ;         ;
-; altram.inc                           ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altram.inc                               ;         ;
-; altdpram.inc                         ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altdpram.inc                             ;         ;
-; db/altsyncram_m6m1.tdf               ; yes             ; Auto-Generated Megafunction            ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_m6m1.tdf               ;         ;
-; black.mif                            ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/black.mif                            ;         ;
-; db/decode_7la.tdf                    ; yes             ; Auto-Generated Megafunction            ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/decode_7la.tdf                    ;         ;
-; db/decode_01a.tdf                    ; yes             ; Auto-Generated Megafunction            ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/decode_01a.tdf                    ;         ;
-; db/mux_ifb.tdf                       ; yes             ; Auto-Generated Megafunction            ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/mux_ifb.tdf                       ;         ;
-; altpll.tdf                           ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altpll.tdf                               ;         ;
-; stratix_pll.inc                      ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/stratix_pll.inc                          ;         ;
-; stratixii_pll.inc                    ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/stratixii_pll.inc                        ;         ;
-; cycloneii_pll.inc                    ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/cycloneii_pll.inc                        ;         ;
-; db/altpll_80u.tdf                    ; yes             ; Auto-Generated Megafunction            ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altpll_80u.tdf                    ;         ;
-; db/altsyncram_fco1.tdf               ; yes             ; Auto-Generated Megafunction            ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_fco1.tdf               ;         ;
-; scalestaff.mif                       ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/scalestaff.mif                       ;         ;
-+--------------------------------------+-----------------+----------------------------------------+-------------------------------------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                           ;
++---------------------------------------------------------------------------+-----------------+----------------------------------------+-------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                                          ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                                    ; Library ;
++---------------------------------------------------------------------------+-----------------+----------------------------------------+-------------------------------------------------------------------------------------------------+---------+
+; vga_adapter/vga_pll.v                                                     ; yes             ; User Wizard-Generated File             ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_pll.v                ;         ;
+; vga_adapter/vga_controller.v                                              ; yes             ; User Verilog HDL File                  ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_controller.v         ;         ;
+; vga_adapter/vga_address_translator.v                                      ; yes             ; User Verilog HDL File                  ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_address_translator.v ;         ;
+; vga_adapter/vga_adapter.v                                                 ; yes             ; User Verilog HDL File                  ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_adapter.v            ;         ;
+; VPAtest.v                                                                 ; yes             ; User Verilog HDL File                  ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v                            ;         ;
+; linenote.v                                                                ; yes             ; User Wizard-Generated File             ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/linenote.v                           ;         ;
+; newscalestaff.v                                                           ; yes             ; User Wizard-Generated File             ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/newscalestaff.v                      ;         ;
+; linesharpnote.v                                                           ; yes             ; User Wizard-Generated File             ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/linesharpnote.v                      ;         ;
+; newspacenote.v                                                            ; yes             ; User Wizard-Generated File             ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/newspacenote.v                       ;         ;
+; spacesharpnote.v                                                          ; yes             ; User Wizard-Generated File             ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/spacesharpnote.v                     ;         ;
+; altsyncram.tdf                                                            ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altsyncram.tdf                           ;         ;
+; stratix_ram_block.inc                                                     ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/stratix_ram_block.inc                    ;         ;
+; lpm_mux.inc                                                               ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/lpm_mux.inc                              ;         ;
+; lpm_decode.inc                                                            ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/lpm_decode.inc                           ;         ;
+; aglobal180.inc                                                            ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/aglobal180.inc                           ;         ;
+; a_rdenreg.inc                                                             ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/a_rdenreg.inc                            ;         ;
+; altrom.inc                                                                ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altrom.inc                               ;         ;
+; altram.inc                                                                ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altram.inc                               ;         ;
+; altdpram.inc                                                              ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altdpram.inc                             ;         ;
+; db/altsyncram_m6m1.tdf                                                    ; yes             ; Auto-Generated Megafunction            ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_m6m1.tdf               ;         ;
+; black.mif                                                                 ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/black.mif                            ;         ;
+; db/decode_7la.tdf                                                         ; yes             ; Auto-Generated Megafunction            ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/decode_7la.tdf                    ;         ;
+; db/decode_01a.tdf                                                         ; yes             ; Auto-Generated Megafunction            ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/decode_01a.tdf                    ;         ;
+; db/mux_ifb.tdf                                                            ; yes             ; Auto-Generated Megafunction            ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/mux_ifb.tdf                       ;         ;
+; altpll.tdf                                                                ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altpll.tdf                               ;         ;
+; stratix_pll.inc                                                           ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/stratix_pll.inc                          ;         ;
+; stratixii_pll.inc                                                         ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/stratixii_pll.inc                        ;         ;
+; cycloneii_pll.inc                                                         ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/cycloneii_pll.inc                        ;         ;
+; db/altpll_80u.tdf                                                         ; yes             ; Auto-Generated Megafunction            ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altpll_80u.tdf                    ;         ;
+; db/altsyncram_1pm1.tdf                                                    ; yes             ; Auto-Generated Megafunction            ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_1pm1.tdf               ;         ;
+; linenote.mif                                                              ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/linenote.mif                         ;         ;
+; db/altsyncram_m2p1.tdf                                                    ; yes             ; Auto-Generated Megafunction            ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_m2p1.tdf               ;         ;
+; /users/yao/desktop/fpga-trumpet-practice-tool/imagemifs/spacenote.mif     ; yes             ; Auto-Found Memory Initialization File  ; /users/yao/desktop/fpga-trumpet-practice-tool/imagemifs/spacenote.mif                           ;         ;
+; db/altsyncram_6fo1.tdf                                                    ; yes             ; Auto-Generated Megafunction            ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_6fo1.tdf               ;         ;
+; /users/yao/desktop/fpga-trumpet-practice-tool/imagemifs/linesharpnote.mif ; yes             ; Auto-Found Memory Initialization File  ; /users/yao/desktop/fpga-trumpet-practice-tool/imagemifs/linesharpnote.mif                       ;         ;
+; db/altsyncram_njp1.tdf                                                    ; yes             ; Auto-Generated Megafunction            ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_njp1.tdf               ;         ;
+; imagemifs/spacesharpnote.mif                                              ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/imagemifs/spacesharpnote.mif         ;         ;
+; db/altsyncram_fco1.tdf                                                    ; yes             ; Auto-Generated Megafunction            ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_fco1.tdf               ;         ;
+; scalestaff.mif                                                            ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/scalestaff.mif                       ;         ;
++---------------------------------------------------------------------------+-----------------+----------------------------------------+-------------------------------------------------------------------------------------------------+---------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                                                                          ;
-+---------------------------------------------+----------------------------------------------------------------------------------------+
-; Resource                                    ; Usage                                                                                  ;
-+---------------------------------------------+----------------------------------------------------------------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 81                                                                                     ;
-;                                             ;                                                                                        ;
-; Combinational ALUT usage for logic          ; 137                                                                                    ;
-;     -- 7 input functions                    ; 0                                                                                      ;
-;     -- 6 input functions                    ; 23                                                                                     ;
-;     -- 5 input functions                    ; 15                                                                                     ;
-;     -- 4 input functions                    ; 8                                                                                      ;
-;     -- <=3 input functions                  ; 91                                                                                     ;
-;                                             ;                                                                                        ;
-; Dedicated logic registers                   ; 49                                                                                     ;
-;                                             ;                                                                                        ;
-; I/O pins                                    ; 34                                                                                     ;
-; Total MLAB memory bits                      ; 0                                                                                      ;
-; Total block memory bits                     ; 115200                                                                                 ;
-;                                             ;                                                                                        ;
-; Total DSP Blocks                            ; 2                                                                                      ;
-;                                             ;                                                                                        ;
-; Total PLLs                                  ; 1                                                                                      ;
-;     -- PLLs                                 ; 1                                                                                      ;
-;                                             ;                                                                                        ;
-; Maximum fan-out node                        ; vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated|clk[0] ;
-; Maximum fan-out                             ; 41                                                                                     ;
-; Total fan-out                               ; 960                                                                                    ;
-; Average fan-out                             ; 3.49                                                                                   ;
-+---------------------------------------------+----------------------------------------------------------------------------------------+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimate of Logic utilization (ALMs needed) ; 174            ;
+;                                             ;                ;
+; Combinational ALUT usage for logic          ; 283            ;
+;     -- 7 input functions                    ; 0              ;
+;     -- 6 input functions                    ; 63             ;
+;     -- 5 input functions                    ; 20             ;
+;     -- 4 input functions                    ; 6              ;
+;     -- <=3 input functions                  ; 194            ;
+;                                             ;                ;
+; Dedicated logic registers                   ; 121            ;
+;                                             ;                ;
+; I/O pins                                    ; 34             ;
+; Total MLAB memory bits                      ; 0              ;
+; Total block memory bits                     ; 116109         ;
+;                                             ;                ;
+; Total DSP Blocks                            ; 5              ;
+;                                             ;                ;
+; Total PLLs                                  ; 1              ;
+;     -- PLLs                                 ; 1              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; CLOCK_50~input ;
+; Maximum fan-out                             ; 74             ;
+; Total fan-out                               ; 1696           ;
+; Average fan-out                             ; 3.36           ;
++---------------------------------------------+----------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -257,20 +286,32 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------+------------------------+--------------+
 ; Compilation Hierarchy Node                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                             ; Entity Name            ; Library Name ;
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------+------------------------+--------------+
-; |VGAtest                                                ; 137 (1)             ; 49 (0)                    ; 115200            ; 2          ; 34   ; 0            ; |VGAtest                                                                                                        ; VGAtest                ; work         ;
+; |VGAtest                                                ; 283 (22)            ; 121 (18)                  ; 116109            ; 5          ; 34   ; 0            ; |VGAtest                                                                                                        ; VGAtest                ; work         ;
 ;    |BGoutlet:sc1|                                       ; 66 (66)             ; 15 (15)                   ; 0                 ; 2          ; 0    ; 0            ; |VGAtest|BGoutlet:sc1                                                                                           ; BGoutlet               ; work         ;
-;    |newscalestaff:n0|                                   ; 6 (0)               ; 4 (0)                     ; 57600             ; 0          ; 0    ; 0            ; |VGAtest|newscalestaff:n0                                                                                       ; newscalestaff          ; work         ;
-;       |altsyncram:altsyncram_component|                 ; 6 (0)               ; 4 (0)                     ; 57600             ; 0          ; 0    ; 0            ; |VGAtest|newscalestaff:n0|altsyncram:altsyncram_component                                                       ; altsyncram             ; work         ;
-;          |altsyncram_fco1:auto_generated|               ; 6 (0)               ; 4 (4)                     ; 57600             ; 0          ; 0    ; 0            ; |VGAtest|newscalestaff:n0|altsyncram:altsyncram_component|altsyncram_fco1:auto_generated                        ; altsyncram_fco1        ; work         ;
+;    |linenote:g|                                         ; 0 (0)               ; 0 (0)                     ; 180               ; 0          ; 0    ; 0            ; |VGAtest|linenote:g                                                                                             ; linenote               ; work         ;
+;       |altsyncram:altsyncram_component|                 ; 0 (0)               ; 0 (0)                     ; 180               ; 0          ; 0    ; 0            ; |VGAtest|linenote:g|altsyncram:altsyncram_component                                                             ; altsyncram             ; work         ;
+;          |altsyncram_1pm1:auto_generated|               ; 0 (0)               ; 0 (0)                     ; 180               ; 0          ; 0    ; 0            ; |VGAtest|linenote:g|altsyncram:altsyncram_component|altsyncram_1pm1:auto_generated                              ; altsyncram_1pm1        ; work         ;
+;    |linesharpnote:gs|                                   ; 0 (0)               ; 0 (0)                     ; 585               ; 0          ; 0    ; 0            ; |VGAtest|linesharpnote:gs                                                                                       ; linesharpnote          ; work         ;
+;       |altsyncram:altsyncram_component|                 ; 0 (0)               ; 0 (0)                     ; 585               ; 0          ; 0    ; 0            ; |VGAtest|linesharpnote:gs|altsyncram:altsyncram_component                                                       ; altsyncram             ; work         ;
+;          |altsyncram_6fo1:auto_generated|               ; 0 (0)               ; 0 (0)                     ; 585               ; 0          ; 0    ; 0            ; |VGAtest|linesharpnote:gs|altsyncram:altsyncram_component|altsyncram_6fo1:auto_generated                        ; altsyncram_6fo1        ; work         ;
+;    |newscalestaff:n0|                                   ; 3 (0)               ; 4 (0)                     ; 57600             ; 0          ; 0    ; 0            ; |VGAtest|newscalestaff:n0                                                                                       ; newscalestaff          ; work         ;
+;       |altsyncram:altsyncram_component|                 ; 3 (0)               ; 4 (0)                     ; 57600             ; 0          ; 0    ; 0            ; |VGAtest|newscalestaff:n0|altsyncram:altsyncram_component                                                       ; altsyncram             ; work         ;
+;          |altsyncram_fco1:auto_generated|               ; 3 (0)               ; 4 (4)                     ; 57600             ; 0          ; 0    ; 0            ; |VGAtest|newscalestaff:n0|altsyncram:altsyncram_component|altsyncram_fco1:auto_generated                        ; altsyncram_fco1        ; work         ;
 ;             |decode_01a:rden_decode|                    ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGAtest|newscalestaff:n0|altsyncram:altsyncram_component|altsyncram_fco1:auto_generated|decode_01a:rden_decode ; decode_01a             ; work         ;
-;             |mux_ifb:mux2|                              ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGAtest|newscalestaff:n0|altsyncram:altsyncram_component|altsyncram_fco1:auto_generated|mux_ifb:mux2           ; mux_ifb                ; work         ;
-;    |vga_adapter:VGA|                                    ; 64 (2)              ; 30 (0)                    ; 57600             ; 0          ; 0    ; 0            ; |VGAtest|vga_adapter:VGA                                                                                        ; vga_adapter            ; work         ;
+;    |newspacenote:a|                                     ; 0 (0)               ; 0 (0)                     ; 144               ; 0          ; 0    ; 0            ; |VGAtest|newspacenote:a                                                                                         ; newspacenote           ; work         ;
+;       |altsyncram:altsyncram_component|                 ; 0 (0)               ; 0 (0)                     ; 144               ; 0          ; 0    ; 0            ; |VGAtest|newspacenote:a|altsyncram:altsyncram_component                                                         ; altsyncram             ; work         ;
+;          |altsyncram_m2p1:auto_generated|               ; 0 (0)               ; 0 (0)                     ; 144               ; 0          ; 0    ; 0            ; |VGAtest|newspacenote:a|altsyncram:altsyncram_component|altsyncram_m2p1:auto_generated                          ; altsyncram_m2p1        ; work         ;
+;    |outlet:a0|                                          ; 35 (35)             ; 15 (15)                   ; 0                 ; 1          ; 0    ; 0            ; |VGAtest|outlet:a0                                                                                              ; outlet                 ; work         ;
+;    |outlet:g0|                                          ; 34 (34)             ; 15 (15)                   ; 0                 ; 1          ; 0    ; 0            ; |VGAtest|outlet:g0                                                                                              ; outlet                 ; work         ;
+;    |outlet:gso|                                         ; 48 (48)             ; 15 (15)                   ; 0                 ; 1          ; 0    ; 0            ; |VGAtest|outlet:gso                                                                                             ; outlet                 ; work         ;
+;    |vga_RateDivider:vrd0|                               ; 9 (9)               ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |VGAtest|vga_RateDivider:vrd0                                                                                   ; vga_RateDivider        ; work         ;
+;    |vga_adapter:VGA|                                    ; 66 (2)              ; 30 (0)                    ; 57600             ; 0          ; 0    ; 0            ; |VGAtest|vga_adapter:VGA                                                                                        ; vga_adapter            ; work         ;
 ;       |altsyncram:VideoMemory|                          ; 10 (0)              ; 4 (0)                     ; 57600             ; 0          ; 0    ; 0            ; |VGAtest|vga_adapter:VGA|altsyncram:VideoMemory                                                                 ; altsyncram             ; work         ;
 ;          |altsyncram_m6m1:auto_generated|               ; 10 (0)              ; 4 (4)                     ; 57600             ; 0          ; 0    ; 0            ; |VGAtest|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated                                  ; altsyncram_m6m1        ; work         ;
 ;             |decode_01a:rden_decode_b|                  ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGAtest|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|decode_01a:rden_decode_b         ; decode_01a             ; work         ;
 ;             |decode_7la:decode2|                        ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGAtest|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|decode_7la:decode2               ; decode_7la             ; work         ;
 ;             |mux_ifb:mux3|                              ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGAtest|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|mux_ifb:mux3                     ; mux_ifb                ; work         ;
-;       |vga_address_translator:user_input_translator|    ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGAtest|vga_adapter:VGA|vga_address_translator:user_input_translator                                           ; vga_address_translator ; work         ;
+;       |vga_address_translator:user_input_translator|    ; 12 (12)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGAtest|vga_adapter:VGA|vga_address_translator:user_input_translator                                           ; vga_address_translator ; work         ;
 ;       |vga_controller:controller|                       ; 42 (32)             ; 26 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |VGAtest|vga_adapter:VGA|vga_controller:controller                                                              ; vga_controller         ; work         ;
 ;          |vga_address_translator:controller_translator| ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGAtest|vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator                 ; vga_address_translator ; work         ;
 ;       |vga_pll:mypll|                                   ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGAtest|vga_adapter:VGA|vga_pll:mypll                                                                          ; vga_pll                ; work         ;
@@ -280,14 +321,17 @@ refer to the applicable agreement for further details.
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis RAM Summary                                                                                                                                                                             ;
-+--------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+-------------------+
-; Name                                                                                       ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size  ; MIF               ;
-+--------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+-------------------+
-; newscalestaff:n0|altsyncram:altsyncram_component|altsyncram_fco1:auto_generated|ALTSYNCRAM ; AUTO ; Single Port      ; 19200        ; 3            ; --           ; --           ; 57600 ; ../scalestaff.mif ;
-; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|ALTSYNCRAM           ; AUTO ; Simple Dual Port ; 19200        ; 3            ; 19200        ; 3            ; 57600 ; black.mif         ;
-+--------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+-------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                          ;
++--------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+--------------------------------+
+; Name                                                                                       ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size  ; MIF                            ;
++--------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+--------------------------------+
+; linenote:g|altsyncram:altsyncram_component|altsyncram_1pm1:auto_generated|ALTSYNCRAM       ; AUTO ; Single Port      ; 60           ; 3            ; --           ; --           ; 180   ; linenote.mif                   ;
+; linesharpnote:gs|altsyncram:altsyncram_component|altsyncram_6fo1:auto_generated|ALTSYNCRAM ; AUTO ; Single Port      ; 195          ; 3            ; --           ; --           ; 585   ; ../ImageMIFs/linesharpnote.mif ;
+; newscalestaff:n0|altsyncram:altsyncram_component|altsyncram_fco1:auto_generated|ALTSYNCRAM ; AUTO ; Single Port      ; 19200        ; 3            ; --           ; --           ; 57600 ; ../scalestaff.mif              ;
+; newspacenote:a|altsyncram:altsyncram_component|altsyncram_m2p1:auto_generated|ALTSYNCRAM   ; AUTO ; Single Port      ; 48           ; 3            ; --           ; --           ; 144   ; ../ImageMIFs/spacenote.mif     ;
+; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|ALTSYNCRAM           ; AUTO ; Simple Dual Port ; 19200        ; 3            ; 19200        ; 3            ; 57600 ; black.mif                      ;
++--------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+--------------------------------+
 
 
 +-----------------------------------------------+
@@ -296,20 +340,48 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Statistic                       ; Number Used ;
 +---------------------------------+-------------+
 ; Independent 9x9                 ; 1           ;
-; Independent 18x18 plus 36       ; 1           ;
-; Total number of DSP blocks      ; 2           ;
+; Independent 18x18 plus 36       ; 4           ;
+; Total number of DSP blocks      ; 5           ;
 ;                                 ;             ;
-; Fixed Point Unsigned Multiplier ; 2           ;
+; Fixed Point Unsigned Multiplier ; 5           ;
 +---------------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis IP Cores Summary                                                                       ;
-+--------+--------------+---------+--------------+--------------+---------------------------+-----------------+
-; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance           ; IP Include File ;
-+--------+--------------+---------+--------------+--------------+---------------------------+-----------------+
-; Altera ; RAM: 1-PORT  ; 18.0    ; N/A          ; N/A          ; |VGAtest|newscalestaff:n0 ; newscalestaff.v ;
-+--------+--------------+---------+--------------+--------------+---------------------------+-----------------+
++---------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                         ;
++--------+--------------+---------+--------------+--------------+----------------------------+------------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance            ; IP Include File  ;
++--------+--------------+---------+--------------+--------------+----------------------------+------------------+
+; Altera ; RAM: 1-PORT  ; 18.0    ; N/A          ; N/A          ; |VGAtest|newspacenote:a    ; newspacenote.v   ;
+; Altera ; RAM: 1-PORT  ; 18.0    ; N/A          ; N/A          ; |VGAtest|spacesharpnote:as ; spacesharpnote.v ;
+; Altera ; RAM: 1-PORT  ; 18.0    ; N/A          ; N/A          ; |VGAtest|linenote:g        ; linenote.v       ;
+; Altera ; RAM: 1-PORT  ; 18.0    ; N/A          ; N/A          ; |VGAtest|linesharpnote:gs  ; linesharpnote.v  ;
+; Altera ; RAM: 1-PORT  ; 18.0    ; N/A          ; N/A          ; |VGAtest|newscalestaff:n0  ; newscalestaff.v  ;
++--------+--------------+---------+--------------+--------------+----------------------------+------------------+
+
+
++-------------------------------------------------------------+
+; Registers Removed During Synthesis                          ;
++----------------------------------------+--------------------+
+; Register name                          ; Reason for Removal ;
++----------------------------------------+--------------------+
+; outlet:as0|yCounter[1]                 ; Lost fanout        ;
+; outlet:as0|xCounter[0]                 ; Lost fanout        ;
+; outlet:as0|yCounter[0,2..6]            ; Lost fanout        ;
+; outlet:as0|xCounter[1..7]              ; Lost fanout        ;
+; Total Number of Removed Registers = 15 ;                    ;
++----------------------------------------+--------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                           ;
++------------------------+--------------------+-------------------------------------------------------------------------+
+; Register name          ; Reason for Removal ; Registers Removed due to This Register                                  ;
++------------------------+--------------------+-------------------------------------------------------------------------+
+; outlet:as0|yCounter[1] ; Lost Fanouts       ; outlet:as0|yCounter[4], outlet:as0|yCounter[5], outlet:as0|yCounter[6], ;
+;                        ;                    ; outlet:as0|xCounter[4], outlet:as0|xCounter[5], outlet:as0|xCounter[6], ;
+;                        ;                    ; outlet:as0|xCounter[7]                                                  ;
++------------------------+--------------------+-------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -317,9 +389,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 49    ;
-; Number of registers using Synchronous Clear  ; 28    ;
-; Number of registers using Synchronous Load   ; 0     ;
+; Total registers                              ; 121   ;
+; Number of registers using Synchronous Clear  ; 52    ;
+; Number of registers using Synchronous Load   ; 7     ;
 ; Number of registers using Asynchronous Clear ; 20    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 10    ;
@@ -327,17 +399,26 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                     ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |VGAtest|BGoutlet:sc1|xCounter[7]                                                                                    ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |VGAtest|vga_adapter:VGA|vga_controller:controller|yCounter[9]                                                       ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |VGAtest|BGoutlet:sc1|yCounter[3]                                                                                    ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |VGAtest|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|mux_ifb:mux3|result_node[1]           ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |VGAtest|newscalestaff:n0|altsyncram:altsyncram_component|altsyncram_fco1:auto_generated|mux_ifb:mux2|result_node[0] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------+
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |VGAtest|vga_adapter:VGA|vga_controller:controller|yCounter[2]                                             ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |VGAtest|BGoutlet:sc1|xCounter[3]                                                                          ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |VGAtest|outlet:a0|xCounter[2]                                                                             ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |VGAtest|outlet:gso|xCounter[4]                                                                            ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |VGAtest|outlet:g0|xCounter[4]                                                                             ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |VGAtest|yselect[4]                                                                                        ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |VGAtest|BGoutlet:sc1|yCounter[5]                                                                          ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |VGAtest|outlet:a0|yCounter[0]                                                                             ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |VGAtest|outlet:gso|yCounter[6]                                                                            ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |VGAtest|outlet:g0|yCounter[1]                                                                             ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |VGAtest|xselect[7]                                                                                        ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |VGAtest|colourselect[0]                                                                                   ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |VGAtest|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|mux_ifb:mux3|result_node[0] ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |VGAtest|outlet:gso|Add3                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------+
@@ -347,6 +428,42 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------+--------------------+------+--------------------------------+
 ; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                              ;
 +---------------------------------+--------------------+------+--------------------------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Source assignments for linenote:g|altsyncram:altsyncram_component|altsyncram_1pm1:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------+
+; Assignment                      ; Value              ; From ; To                                 ;
++---------------------------------+--------------------+------+------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                  ;
++---------------------------------+--------------------+------+------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Source assignments for newspacenote:a|altsyncram:altsyncram_component|altsyncram_m2p1:auto_generated ;
++---------------------------------+--------------------+------+----------------------------------------+
+; Assignment                      ; Value              ; From ; To                                     ;
++---------------------------------+--------------------+------+----------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                      ;
++---------------------------------+--------------------+------+----------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Source assignments for linesharpnote:gs|altsyncram:altsyncram_component|altsyncram_6fo1:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                       ;
++---------------------------------+--------------------+------+------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                        ;
++---------------------------------+--------------------+------+------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------+
+; Source assignments for spacesharpnote:as|altsyncram:altsyncram_component|altsyncram_njp1:auto_generated ;
++---------------------------------+--------------------+------+-------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                        ;
++---------------------------------+--------------------+------+-------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                         ;
++---------------------------------+--------------------+------+-------------------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------+
@@ -846,6 +963,250 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: linenote:g|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+-----------------------------+
+; Parameter Name                     ; Value                ; Type                        ;
++------------------------------------+----------------------+-----------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                     ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                  ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE              ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                     ;
+; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped                     ;
+; WIDTH_A                            ; 3                    ; Signed Integer              ;
+; WIDTHAD_A                          ; 6                    ; Signed Integer              ;
+; NUMWORDS_A                         ; 60                   ; Signed Integer              ;
+; OUTDATA_REG_A                      ; CLOCK0               ; Untyped                     ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                     ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                     ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                     ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                     ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                     ;
+; WIDTH_B                            ; 1                    ; Untyped                     ;
+; WIDTHAD_B                          ; 1                    ; Untyped                     ;
+; NUMWORDS_B                         ; 1                    ; Untyped                     ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                     ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                     ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                     ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                     ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                     ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                     ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                     ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                     ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                     ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                     ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                     ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                     ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer              ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                     ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                     ;
+; BYTE_SIZE                          ; 8                    ; Untyped                     ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                     ;
+; READ_DURING_WRITE_MODE_PORT_A      ; DONT_CARE            ; Untyped                     ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                     ;
+; INIT_FILE                          ; linenote.mif         ; Untyped                     ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                     ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                     ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                     ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                     ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                     ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                     ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                     ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                     ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                     ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                     ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                     ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                     ;
+; CBXI_PARAMETER                     ; altsyncram_1pm1      ; Untyped                     ;
++------------------------------------+----------------------+-----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: newspacenote:a|altsyncram:altsyncram_component ;
++------------------------------------+----------------------------+---------------------------+
+; Parameter Name                     ; Value                      ; Type                      ;
++------------------------------------+----------------------------+---------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                          ; Untyped                   ;
+; AUTO_CARRY_CHAINS                  ; ON                         ; AUTO_CARRY                ;
+; IGNORE_CARRY_BUFFERS               ; OFF                        ; IGNORE_CARRY              ;
+; AUTO_CASCADE_CHAINS                ; ON                         ; AUTO_CASCADE              ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                        ; IGNORE_CASCADE            ;
+; WIDTH_BYTEENA                      ; 1                          ; Untyped                   ;
+; OPERATION_MODE                     ; SINGLE_PORT                ; Untyped                   ;
+; WIDTH_A                            ; 3                          ; Signed Integer            ;
+; WIDTHAD_A                          ; 6                          ; Signed Integer            ;
+; NUMWORDS_A                         ; 48                         ; Signed Integer            ;
+; OUTDATA_REG_A                      ; CLOCK0                     ; Untyped                   ;
+; ADDRESS_ACLR_A                     ; NONE                       ; Untyped                   ;
+; OUTDATA_ACLR_A                     ; NONE                       ; Untyped                   ;
+; WRCONTROL_ACLR_A                   ; NONE                       ; Untyped                   ;
+; INDATA_ACLR_A                      ; NONE                       ; Untyped                   ;
+; BYTEENA_ACLR_A                     ; NONE                       ; Untyped                   ;
+; WIDTH_B                            ; 1                          ; Untyped                   ;
+; WIDTHAD_B                          ; 1                          ; Untyped                   ;
+; NUMWORDS_B                         ; 1                          ; Untyped                   ;
+; INDATA_REG_B                       ; CLOCK1                     ; Untyped                   ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                     ; Untyped                   ;
+; RDCONTROL_REG_B                    ; CLOCK1                     ; Untyped                   ;
+; ADDRESS_REG_B                      ; CLOCK1                     ; Untyped                   ;
+; OUTDATA_REG_B                      ; UNREGISTERED               ; Untyped                   ;
+; BYTEENA_REG_B                      ; CLOCK1                     ; Untyped                   ;
+; INDATA_ACLR_B                      ; NONE                       ; Untyped                   ;
+; WRCONTROL_ACLR_B                   ; NONE                       ; Untyped                   ;
+; ADDRESS_ACLR_B                     ; NONE                       ; Untyped                   ;
+; OUTDATA_ACLR_B                     ; NONE                       ; Untyped                   ;
+; RDCONTROL_ACLR_B                   ; NONE                       ; Untyped                   ;
+; BYTEENA_ACLR_B                     ; NONE                       ; Untyped                   ;
+; WIDTH_BYTEENA_A                    ; 1                          ; Signed Integer            ;
+; WIDTH_BYTEENA_B                    ; 1                          ; Untyped                   ;
+; RAM_BLOCK_TYPE                     ; AUTO                       ; Untyped                   ;
+; BYTE_SIZE                          ; 8                          ; Untyped                   ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                  ; Untyped                   ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ       ; Untyped                   ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ       ; Untyped                   ;
+; INIT_FILE                          ; ../ImageMIFs/spacenote.mif ; Untyped                   ;
+; INIT_FILE_LAYOUT                   ; PORT_A                     ; Untyped                   ;
+; MAXIMUM_DEPTH                      ; 0                          ; Untyped                   ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS                     ; Untyped                   ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                     ; Untyped                   ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS                     ; Untyped                   ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                     ; Untyped                   ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN            ; Untyped                   ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN            ; Untyped                   ;
+; ENABLE_ECC                         ; FALSE                      ; Untyped                   ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                      ; Untyped                   ;
+; WIDTH_ECCSTATUS                    ; 3                          ; Untyped                   ;
+; DEVICE_FAMILY                      ; Cyclone V                  ; Untyped                   ;
+; CBXI_PARAMETER                     ; altsyncram_m2p1            ; Untyped                   ;
++------------------------------------+----------------------------+---------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: linesharpnote:gs|altsyncram:altsyncram_component ;
++------------------------------------+--------------------------------+-------------------------+
+; Parameter Name                     ; Value                          ; Type                    ;
++------------------------------------+--------------------------------+-------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                              ; Untyped                 ;
+; AUTO_CARRY_CHAINS                  ; ON                             ; AUTO_CARRY              ;
+; IGNORE_CARRY_BUFFERS               ; OFF                            ; IGNORE_CARRY            ;
+; AUTO_CASCADE_CHAINS                ; ON                             ; AUTO_CASCADE            ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                            ; IGNORE_CASCADE          ;
+; WIDTH_BYTEENA                      ; 1                              ; Untyped                 ;
+; OPERATION_MODE                     ; SINGLE_PORT                    ; Untyped                 ;
+; WIDTH_A                            ; 3                              ; Signed Integer          ;
+; WIDTHAD_A                          ; 8                              ; Signed Integer          ;
+; NUMWORDS_A                         ; 195                            ; Signed Integer          ;
+; OUTDATA_REG_A                      ; CLOCK0                         ; Untyped                 ;
+; ADDRESS_ACLR_A                     ; NONE                           ; Untyped                 ;
+; OUTDATA_ACLR_A                     ; NONE                           ; Untyped                 ;
+; WRCONTROL_ACLR_A                   ; NONE                           ; Untyped                 ;
+; INDATA_ACLR_A                      ; NONE                           ; Untyped                 ;
+; BYTEENA_ACLR_A                     ; NONE                           ; Untyped                 ;
+; WIDTH_B                            ; 1                              ; Untyped                 ;
+; WIDTHAD_B                          ; 1                              ; Untyped                 ;
+; NUMWORDS_B                         ; 1                              ; Untyped                 ;
+; INDATA_REG_B                       ; CLOCK1                         ; Untyped                 ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                         ; Untyped                 ;
+; RDCONTROL_REG_B                    ; CLOCK1                         ; Untyped                 ;
+; ADDRESS_REG_B                      ; CLOCK1                         ; Untyped                 ;
+; OUTDATA_REG_B                      ; UNREGISTERED                   ; Untyped                 ;
+; BYTEENA_REG_B                      ; CLOCK1                         ; Untyped                 ;
+; INDATA_ACLR_B                      ; NONE                           ; Untyped                 ;
+; WRCONTROL_ACLR_B                   ; NONE                           ; Untyped                 ;
+; ADDRESS_ACLR_B                     ; NONE                           ; Untyped                 ;
+; OUTDATA_ACLR_B                     ; NONE                           ; Untyped                 ;
+; RDCONTROL_ACLR_B                   ; NONE                           ; Untyped                 ;
+; BYTEENA_ACLR_B                     ; NONE                           ; Untyped                 ;
+; WIDTH_BYTEENA_A                    ; 1                              ; Signed Integer          ;
+; WIDTH_BYTEENA_B                    ; 1                              ; Untyped                 ;
+; RAM_BLOCK_TYPE                     ; AUTO                           ; Untyped                 ;
+; BYTE_SIZE                          ; 8                              ; Untyped                 ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                      ; Untyped                 ;
+; READ_DURING_WRITE_MODE_PORT_A      ; DONT_CARE                      ; Untyped                 ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ           ; Untyped                 ;
+; INIT_FILE                          ; ../ImageMIFs/linesharpnote.mif ; Untyped                 ;
+; INIT_FILE_LAYOUT                   ; PORT_A                         ; Untyped                 ;
+; MAXIMUM_DEPTH                      ; 0                              ; Untyped                 ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS                         ; Untyped                 ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                         ; Untyped                 ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS                         ; Untyped                 ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                         ; Untyped                 ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                ; Untyped                 ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                ; Untyped                 ;
+; ENABLE_ECC                         ; FALSE                          ; Untyped                 ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                          ; Untyped                 ;
+; WIDTH_ECCSTATUS                    ; 3                              ; Untyped                 ;
+; DEVICE_FAMILY                      ; Cyclone V                      ; Untyped                 ;
+; CBXI_PARAMETER                     ; altsyncram_6fo1                ; Untyped                 ;
++------------------------------------+--------------------------------+-------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: spacesharpnote:as|altsyncram:altsyncram_component ;
++------------------------------------+--------------------------------+--------------------------+
+; Parameter Name                     ; Value                          ; Type                     ;
++------------------------------------+--------------------------------+--------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                              ; Untyped                  ;
+; AUTO_CARRY_CHAINS                  ; ON                             ; AUTO_CARRY               ;
+; IGNORE_CARRY_BUFFERS               ; OFF                            ; IGNORE_CARRY             ;
+; AUTO_CASCADE_CHAINS                ; ON                             ; AUTO_CASCADE             ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                            ; IGNORE_CASCADE           ;
+; WIDTH_BYTEENA                      ; 1                              ; Untyped                  ;
+; OPERATION_MODE                     ; SINGLE_PORT                    ; Untyped                  ;
+; WIDTH_A                            ; 3                              ; Signed Integer           ;
+; WIDTHAD_A                          ; 8                              ; Signed Integer           ;
+; NUMWORDS_A                         ; 182                            ; Signed Integer           ;
+; OUTDATA_REG_A                      ; CLOCK0                         ; Untyped                  ;
+; ADDRESS_ACLR_A                     ; NONE                           ; Untyped                  ;
+; OUTDATA_ACLR_A                     ; NONE                           ; Untyped                  ;
+; WRCONTROL_ACLR_A                   ; NONE                           ; Untyped                  ;
+; INDATA_ACLR_A                      ; NONE                           ; Untyped                  ;
+; BYTEENA_ACLR_A                     ; NONE                           ; Untyped                  ;
+; WIDTH_B                            ; 1                              ; Untyped                  ;
+; WIDTHAD_B                          ; 1                              ; Untyped                  ;
+; NUMWORDS_B                         ; 1                              ; Untyped                  ;
+; INDATA_REG_B                       ; CLOCK1                         ; Untyped                  ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                         ; Untyped                  ;
+; RDCONTROL_REG_B                    ; CLOCK1                         ; Untyped                  ;
+; ADDRESS_REG_B                      ; CLOCK1                         ; Untyped                  ;
+; OUTDATA_REG_B                      ; UNREGISTERED                   ; Untyped                  ;
+; BYTEENA_REG_B                      ; CLOCK1                         ; Untyped                  ;
+; INDATA_ACLR_B                      ; NONE                           ; Untyped                  ;
+; WRCONTROL_ACLR_B                   ; NONE                           ; Untyped                  ;
+; ADDRESS_ACLR_B                     ; NONE                           ; Untyped                  ;
+; OUTDATA_ACLR_B                     ; NONE                           ; Untyped                  ;
+; RDCONTROL_ACLR_B                   ; NONE                           ; Untyped                  ;
+; BYTEENA_ACLR_B                     ; NONE                           ; Untyped                  ;
+; WIDTH_BYTEENA_A                    ; 1                              ; Signed Integer           ;
+; WIDTH_BYTEENA_B                    ; 1                              ; Untyped                  ;
+; RAM_BLOCK_TYPE                     ; AUTO                           ; Untyped                  ;
+; BYTE_SIZE                          ; 8                              ; Untyped                  ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                      ; Untyped                  ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ           ; Untyped                  ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ           ; Untyped                  ;
+; INIT_FILE                          ; ./ImageMIFs/spacesharpnote.mif ; Untyped                  ;
+; INIT_FILE_LAYOUT                   ; PORT_A                         ; Untyped                  ;
+; MAXIMUM_DEPTH                      ; 0                              ; Untyped                  ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS                         ; Untyped                  ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                         ; Untyped                  ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS                         ; Untyped                  ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                         ; Untyped                  ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                ; Untyped                  ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                ; Untyped                  ;
+; ENABLE_ECC                         ; FALSE                          ; Untyped                  ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                          ; Untyped                  ;
+; WIDTH_ECCSTATUS                    ; 3                              ; Untyped                  ;
+; DEVICE_FAMILY                      ; Cyclone V                      ; Untyped                  ;
+; CBXI_PARAMETER                     ; altsyncram_njp1                ; Untyped                  ;
++------------------------------------+--------------------------------+--------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +-----------------------------------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: newscalestaff:n0|altsyncram:altsyncram_component ;
 +------------------------------------+----------------------+-----------------------------------+
@@ -907,35 +1268,79 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+----------------------------------------------------------------------------------------------+
-; altsyncram Parameter Settings by Entity Instance                                             ;
-+-------------------------------------------+--------------------------------------------------+
-; Name                                      ; Value                                            ;
-+-------------------------------------------+--------------------------------------------------+
-; Number of entity instances                ; 2                                                ;
-; Entity Instance                           ; vga_adapter:VGA|altsyncram:VideoMemory           ;
-;     -- OPERATION_MODE                     ; DUAL_PORT                                        ;
-;     -- WIDTH_A                            ; 3                                                ;
-;     -- NUMWORDS_A                         ; 19200                                            ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                                     ;
-;     -- WIDTH_B                            ; 3                                                ;
-;     -- NUMWORDS_B                         ; 19200                                            ;
-;     -- ADDRESS_REG_B                      ; CLOCK1                                           ;
-;     -- OUTDATA_REG_B                      ; CLOCK1                                           ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                             ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                        ;
-; Entity Instance                           ; newscalestaff:n0|altsyncram:altsyncram_component ;
-;     -- OPERATION_MODE                     ; SINGLE_PORT                                      ;
-;     -- WIDTH_A                            ; 3                                                ;
-;     -- NUMWORDS_A                         ; 19200                                            ;
-;     -- OUTDATA_REG_A                      ; CLOCK0                                           ;
-;     -- WIDTH_B                            ; 1                                                ;
-;     -- NUMWORDS_B                         ; 1                                                ;
-;     -- ADDRESS_REG_B                      ; CLOCK1                                           ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                                     ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                             ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                        ;
-+-------------------------------------------+--------------------------------------------------+
++-----------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                              ;
++-------------------------------------------+---------------------------------------------------+
+; Name                                      ; Value                                             ;
++-------------------------------------------+---------------------------------------------------+
+; Number of entity instances                ; 6                                                 ;
+; Entity Instance                           ; vga_adapter:VGA|altsyncram:VideoMemory            ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                         ;
+;     -- WIDTH_A                            ; 3                                                 ;
+;     -- NUMWORDS_A                         ; 19200                                             ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                      ;
+;     -- WIDTH_B                            ; 3                                                 ;
+;     -- NUMWORDS_B                         ; 19200                                             ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                            ;
+;     -- OUTDATA_REG_B                      ; CLOCK1                                            ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                              ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                         ;
+; Entity Instance                           ; linenote:g|altsyncram:altsyncram_component        ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                       ;
+;     -- WIDTH_A                            ; 3                                                 ;
+;     -- NUMWORDS_A                         ; 60                                                ;
+;     -- OUTDATA_REG_A                      ; CLOCK0                                            ;
+;     -- WIDTH_B                            ; 1                                                 ;
+;     -- NUMWORDS_B                         ; 1                                                 ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                            ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                      ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                              ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                         ;
+; Entity Instance                           ; newspacenote:a|altsyncram:altsyncram_component    ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                       ;
+;     -- WIDTH_A                            ; 3                                                 ;
+;     -- NUMWORDS_A                         ; 48                                                ;
+;     -- OUTDATA_REG_A                      ; CLOCK0                                            ;
+;     -- WIDTH_B                            ; 1                                                 ;
+;     -- NUMWORDS_B                         ; 1                                                 ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                            ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                      ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                              ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                         ;
+; Entity Instance                           ; linesharpnote:gs|altsyncram:altsyncram_component  ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                       ;
+;     -- WIDTH_A                            ; 3                                                 ;
+;     -- NUMWORDS_A                         ; 195                                               ;
+;     -- OUTDATA_REG_A                      ; CLOCK0                                            ;
+;     -- WIDTH_B                            ; 1                                                 ;
+;     -- NUMWORDS_B                         ; 1                                                 ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                            ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                      ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                              ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                         ;
+; Entity Instance                           ; spacesharpnote:as|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                       ;
+;     -- WIDTH_A                            ; 3                                                 ;
+;     -- NUMWORDS_A                         ; 182                                               ;
+;     -- OUTDATA_REG_A                      ; CLOCK0                                            ;
+;     -- WIDTH_B                            ; 1                                                 ;
+;     -- NUMWORDS_B                         ; 1                                                 ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                            ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                      ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                              ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                         ;
+; Entity Instance                           ; newscalestaff:n0|altsyncram:altsyncram_component  ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                       ;
+;     -- WIDTH_A                            ; 3                                                 ;
+;     -- NUMWORDS_A                         ; 19200                                             ;
+;     -- OUTDATA_REG_A                      ; CLOCK0                                            ;
+;     -- WIDTH_B                            ; 1                                                 ;
+;     -- NUMWORDS_B                         ; 1                                                 ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                            ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                      ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                              ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                         ;
++-------------------------------------------+---------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------+
@@ -953,15 +1358,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     -- VCO_MULTIPLY_BY        ; 0                                                     ;
 ;     -- VCO_DIVIDE_BY          ; 0                                                     ;
 +-------------------------------+-------------------------------------------------------+
-
-
-+----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "vga_RateDivider:vrd0"                                                               ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                             ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; q    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -995,6 +1391,156 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
++------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "outlet:as0"                                                                                 ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                             ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; xin[4..2]    ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; xin[7]       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; xin[6]       ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; xin[5]       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; xin[1]       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; xin[0]       ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; yin[4..3]    ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; yin[1..0]    ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; yin[6]       ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; yin[5]       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; yin[2]       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; width[3..2]  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; width[7..4]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; width[1]     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; width[0]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; height[3..2] ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; height[6..4] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; height[1..0] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; x            ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; y            ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; wren         ; Output ; Info     ; Explicitly unconnected                                                              ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "spacesharpnote:as"                                                                                                                                                                     ;
++----------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                                                                                                                            ;
++----------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; data     ; Input  ; Info     ; Explicitly unconnected                                                                                                                                                             ;
+; wren     ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; wren[-1] ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; q        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
++----------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------+
+; Port Connectivity Checks: "outlet:gso"                    ;
++--------------+--------+----------+------------------------+
+; Port         ; Type   ; Severity ; Details                ;
++--------------+--------+----------+------------------------+
+; xin[5..4]    ; Input  ; Info     ; Stuck at VCC           ;
+; xin[7..6]    ; Input  ; Info     ; Stuck at GND           ;
+; xin[3..2]    ; Input  ; Info     ; Stuck at GND           ;
+; xin[1]       ; Input  ; Info     ; Stuck at VCC           ;
+; xin[0]       ; Input  ; Info     ; Stuck at GND           ;
+; yin[4..0]    ; Input  ; Info     ; Stuck at VCC           ;
+; yin[6]       ; Input  ; Info     ; Stuck at VCC           ;
+; yin[5]       ; Input  ; Info     ; Stuck at GND           ;
+; width[3..1]  ; Input  ; Info     ; Stuck at VCC           ;
+; width[7..4]  ; Input  ; Info     ; Stuck at GND           ;
+; width[0]     ; Input  ; Info     ; Stuck at GND           ;
+; height[3..2] ; Input  ; Info     ; Stuck at VCC           ;
+; height[6..4] ; Input  ; Info     ; Stuck at GND           ;
+; height[1..0] ; Input  ; Info     ; Stuck at GND           ;
+; wren         ; Output ; Info     ; Explicitly unconnected ;
++--------------+--------+----------+------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "linesharpnote:gs"                                                                                                                                                                     ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type  ; Severity ; Details                                                                                                                                                                            ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; data     ; Input ; Info     ; Explicitly unconnected                                                                                                                                                             ;
+; wren     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; wren[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "outlet:a0"                                                                                                                         ;
++--------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                                                                    ;
++--------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------+
+; xin[1..0]    ; Input  ; Info     ; Stuck at VCC                                                                                                               ;
+; xin[5..4]    ; Input  ; Info     ; Stuck at GND                                                                                                               ;
+; xin[7]       ; Input  ; Info     ; Stuck at GND                                                                                                               ;
+; xin[6]       ; Input  ; Info     ; Stuck at VCC                                                                                                               ;
+; xin[3]       ; Input  ; Info     ; Stuck at VCC                                                                                                               ;
+; xin[2]       ; Input  ; Info     ; Stuck at GND                                                                                                               ;
+; yin[4..0]    ; Input  ; Info     ; Stuck at VCC                                                                                                               ;
+; yin[6]       ; Input  ; Info     ; Stuck at VCC                                                                                                               ;
+; yin[5]       ; Input  ; Info     ; Stuck at GND                                                                                                               ;
+; width[2..0]  ; Input  ; Info     ; Stuck at VCC                                                                                                               ;
+; width[7..3]  ; Input  ; Info     ; Stuck at GND                                                                                                               ;
+; height[6..3] ; Input  ; Info     ; Stuck at GND                                                                                                               ;
+; height[2]    ; Input  ; Info     ; Stuck at VCC                                                                                                               ;
+; height[1]    ; Input  ; Info     ; Stuck at GND                                                                                                               ;
+; height[0]    ; Input  ; Info     ; Stuck at VCC                                                                                                               ;
+; wren         ; Output ; Info     ; Explicitly unconnected                                                                                                     ;
+; address      ; Output ; Warning  ; Output or bidir port (8 bits) is wider than the port expression (7 bits) it drives; bit(s) "address[7..7]" have no fanouts ;
++--------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "newspacenote:a"                                                                                                                                                                       ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type  ; Severity ; Details                                                                                                                                                                            ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; address  ; Input ; Warning  ; Input port expression (7 bits) is wider than the input port (6 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts.   ;
+; data     ; Input ; Info     ; Explicitly unconnected                                                                                                                                                             ;
+; wren     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; wren[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "outlet:g0"                                                                                                                         ;
++--------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                                                                    ;
++--------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------+
+; xin[7..6]    ; Input  ; Info     ; Stuck at GND                                                                                                               ;
+; xin[4..2]    ; Input  ; Info     ; Stuck at GND                                                                                                               ;
+; xin[5]       ; Input  ; Info     ; Stuck at VCC                                                                                                               ;
+; xin[1]       ; Input  ; Info     ; Stuck at VCC                                                                                                               ;
+; xin[0]       ; Input  ; Info     ; Stuck at GND                                                                                                               ;
+; yin[6..5]    ; Input  ; Info     ; Stuck at VCC                                                                                                               ;
+; yin[1..0]    ; Input  ; Info     ; Stuck at VCC                                                                                                               ;
+; yin[4..2]    ; Input  ; Info     ; Stuck at GND                                                                                                               ;
+; width[7..4]  ; Input  ; Info     ; Stuck at GND                                                                                                               ;
+; width[2..1]  ; Input  ; Info     ; Stuck at GND                                                                                                               ;
+; width[3]     ; Input  ; Info     ; Stuck at VCC                                                                                                               ;
+; width[0]     ; Input  ; Info     ; Stuck at VCC                                                                                                               ;
+; height[6..3] ; Input  ; Info     ; Stuck at GND                                                                                                               ;
+; height[2]    ; Input  ; Info     ; Stuck at VCC                                                                                                               ;
+; height[1]    ; Input  ; Info     ; Stuck at GND                                                                                                               ;
+; height[0]    ; Input  ; Info     ; Stuck at VCC                                                                                                               ;
+; wren         ; Output ; Info     ; Explicitly unconnected                                                                                                     ;
+; address      ; Output ; Warning  ; Output or bidir port (8 bits) is wider than the port expression (7 bits) it drives; bit(s) "address[7..7]" have no fanouts ;
++--------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "linenote:g"                                                                                                                                                                           ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type  ; Severity ; Details                                                                                                                                                                            ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; address  ; Input ; Warning  ; Input port expression (7 bits) is wider than the input port (6 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts.   ;
+; data     ; Input ; Info     ; Explicitly unconnected                                                                                                                                                             ;
+; wren     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; wren[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
 +-----------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "vga_adapter:VGA|vga_controller:controller"                                                 ;
 +-------------+--------+----------+-------------------------------------------------------------------------------------+
@@ -1011,34 +1557,39 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 49                          ;
+; arriav_ff             ; 121                         ;
 ;     CLR SCLR          ; 10                          ;
 ;     ENA CLR SCLR      ; 10                          ;
-;     SCLR              ; 8                           ;
-;     plain             ; 21                          ;
-; arriav_lcell_comb     ; 138                         ;
-;     arith             ; 53                          ;
+;     SCLR              ; 32                          ;
+;     SLD               ; 7                           ;
+;     plain             ; 62                          ;
+; arriav_lcell_comb     ; 284                         ;
+;     arith             ; 146                         ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 129                         ;
+;         2 data inputs ; 2                           ;
+;         3 data inputs ; 8                           ;
+;         4 data inputs ; 1                           ;
+;         5 data inputs ; 4                           ;
+;     normal            ; 128                         ;
+;         0 data inputs ; 2                           ;
+;         2 data inputs ; 24                          ;
+;         3 data inputs ; 18                          ;
+;         4 data inputs ; 5                           ;
+;         5 data inputs ; 16                          ;
+;         6 data inputs ; 63                          ;
+;     shared            ; 10                          ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 52                          ;
-;     normal            ; 65                          ;
-;         0 data inputs ; 2                           ;
-;         2 data inputs ; 13                          ;
-;         3 data inputs ; 4                           ;
-;         4 data inputs ; 8                           ;
-;         5 data inputs ; 15                          ;
-;         6 data inputs ; 23                          ;
-;     shared            ; 20                          ;
-;         0 data inputs ; 2                           ;
-;         1 data inputs ; 4                           ;
-;         2 data inputs ; 12                          ;
-;         3 data inputs ; 2                           ;
-; arriav_mac            ; 2                           ;
+;         1 data inputs ; 2                           ;
+;         2 data inputs ; 6                           ;
+;         3 data inputs ; 1                           ;
+; arriav_mac            ; 5                           ;
 ; boundary_port         ; 34                          ;
 ; generic_pll           ; 1                           ;
-; stratixv_ram_block    ; 18                          ;
+; stratixv_ram_block    ; 27                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 6.20                        ;
-; Average LUT depth     ; 2.89                        ;
+; Average LUT depth     ; 2.51                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1057,7 +1608,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-    Info: Processing started: Sun Nov 25 03:49:14 2018
+    Info: Processing started: Sun Nov 25 04:15:30 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off VPAtest -c VPAtest
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -1069,16 +1620,16 @@ Info (12021): Found 1 design units, including 1 entities, in source file vga_ada
     Info (12023): Found entity 1: vga_address_translator File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_address_translator.v Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter/vga_adapter.v
     Info (12023): Found entity 1: vga_adapter File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_adapter.v Line: 78
-Warning (10090): Verilog HDL syntax warning at VPAtest.v(80): extra block comment delimiter characters /* within block comment File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 80
-Warning (10090): Verilog HDL syntax warning at VPAtest.v(113): extra block comment delimiter characters /* within block comment File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 113
-Warning (10090): Verilog HDL syntax warning at VPAtest.v(139): extra block comment delimiter characters /* within block comment File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 139
-Warning (10090): Verilog HDL syntax warning at VPAtest.v(166): extra block comment delimiter characters /* within block comment File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 166
-Warning (10090): Verilog HDL syntax warning at VPAtest.v(197): extra block comment delimiter characters /* within block comment File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 197
+Warning (10090): Verilog HDL syntax warning at VPAtest.v(98): extra block comment delimiter characters /* within block comment File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 98
+Warning (10090): Verilog HDL syntax warning at VPAtest.v(125): extra block comment delimiter characters /* within block comment File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 125
+Warning (10090): Verilog HDL syntax warning at VPAtest.v(151): extra block comment delimiter characters /* within block comment File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 151
+Warning (10090): Verilog HDL syntax warning at VPAtest.v(178): extra block comment delimiter characters /* within block comment File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 178
+Warning (10090): Verilog HDL syntax warning at VPAtest.v(209): extra block comment delimiter characters /* within block comment File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 209
 Info (12021): Found 4 design units, including 4 entities, in source file vpatest.v
     Info (12023): Found entity 1: VGAtest File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 3
-    Info (12023): Found entity 2: outlet File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 234
-    Info (12023): Found entity 3: BGoutlet File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 287
-    Info (12023): Found entity 4: vga_RateDivider File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 339
+    Info (12023): Found entity 2: outlet File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 272
+    Info (12023): Found entity 3: BGoutlet File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 325
+    Info (12023): Found entity 4: vga_RateDivider File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 377
 Info (12021): Found 1 design units, including 1 entities, in source file scalestaff.v
     Info (12023): Found entity 1: scalestaff File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/scalestaff.v Line: 39
 Info (12021): Found 1 design units, including 1 entities, in source file spacenote.v
@@ -1094,8 +1645,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file newspac
 Info (12021): Found 1 design units, including 1 entities, in source file spacesharpnote.v
     Info (12023): Found entity 1: spacesharpnote File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/spacesharpnote.v Line: 39
 Info (12127): Elaborating entity "VGAtest" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at VPAtest.v(223): object "vEnable" assigned a value but never read File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 223
-Warning (10230): Verilog HDL assignment warning at VPAtest.v(225): truncated value with size 32 to match size of target (1) File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 225
+Warning (10230): Verilog HDL assignment warning at VPAtest.v(263): truncated value with size 32 to match size of target (1) File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 263
 Info (12128): Elaborating entity "vga_adapter" for hierarchy "vga_adapter:VGA" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 60
 Info (12128): Elaborating entity "vga_address_translator" for hierarchy "vga_adapter:VGA|vga_address_translator:user_input_translator" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_adapter.v Line: 192
 Info (12128): Elaborating entity "altsyncram" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_adapter.v Line: 213
@@ -1147,7 +1697,97 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/altp
     Info (12023): Found entity 1: altpll_80u File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altpll_80u.tdf Line: 25
 Info (12128): Elaborating entity "altpll_80u" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated" File: c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altpll.tdf Line: 897
 Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_adapter:VGA|vga_controller:controller" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/vga_adapter/vga_adapter.v Line: 262
-Info (12128): Elaborating entity "newscalestaff" for hierarchy "newscalestaff:n0" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 205
+Info (12128): Elaborating entity "linenote" for hierarchy "linenote:g" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 107
+Info (12128): Elaborating entity "altsyncram" for hierarchy "linenote:g|altsyncram:altsyncram_component" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/linenote.v Line: 85
+Info (12130): Elaborated megafunction instantiation "linenote:g|altsyncram:altsyncram_component" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/linenote.v Line: 85
+Info (12133): Instantiated megafunction "linenote:g|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/linenote.v Line: 85
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "linenote.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "60"
+    Info (12134): Parameter "operation_mode" = "SINGLE_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "CLOCK0"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "DONT_CARE"
+    Info (12134): Parameter "widthad_a" = "6"
+    Info (12134): Parameter "width_a" = "3"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_1pm1.tdf
+    Info (12023): Found entity 1: altsyncram_1pm1 File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_1pm1.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_1pm1" for hierarchy "linenote:g|altsyncram:altsyncram_component|altsyncram_1pm1:auto_generated" File: c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12128): Elaborating entity "outlet" for hierarchy "outlet:g0" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 120
+Warning (10230): Verilog HDL assignment warning at VPAtest.v(320): truncated value with size 32 to match size of target (8) File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 320
+Info (12128): Elaborating entity "newspacenote" for hierarchy "newspacenote:a" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 134
+Info (12128): Elaborating entity "altsyncram" for hierarchy "newspacenote:a|altsyncram:altsyncram_component" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/newspacenote.v Line: 85
+Info (12130): Elaborated megafunction instantiation "newspacenote:a|altsyncram:altsyncram_component" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/newspacenote.v Line: 85
+Info (12133): Instantiated megafunction "newspacenote:a|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/newspacenote.v Line: 85
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "../ImageMIFs/spacenote.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "48"
+    Info (12134): Parameter "operation_mode" = "SINGLE_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "CLOCK0"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "widthad_a" = "6"
+    Info (12134): Parameter "width_a" = "3"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_m2p1.tdf
+    Info (12023): Found entity 1: altsyncram_m2p1 File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_m2p1.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_m2p1" for hierarchy "newspacenote:a|altsyncram:altsyncram_component|altsyncram_m2p1:auto_generated" File: c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12128): Elaborating entity "linesharpnote" for hierarchy "linesharpnote:gs" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 160
+Info (12128): Elaborating entity "altsyncram" for hierarchy "linesharpnote:gs|altsyncram:altsyncram_component" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/linesharpnote.v Line: 85
+Info (12130): Elaborated megafunction instantiation "linesharpnote:gs|altsyncram:altsyncram_component" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/linesharpnote.v Line: 85
+Info (12133): Instantiated megafunction "linesharpnote:gs|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/linesharpnote.v Line: 85
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "../ImageMIFs/linesharpnote.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "195"
+    Info (12134): Parameter "operation_mode" = "SINGLE_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "CLOCK0"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "DONT_CARE"
+    Info (12134): Parameter "widthad_a" = "8"
+    Info (12134): Parameter "width_a" = "3"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_6fo1.tdf
+    Info (12023): Found entity 1: altsyncram_6fo1 File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_6fo1.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_6fo1" for hierarchy "linesharpnote:gs|altsyncram:altsyncram_component|altsyncram_6fo1:auto_generated" File: c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12128): Elaborating entity "spacesharpnote" for hierarchy "spacesharpnote:as" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 187
+Info (12128): Elaborating entity "altsyncram" for hierarchy "spacesharpnote:as|altsyncram:altsyncram_component" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/spacesharpnote.v Line: 85
+Info (12130): Elaborated megafunction instantiation "spacesharpnote:as|altsyncram:altsyncram_component" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/spacesharpnote.v Line: 85
+Info (12133): Instantiated megafunction "spacesharpnote:as|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/spacesharpnote.v Line: 85
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "./ImageMIFs/spacesharpnote.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "182"
+    Info (12134): Parameter "operation_mode" = "SINGLE_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "CLOCK0"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "widthad_a" = "8"
+    Info (12134): Parameter "width_a" = "3"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_njp1.tdf
+    Info (12023): Found entity 1: altsyncram_njp1 File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_njp1.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_njp1" for hierarchy "spacesharpnote:as|altsyncram:altsyncram_component|altsyncram_njp1:auto_generated" File: c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12128): Elaborating entity "newscalestaff" for hierarchy "newscalestaff:n0" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 217
 Info (12128): Elaborating entity "altsyncram" for hierarchy "newscalestaff:n0|altsyncram:altsyncram_component" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/newscalestaff.v Line: 85
 Info (12130): Elaborated megafunction instantiation "newscalestaff:n0|altsyncram:altsyncram_component" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/newscalestaff.v Line: 85
 Info (12133): Instantiated megafunction "newscalestaff:n0|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/newscalestaff.v Line: 85
@@ -1169,33 +1809,35 @@ Info (12133): Instantiated megafunction "newscalestaff:n0|altsyncram:altsyncram_
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_fco1.tdf
     Info (12023): Found entity 1: altsyncram_fco1 File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_fco1.tdf Line: 33
 Info (12128): Elaborating entity "altsyncram_fco1" for hierarchy "newscalestaff:n0|altsyncram:altsyncram_component|altsyncram_fco1:auto_generated" File: c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "BGoutlet" for hierarchy "BGoutlet:sc1" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 218
-Warning (10230): Verilog HDL assignment warning at VPAtest.v(335): truncated value with size 32 to match size of target (15) File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 335
-Info (12128): Elaborating entity "vga_RateDivider" for hierarchy "vga_RateDivider:vrd0" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 230
-Warning (10230): Verilog HDL assignment warning at VPAtest.v(351): truncated value with size 32 to match size of target (9) File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 351
-Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (12128): Elaborating entity "BGoutlet" for hierarchy "BGoutlet:sc1" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 230
+Warning (10230): Verilog HDL assignment warning at VPAtest.v(373): truncated value with size 32 to match size of target (15) File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 373
+Info (12128): Elaborating entity "vga_RateDivider" for hierarchy "vga_RateDivider:vrd0" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 268
+Warning (10230): Verilog HDL assignment warning at VPAtest.v(389): truncated value with size 32 to match size of target (9) File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 389
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following RAM node(s):
+        Warning (14320): Synthesized away node "spacesharpnote:as|altsyncram:altsyncram_component|altsyncram_njp1:auto_generated|q_a[0]" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_njp1.tdf Line: 36
+        Warning (14320): Synthesized away node "spacesharpnote:as|altsyncram:altsyncram_component|altsyncram_njp1:auto_generated|q_a[1]" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_njp1.tdf Line: 61
+        Warning (14320): Synthesized away node "spacesharpnote:as|altsyncram:altsyncram_component|altsyncram_njp1:auto_generated|q_a[2]" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_njp1.tdf Line: 86
+Warning (12241): 8 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 27
 Info (286030): Timing-Driven Synthesis is running
+Info (17049): 15 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 5 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning: RST port on the PLL is not properly connected on instance vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated|generic_pll1. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altpll_80u.tdf Line: 33
     Info: Must be connected
-Warning (21074): Design contains 3 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 20
-    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 20
-    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/Yao/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/VPAtest.v Line: 20
-Info (21057): Implemented 203 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 361 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
     Info (21059): Implemented 29 output pins
-    Info (21061): Implemented 148 logic cells
-    Info (21064): Implemented 18 RAM segments
+    Info (21061): Implemented 294 logic cells
+    Info (21064): Implemented 27 RAM segments
     Info (21065): Implemented 1 PLLs
-    Info (21062): Implemented 2 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 18 warnings
-    Info: Peak virtual memory: 4873 megabytes
-    Info: Processing ended: Sun Nov 25 03:49:56 2018
-    Info: Elapsed time: 00:00:42
-    Info: Total CPU time (on all processors): 00:01:14
+    Info (21062): Implemented 5 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 19 warnings
+    Info: Peak virtual memory: 4875 megabytes
+    Info: Processing ended: Sun Nov 25 04:16:07 2018
+    Info: Elapsed time: 00:00:37
+    Info: Total CPU time (on all processors): 00:01:07
 
 
