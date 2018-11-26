@@ -1,0 +1,213 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'RateDivider:rd0|q[0]'
+Slack : -10.022
+TNS   : -366.875
+
+Type  : Slow 1100mV 85C Model Setup 'CLOCK_50'
+Slack : -5.131
+TNS   : -149.588
+
+Type  : Slow 1100mV 85C Model Setup 'avconf:avc|mI2C_CTRL_CLK'
+Slack : -2.112
+TNS   : -112.198
+
+Type  : Slow 1100mV 85C Model Setup 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 34.853
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'avconf:avc|mI2C_CTRL_CLK'
+Slack : -0.108
+TNS   : -0.108
+
+Type  : Slow 1100mV 85C Model Hold 'CLOCK_50'
+Slack : 0.235
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.430
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'RateDivider:rd0|q[0]'
+Slack : 0.437
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'RateDivider:rd0|q[0]'
+Slack : -0.511
+TNS   : -38.172
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'avconf:avc|mI2C_CTRL_CLK'
+Slack : -0.394
+TNS   : -36.975
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]'
+Slack : 1.666
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : 8.817
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 18.753
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'RateDivider:rd0|q[0]'
+Slack : -10.406
+TNS   : -376.341
+
+Type  : Slow 1100mV 0C Model Setup 'CLOCK_50'
+Slack : -4.803
+TNS   : -137.389
+
+Type  : Slow 1100mV 0C Model Setup 'avconf:avc|mI2C_CTRL_CLK'
+Slack : -2.130
+TNS   : -108.323
+
+Type  : Slow 1100mV 0C Model Setup 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 35.063
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'avconf:avc|mI2C_CTRL_CLK'
+Slack : -0.101
+TNS   : -0.101
+
+Type  : Slow 1100mV 0C Model Hold 'CLOCK_50'
+Slack : -0.091
+TNS   : -0.125
+
+Type  : Slow 1100mV 0C Model Hold 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.410
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'RateDivider:rd0|q[0]'
+Slack : 0.454
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'RateDivider:rd0|q[0]'
+Slack : -0.548
+TNS   : -39.800
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'avconf:avc|mI2C_CTRL_CLK'
+Slack : -0.394
+TNS   : -36.750
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]'
+Slack : 1.666
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : 8.776
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 18.736
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'RateDivider:rd0|q[0]'
+Slack : -5.593
+TNS   : -198.086
+
+Type  : Fast 1100mV 85C Model Setup 'CLOCK_50'
+Slack : -3.812
+TNS   : -112.639
+
+Type  : Fast 1100mV 85C Model Setup 'avconf:avc|mI2C_CTRL_CLK'
+Slack : -1.034
+TNS   : -47.594
+
+Type  : Fast 1100mV 85C Model Setup 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 36.309
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'avconf:avc|mI2C_CTRL_CLK'
+Slack : -0.112
+TNS   : -0.112
+
+Type  : Fast 1100mV 85C Model Hold 'RateDivider:rd0|q[0]'
+Slack : 0.165
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'CLOCK_50'
+Slack : 0.181
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.236
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'RateDivider:rd0|q[0]'
+Slack : -0.213
+TNS   : -4.800
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'avconf:avc|mI2C_CTRL_CLK'
+Slack : -0.066
+TNS   : -0.773
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]'
+Slack : 1.666
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : 8.820
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 18.880
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'RateDivider:rd0|q[0]'
+Slack : -5.383
+TNS   : -189.716
+
+Type  : Fast 1100mV 0C Model Setup 'CLOCK_50'
+Slack : -3.187
+TNS   : -90.177
+
+Type  : Fast 1100mV 0C Model Setup 'avconf:avc|mI2C_CTRL_CLK'
+Slack : -0.898
+TNS   : -40.435
+
+Type  : Fast 1100mV 0C Model Setup 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 36.768
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'avconf:avc|mI2C_CTRL_CLK'
+Slack : -0.104
+TNS   : -0.104
+
+Type  : Fast 1100mV 0C Model Hold 'CLOCK_50'
+Slack : 0.122
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'RateDivider:rd0|q[0]'
+Slack : 0.151
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'RateDivider:rd0|q[0]'
+Slack : -0.152
+TNS   : -3.057
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'avconf:avc|mI2C_CTRL_CLK'
+Slack : -0.022
+TNS   : -0.242
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]'
+Slack : 1.666
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : 8.813
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 18.881
+TNS   : 0.000
+
+------------------------------------------------------------
