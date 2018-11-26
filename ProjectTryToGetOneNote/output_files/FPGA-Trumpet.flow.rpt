@@ -1,5 +1,5 @@
 Flow report for FPGA-Trumpet
-Fri Nov 23 22:16:35 2018
+Sun Nov 25 18:38:40 2018
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -40,19 +40,19 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Fri Nov 23 22:16:21 2018       ;
+; Flow Status                     ; Successful - Sun Nov 25 18:37:51 2018       ;
 ; Quartus Prime Version           ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                   ; FPGA-Trumpet                                ;
 ; Top-level Entity Name           ; FPGATrumpet                                 ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CSEMA5F31C6                                ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 473 / 32,070 ( 1 % )                        ;
-; Total registers                 ; 425                                         ;
+; Logic utilization (in ALMs)     ; 532 / 32,070 ( 2 % )                        ;
+; Total registers                 ; 451                                         ;
 ; Total pins                      ; 96 / 457 ( 21 % )                           ;
 ; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 2,199,808 / 4,065,280 ( 54 % )              ;
-; Total DSP Blocks                ; 0 / 87 ( 0 % )                              ;
+; Total block memory bits         ; 2,257,408 / 4,065,280 ( 56 % )              ;
+; Total DSP Blocks                ; 2 / 87 ( 2 % )                              ;
 ; Total HSSI RX PCSs              ; 0                                           ;
 ; Total HSSI PMA RX Deserializers ; 0                                           ;
 ; Total HSSI TX PCSs              ; 0                                           ;
@@ -67,7 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/23/2018 22:14:17 ;
+; Start date & time ; 11/25/2018 18:31:27 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; FPGA-Trumpet        ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 88491851385743.154302925603388         ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 75338034003877.154318868603032         ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; MISC_FILE                           ; c4_bb.v                                ; --            ; --          ; --         ;
@@ -94,6 +94,8 @@ refer to the applicable agreement for further details.
 ; MISC_FILE                           ; b4_bb.v                                ; --            ; --          ; --         ;
 ; MISC_FILE                           ; c5_bb.v                                ; --            ; --          ; --         ;
 ; MISC_FILE                           ; newnewfs4_bb.v                         ; --            ; --          ; --         ;
+; MISC_FILE                           ; newscalestaff_bb.v                     ; --            ; --          ; --         ;
+; MISC_FILE                           ; linenote_bb.v                          ; --            ; --          ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; FPGATrumpet ; Top        ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; FPGATrumpet ; Top        ;
 ; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; FPGATrumpet ; Top        ;
@@ -109,11 +111,11 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:20     ; 1.0                     ; 4911 MB             ; 00:00:36                           ;
-; Fitter               ; 00:01:29     ; 1.2                     ; 6721 MB             ; 00:03:26                           ;
-; Assembler            ; 00:00:11     ; 1.0                     ; 4895 MB             ; 00:00:11                           ;
-; Timing Analyzer      ; 00:00:13     ; 1.8                     ; 5261 MB             ; 00:00:19                           ;
-; Total                ; 00:02:13     ; --                      ; --                  ; 00:04:32                           ;
+; Analysis & Synthesis ; 00:01:02     ; 1.0                     ; 4899 MB             ; 00:01:35                           ;
+; Fitter               ; 00:04:44     ; 1.1                     ; 6382 MB             ; 00:07:10                           ;
+; Assembler            ; 00:00:28     ; 1.0                     ; 4900 MB             ; 00:00:27                           ;
+; Timing Analyzer      ; 00:00:47     ; 1.5                     ; 5245 MB             ; 00:00:59                           ;
+; Total                ; 00:07:01     ; --                      ; --                  ; 00:10:11                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -122,10 +124,10 @@ refer to the applicable agreement for further details.
 +----------------------+------------------+------------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; LAPTOP-6F2FINU4  ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter               ; LAPTOP-6F2FINU4  ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler            ; LAPTOP-6F2FINU4  ; Windows 10 ; 10.0       ; x86_64         ;
-; Timing Analyzer      ; LAPTOP-6F2FINU4  ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis ; DESKTOP-RNVHDV7  ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; DESKTOP-RNVHDV7  ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; DESKTOP-RNVHDV7  ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; DESKTOP-RNVHDV7  ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 

@@ -178,10 +178,10 @@ avconf #(.USE_MIC_INPUT(1)) avc (
  *****************************************************************************/
 
 // wires  
-wire [2:0] colour;
-wire [7:0] x;
-wire [6:0] y;
-wire writeEn;
+	wire [2:0] colour;
+	wire [7:0] x;
+	wire [6:0] y;
+	wire writeEn;
 
 // instantiate VGA module
 vga_adapter VGA(
@@ -269,33 +269,105 @@ defparam VGA.BACKGROUND_IMAGE = "scalestaff.mif";
         );
 	
 	
+
+/*****************************************************************************
+ *                 Drawing Datapath	 	part of top level	                    *
+ *****************************************************************************/
 	
+	reg [7:0] xselect;
+	reg [6:0] yselect;
+	reg [2:0] colourselect;	
+	
+	wire [7:0] gx, gsx, ax, asx, scalex;
+	wire [6:0] gy, gsy, ay, asy, scaley;
+	
+	wire [6:0] gaddress;
+//
+//	linenote g(
+//	.address(gaddress),
+//	.clock(CLOCK_50),
+//	.data(),
+//	.wren(0),
+//	.q(gcolour));
+//	
+//	outlet g0 (
+//	.clock(vEnable), 
+//	.resetn(resetn), 
+//	.xin(8'd34),
+//	.yin(7'd99),
+//	.width(8'd9),
+//	.height(7'd5),
+//	.x(gx), 
+//	.y(gy), 
+//	.wren(), 
+//	.address(gaddress)
+//);
+ 
+
+ 
+wire [14:0] scaleaddress;
+	
+newscalestaff nss0(
+	.address(scaleaddress),
+	.clock(CLOCK_50),
+	.data(),
+	.wren(0),
+	.q(colour));
+
+BGoutlet sc1 (
+	.clock(CLOCK_50), 
+	.resetn(~resetn), 
+	.xin(0),
+	.yin(0),
+	.width(159),
+	.height(119),
+	.x(x), 
+	.y(y), 
+	.wren(writeEn), 
+	.address(scaleaddress)
+);
+ 
+//always@(posedge CLOCK_50)begin
+//	if(SW[4]) begin
+//		xselect <= gx;
+//		yselect <= gy;
+//		colourselect <= gcolour;
+//	end
+//	else if(~KEY[2]) begin
+//		xselect <= gsx;
+//		yselect <= gsy;
+//		colourselect <= gscolour;
+//	end
+//	else if(~KEY[1]) begin
+//		xselect <= ax;
+//		yselect <= ay;
+//		colourselect <= acolour;
+//	end
+//	else begin
+//		xselect <= scalex;
+//		yselect <= scaley;
+//		colourselect <= scalecolour;	
+//	end
+//
+//end
+	
+//assign x = xselect;	
+//assign y = yselect;
+//assign colour = colourselect;	
+
+wire vEnable;
+wire [8:0]vRDiv;
+assign vEnable = (vRDiv == 9'b000000000)?1:0;
+	
+vga_RateDivider vrd0 (
+	.Clock(CLOCK_50),
+	.q(vRDiv)
+);	
 	
 endmodule
-/*****************************************************************************
- *                         		Drawing Datapath	 		                    *
- *****************************************************************************/
-/*****************************************************************************
- *                         		ID chart		 		 		                    *
- *****************************************************************************/
-module drawNote(clock, resetn, id, xin, yin, xout, yout, colour);
-	input clock; 
-	input resetn; 
-	input id;
-	input xin;
-	input yin;
-	output xout;
-	output colour;
-	
-	always@(posedge clock)begin
-		if
-	
-	end
-	
-	
-	
-	
-endmodule
+
+
+
 /*****************************************************************************
  *                          Note Select Module 				                    *
  *****************************************************************************/
@@ -576,6 +648,129 @@ module RateDivider (Clock, q);
 		if (q == 26'b00000000000000000000000000) // when q is the min value for the counter
 			//Real code value
 			q <= 26'b00000001111111111111111111;//something bit something; // q reset to 0
+
+		else
+			q <= q - 1; // decrement q
+	end
+
+endmodule
+
+
+module outlet(clock, resetn, xin, yin, width, height, x, y, wren, address);
+	input clock, resetn;
+	input [7:0] xin;
+	input [6:0] yin;
+	input [7:0] width;
+	input [6:0] height;
+	output [7:0] x;
+	output [6:0] y;
+	output [7:0] address;
+	output wren;
+	
+	reg [7:0] xCounter;
+	reg [6:0] yCounter;
+
+	wire xCounter_clear;
+	wire yCounter_clear;
+	/* A counter to scan through a horizontal line. */
+	
+	
+	always @(posedge clock)
+	begin
+		if (resetn)
+			xCounter <= 8'd0;
+		else if (xCounter_clear)
+			xCounter <= 8'd0;
+		else
+		begin
+			xCounter <= xCounter + 1'b1;
+		end
+	end
+	
+	assign xCounter_clear = (xCounter == (width));
+
+
+	always @(posedge clock)
+	begin
+		if (resetn)
+			yCounter <= 7'd0;
+		else if (xCounter_clear && yCounter_clear)
+			yCounter <= 7'd0;
+		else if (xCounter_clear)		//Increment when x counter resets
+			yCounter <= yCounter + 1'b1;
+	end
+	
+	assign yCounter_clear = (yCounter == (height)); 
+	
+	assign x = xCounter + xin;
+	assign y = yCounter + yin;
+	assign address = (xCounter + (yCounter*(width + 1)));
+	assign wren = (address <= (((height + 1)*(width + 1)) -1));
+endmodule
+		
+
+module BGoutlet(clock, resetn, xin, yin, width, height, x, y, wren, address);
+	input clock, resetn;
+	input [7:0] xin;
+	input [6:0] yin;
+	input [7:0] width;
+	input [6:0] height;
+	output [7:0] x;
+	output [6:0] y;
+	output [14:0] address;
+	output wren;
+	
+	reg [7:0] xCounter;
+	reg [6:0] yCounter;
+
+	wire xCounter_clear;
+	wire yCounter_clear;
+	/* A counter to scan through a horizontal line. */
+	
+	
+	always @(posedge clock)
+	begin
+		if (resetn)
+			xCounter <= 8'd0;
+		else if (xCounter_clear)
+			xCounter <= 8'd0;
+		else
+		begin
+			xCounter <= xCounter + 1'b1;
+		end
+	end
+	
+	assign xCounter_clear = (xCounter == (width));
+
+
+	always @(posedge clock)
+	begin
+		if (resetn)
+			yCounter <= 7'd0;
+		else if (xCounter_clear && yCounter_clear)
+			yCounter <= 7'd0;
+		else if (xCounter_clear)		//Increment when x counter resets
+			yCounter <= yCounter + 1'b1;
+	end
+	
+	assign yCounter_clear = (yCounter == (height)); 
+	
+	assign x = xCounter + xin;
+	assign y = yCounter + yin;
+	assign address = (xCounter + (yCounter*(width + 1)));
+	assign wren = (address <= (((height + 1)*(width + 1)) -1));
+endmodule
+		
+module vga_RateDivider (Clock, q);
+	input Clock;
+	
+	output reg [8:0] q; // declare q
+
+	always @(posedge Clock) // triggered every time clock rises
+	begin
+		if (q == 9'b000000000) // when q is the min value for the counter
+			//Real code value
+			q <= 9'b111111111;//something bit something; // q reset to 0
 
 		else
 			q <= q - 1; // decrement q
