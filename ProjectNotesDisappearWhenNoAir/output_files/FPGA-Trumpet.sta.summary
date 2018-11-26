@@ -1,0 +1,261 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'RateDivider:rd0|q[0]'
+Slack : -10.382
+TNS   : -366.335
+
+Type  : Slow 1100mV 85C Model Setup 'CLOCK_50'
+Slack : -6.218
+TNS   : -754.084
+
+Type  : Slow 1100mV 85C Model Setup 'note_info:ni|vga_RateDivider:vrd0|q[0]'
+Slack : -3.305
+TNS   : -688.262
+
+Type  : Slow 1100mV 85C Model Setup 'avconf:avc|mI2C_CTRL_CLK'
+Slack : -2.617
+TNS   : -146.319
+
+Type  : Slow 1100mV 85C Model Setup 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 35.343
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'CLOCK_50'
+Slack : 0.258
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'avconf:avc|mI2C_CTRL_CLK'
+Slack : 0.382
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.409
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'RateDivider:rd0|q[0]'
+Slack : 0.437
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'note_info:ni|vga_RateDivider:vrd0|q[0]'
+Slack : 0.784
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'note_info:ni|vga_RateDivider:vrd0|q[0]'
+Slack : -2.225
+TNS   : -473.211
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'avconf:avc|mI2C_CTRL_CLK'
+Slack : -0.394
+TNS   : -36.896
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'RateDivider:rd0|q[0]'
+Slack : -0.394
+TNS   : -34.927
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]'
+Slack : 1.666
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : 8.820
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 18.780
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'RateDivider:rd0|q[0]'
+Slack : -10.575
+TNS   : -374.313
+
+Type  : Slow 1100mV 0C Model Setup 'CLOCK_50'
+Slack : -5.952
+TNS   : -713.372
+
+Type  : Slow 1100mV 0C Model Setup 'note_info:ni|vga_RateDivider:vrd0|q[0]'
+Slack : -3.228
+TNS   : -665.640
+
+Type  : Slow 1100mV 0C Model Setup 'avconf:avc|mI2C_CTRL_CLK'
+Slack : -2.582
+TNS   : -141.407
+
+Type  : Slow 1100mV 0C Model Setup 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 35.406
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'CLOCK_50'
+Slack : -0.090
+TNS   : -0.104
+
+Type  : Slow 1100mV 0C Model Hold 'avconf:avc|mI2C_CTRL_CLK'
+Slack : 0.386
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.389
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'RateDivider:rd0|q[0]'
+Slack : 0.448
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'note_info:ni|vga_RateDivider:vrd0|q[0]'
+Slack : 0.666
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'note_info:ni|vga_RateDivider:vrd0|q[0]'
+Slack : -2.225
+TNS   : -473.321
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'avconf:avc|mI2C_CTRL_CLK'
+Slack : -0.394
+TNS   : -36.380
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'RateDivider:rd0|q[0]'
+Slack : -0.394
+TNS   : -34.544
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]'
+Slack : 1.666
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : 8.776
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 18.765
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'RateDivider:rd0|q[0]'
+Slack : -5.619
+TNS   : -196.850
+
+Type  : Fast 1100mV 85C Model Setup 'CLOCK_50'
+Slack : -3.836
+TNS   : -482.860
+
+Type  : Fast 1100mV 85C Model Setup 'note_info:ni|vga_RateDivider:vrd0|q[0]'
+Slack : -1.623
+TNS   : -317.062
+
+Type  : Fast 1100mV 85C Model Setup 'avconf:avc|mI2C_CTRL_CLK'
+Slack : -1.234
+TNS   : -64.653
+
+Type  : Fast 1100mV 85C Model Setup 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 37.167
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'avconf:avc|mI2C_CTRL_CLK'
+Slack : 0.138
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'CLOCK_50'
+Slack : 0.149
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'RateDivider:rd0|q[0]'
+Slack : 0.163
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.241
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'note_info:ni|vga_RateDivider:vrd0|q[0]'
+Slack : 0.359
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'note_info:ni|vga_RateDivider:vrd0|q[0]'
+Slack : -1.702
+TNS   : -334.315
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'RateDivider:rd0|q[0]'
+Slack : -0.078
+TNS   : -2.191
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'avconf:avc|mI2C_CTRL_CLK'
+Slack : 0.073
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]'
+Slack : 1.666
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : 8.818
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 18.895
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'RateDivider:rd0|q[0]'
+Slack : -5.454
+TNS   : -189.848
+
+Type  : Fast 1100mV 0C Model Setup 'CLOCK_50'
+Slack : -3.263
+TNS   : -400.817
+
+Type  : Fast 1100mV 0C Model Setup 'note_info:ni|vga_RateDivider:vrd0|q[0]'
+Slack : -1.371
+TNS   : -267.389
+
+Type  : Fast 1100mV 0C Model Setup 'avconf:avc|mI2C_CTRL_CLK'
+Slack : -1.052
+TNS   : -55.042
+
+Type  : Fast 1100mV 0C Model Setup 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 37.409
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'avconf:avc|mI2C_CTRL_CLK'
+Slack : 0.127
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'CLOCK_50'
+Slack : 0.131
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'RateDivider:rd0|q[0]'
+Slack : 0.147
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.218
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'note_info:ni|vga_RateDivider:vrd0|q[0]'
+Slack : 0.297
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'note_info:ni|vga_RateDivider:vrd0|q[0]'
+Slack : -1.702
+TNS   : -332.981
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'RateDivider:rd0|q[0]'
+Slack : -0.036
+TNS   : -0.680
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'avconf:avc|mI2C_CTRL_CLK'
+Slack : 0.102
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]'
+Slack : 1.666
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : 8.813
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 18.890
+TNS   : 0.000
+
+------------------------------------------------------------

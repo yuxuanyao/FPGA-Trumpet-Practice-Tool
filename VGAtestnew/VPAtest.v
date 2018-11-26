@@ -103,7 +103,7 @@ wire [6:0] gaddress;
 outlet g0 (
 	.clock(vEnable), 
 	.resetn(resetn), 
-	.xin(8'd34),
+	.xin(8'd35),
 	.yin(7'd99),
 	.width(8'd9),
 	.height(7'd5),
@@ -130,7 +130,7 @@ newspacenote a(
 outlet a0 (
 	.clock(vEnable), 
 	.resetn(resetn), 
-	.xin(8'd75),
+	.xin(8'd77),
 	.yin(7'd95),
 	.width(8'd7),
 	.height(7'd5),
@@ -156,7 +156,7 @@ linesharpnote gs(
 outlet gso (
 	.clock(vEnable), 
 	.resetn(resetn), 
-	.xin(8'd50),
+	.xin(8'd52),
 	.yin(7'd95),
 	.width(8'd14),
 	.height(7'd12),

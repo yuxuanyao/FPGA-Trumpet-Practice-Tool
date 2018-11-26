@@ -213,11 +213,13 @@ vga_adapter VGA(
 defparam VGA.RESOLUTION = "160x120";
 defparam VGA.MONOCHROME = "FALSE";
 defparam VGA.BITS_PER_COLOUR_CHANNEL = 1;
-defparam VGA.BACKGROUND_IMAGE = "scalestaff.mif";
+defparam VGA.BACKGROUND_IMAGE = "scalestaffshift.mif";
 
  note_info ni(
 	.id(note_id), 
 	.clock(CLOCK_50), 
+	.air(air),
+	.resetn(~KEY[0]),
 	.x(x), 
 	.y(y), 
 	.colour(colour), 
@@ -290,16 +292,18 @@ endmodule
 /*****************************************************************************
  *                         	Note Graphics Module		 		                 *
  *****************************************************************************/
- module note_info (id, clock, x, y, colour, writeEn);
+ module note_info (id, clock, air, resetn, x, y, colour, writeEn);
 	input [3:0]id;
 	input clock;
+	input [1:0] air;
+	input resetn;
 	output reg [7:0] x;
 	output reg [6:0] y;
 	output reg [2:0] colour;
 	output writeEn;
 	
 	wire [7:0] caddress, csaddress, daddress, dsaddress, eaddress, faddress, fsaddress, gaddress, gsaddress, aaddress, asaddress, baddress, hcaddress;
-	wire [14:0] sc_address;
+	wire [14:0] scaddress;
 	
 	
 	// wires for x, y, and colour 
@@ -324,95 +328,112 @@ endmodule
 		.q(vRDiv)
 	);
 	
+	reg drewBG;
 	
 	
 // select which to draw
 
 	always@(posedge clock)begin
-		if(id == 4'd0) begin
-			x <= scalex;
-			y <= scaley;
-			colour <= scalecolour;
-		end
-		else if(id == 4'd1) begin
-			x <= cx;
-			y <= cy;
-			colour <= ccolour;
-		end
-		else if(id == 4'd2) begin
-			x <= csx;
-			y <= csy;
-			colour <= cscolour;
-		end
-		else if(id == 4'd3) begin
-			x <= dx;
-			y <= dy;
-			colour <= dcolour;
-		end
-		else if(id == 4'd4) begin
-			x <= dsx;
-			y <= dsy;
-			colour <= dscolour;
-		end
-		else if(id == 4'd5) begin
-			x <= ex;
-			y <= ey;
-			colour <= ecolour;
-		end
-		else if(id == 4'd6) begin
-			x <= fx;
-			y <= fy;
-			colour <= fcolour;
-		end
-		else if(id == 4'd7) begin
-			x <= fsx;
-			y <= fsy;
-			colour <= fscolour;
-		end
-		else if(id == 4'd8) begin
-			x <= gx;
-			y <= gy;
-			colour <= gcolour;
-		end
-		else if(id == 4'd9) begin
-			x <= gsx;
-			y <= gsy;
-			colour <= gscolour;
-		end
-		else if(id == 4'd10) begin
-			x <= ax;
-			y <= ay;
-			colour <= acolour;
-		end
-		else if(id == 4'd11) begin
-			x <= asx;
-			y <= asy;
-			colour <= ascolour;
-		end
-		else if(id == 4'd12) begin
-			x <= bx;
-			y <= by;
-			colour <= bcolour;
-		end
-		else if(id == 4'd13) begin
-			x <= hcx;
-			y <= hcy;
-			colour <= hccolour;
+	
+	if(air != 2'b0)begin
+		if(drewBG)begin
+			if(id == 4'd0) begin
+				x <= scalex;
+				y <= scaley;
+				colour <= scalecolour;
+			end
+			if(id == 4'd1) begin
+				x <= cx;
+				y <= cy;
+				colour <= ccolour;
+			end
+			else if(id == 4'd2) begin
+				x <= csx;
+				y <= csy;
+				colour <= cscolour;
+			end
+			else if(id == 4'd3) begin
+				x <= dx;
+				y <= dy;
+				colour <= dcolour;
+			end
+			else if(id == 4'd4) begin
+				x <= dsx;
+				y <= dsy;
+				colour <= dscolour;
+			end
+			else if(id == 4'd5) begin
+				x <= ex;
+				y <= ey;
+				colour <= ecolour;
+			end
+			else if(id == 4'd6) begin
+				x <= fx;
+				y <= fy;
+				colour <= fcolour;
+			end
+			else if(id == 4'd7) begin
+				x <= fsx;
+				y <= fsy;
+				colour <= fscolour;
+			end
+			else if(id == 4'd8) begin
+				x <= gx;
+				y <= gy;
+				colour <= gcolour;
+			end
+			else if(id == 4'd9) begin
+				x <= gsx;
+				y <= gsy;
+				colour <= gscolour;
+			end
+			else if(id == 4'd10) begin
+				x <= ax;
+				y <= ay;
+				colour <= acolour;
+			end
+			else if(id == 4'd11) begin
+				x <= asx;
+				y <= asy;
+				colour <= ascolour;
+			end
+			else if(id == 4'd12) begin
+				x <= bx;
+				y <= by;
+				colour <= bcolour;
+			end
+			else if(id == 4'd13) begin
+				x <= hcx;
+				y <= hcy;
+				colour <= hccolour;
+			end
+			else begin
+				x <= scalex;
+				y <= scaley;
+				colour <= scalecolour;
+			end
+			drewBG <= 0;
 		end
 		else begin
+				x <= scalex;
+				y <= scaley;
+				colour <= scalecolour;
+				drewBG <= 1;
+		end
+	end
+	else begin
 			x <= scalex;
 			y <= scaley;
 			colour <= scalecolour;
-		end
-
 	end
+end
 
 // Image RAM instantiations 
 
 // D sharp RAM
 	Dsharp dsram(
 	.address(dsaddress),
-	.clock(CLOCK_50),
+	.clock(clock),
 	.data(),
 	.wren(0),
 	.q(dscolour));
@@ -420,28 +441,28 @@ endmodule
 // Line Note RAM C, E, G, B	
 	linenote cram(
 	.address(caddress),
-	.clock(CLOCK_50),
+	.clock(clock),
 	.data(),
 	.wren(0),
 	.q(ccolour));
 	
 	linenote eram(
 	.address(eaddress),
-	.clock(CLOCK_50),
+	.clock(clock),
 	.data(),
 	.wren(0),
 	.q(ecolour));
 	
 	linenote gram(
 	.address(gaddress),
-	.clock(CLOCK_50),
+	.clock(clock),
 	.data(),
 	.wren(0),
 	.q(gcolour));
 	
 	linenote bram(
 	.address(baddress),
-	.clock(CLOCK_50),
+	.clock(clock),
 	.data(),
 	.wren(0),
 	.q(bcolour));
@@ -449,14 +470,14 @@ endmodule
 // line Sharp Note RAM Cs, Gs
 	linesharpnote csram(
 	.address(csaddress),
-	.clock(CLOCK_50),
+	.clock(clock),
 	.data(),
 	.wren(0),
 	.q(cscolour));
 	
 	linesharpnote gsram(
 	.address(gsaddress),
-	.clock(CLOCK_50),
+	.clock(clock),
 	.data(),
 	.wren(0),
 	.q(gscolour));
@@ -464,28 +485,28 @@ endmodule
 // Space Note RAM D, F, A, HC
 	spacenote dram(
 	.address(daddress),
-	.clock(CLOCK_50),
+	.clock(clock),
 	.data(),
 	.wren(0),
 	.q(dcolour));
 	
 	spacenote fram(
 	.address(faddress),
-	.clock(CLOCK_50),
+	.clock(clock),
 	.data(),
 	.wren(0),
 	.q(fcolour));
 	
 	spacenote aram(
 	.address(aaddress),
-	.clock(CLOCK_50),
+	.clock(clock),
 	.data(),
 	.wren(0),
 	.q(acolour));
 	
 	spacenote hcram(
 	.address(hcaddress),
-	.clock(CLOCK_50),
+	.clock(clock),
 	.data(),
 	.wren(0),
 	.q(hccolour));
@@ -493,40 +514,40 @@ endmodule
 // Space Sharp Note RAM Fs	As
 	spacesharpnote fsram(
 	.address(fsaddress),
-	.clock(CLOCK_50),
+	.clock(clock),
 	.data(),
 	.wren(0),
 	.q(fscolour));
 	
 	spacesharpnote asram(
 	.address(asaddress),
-	.clock(CLOCK_50),
+	.clock(clock),
 	.data(),
 	.wren(0),
 	.q(ascolour));
 
 // Scale/background RAM 	
-	scale sc(
-	.address(sc_address),
-	.clock(CLOCK_50),
+	newscale sc(
+	.address(scaddress),
+	.clock(clock),
 	.data(),
 	.wren(0),
-	.q(sccolour));
+	.q(scalecolour));
 	
 // outlet/ drawing module instantiation 
 
 // Background outlet
 BGoutlet bg (
-	.clock(CLOCK_50), 
+	.clock(clock), 
 	.resetn(resetn), 
 	.xin(0),
 	.yin(0),
-	.width(159),
-	.height(119),
+	.width(8'd159),
+	.height(7'd119),
 	.x(scalex), 
 	.y(scaley), 
 	.wren(writeEn), 
-	.address(sc_address)
+	.address(scaddress)
 );	
 	
 // note outlets
@@ -920,7 +941,7 @@ module note_Select (clock, keys, airflow, audio_out_allowed, note, write, id);
 					end
 					else if (keys == 3'b001)begin
 						note = c5_audio;
-						id = 4'd12;
+						id = 4'd13;
 					end
 					else begin
 						note = 10'b0; 

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for VPAtest
-Sun Nov 25 16:14:15 2018
+Sun Nov 25 18:04:00 2018
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -78,7 +78,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun Nov 25 16:14:15 2018       ;
+; Analysis & Synthesis Status     ; Successful - Sun Nov 25 18:04:00 2018       ;
 ; Quartus Prime Version           ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                   ; VPAtest                                     ;
 ; Top-level Entity Name           ; VGAtest                                     ;
@@ -198,8 +198,7 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processors 3-4         ;   0.0%      ;
+;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -240,9 +239,9 @@ refer to the applicable agreement for further details.
 ; db/altsyncram_1pm1.tdf               ; yes             ; Auto-Generated Megafunction            ; C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_1pm1.tdf               ;         ;
 ; linenote.mif                         ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/linenote.mif                         ;         ;
 ; db/altsyncram_m2p1.tdf               ; yes             ; Auto-Generated Megafunction            ; C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_m2p1.tdf               ;         ;
-; ../ImageMIFs/spacenote.mif           ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/ImageMIFs/spacenote.mif              ;         ;
+; imagemifs/spacenote.mif              ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/imagemifs/spacenote.mif              ;         ;
 ; db/altsyncram_6fo1.tdf               ; yes             ; Auto-Generated Megafunction            ; C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_6fo1.tdf               ;         ;
-; ../ImageMIFs/linesharpnote.mif       ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/ImageMIFs/linesharpnote.mif          ;         ;
+; imagemifs/linesharpnote.mif          ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/imagemifs/linesharpnote.mif          ;         ;
 ; db/altsyncram_njp1.tdf               ; yes             ; Auto-Generated Megafunction            ; C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_njp1.tdf               ;         ;
 ; imagemifs/spacesharpnote.mif         ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/imagemifs/spacesharpnote.mif         ;         ;
 ; db/altsyncram_fco1.tdf               ; yes             ; Auto-Generated Megafunction            ; C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/VGAtestnew/db/altsyncram_fco1.tdf               ;         ;
@@ -303,8 +302,8 @@ refer to the applicable agreement for further details.
 ;       |altsyncram:altsyncram_component|                 ; 0 (0)               ; 0 (0)                     ; 144               ; 0          ; 0    ; 0            ; |VGAtest|newspacenote:a|altsyncram:altsyncram_component                                                         ; altsyncram             ; work         ;
 ;          |altsyncram_m2p1:auto_generated|               ; 0 (0)               ; 0 (0)                     ; 144               ; 0          ; 0    ; 0            ; |VGAtest|newspacenote:a|altsyncram:altsyncram_component|altsyncram_m2p1:auto_generated                          ; altsyncram_m2p1        ; work         ;
 ;    |outlet:a0|                                          ; 35 (35)             ; 15 (15)                   ; 0                 ; 1          ; 0    ; 0            ; |VGAtest|outlet:a0                                                                                              ; outlet                 ; work         ;
-;    |outlet:g0|                                          ; 34 (34)             ; 15 (15)                   ; 0                 ; 1          ; 0    ; 0            ; |VGAtest|outlet:g0                                                                                              ; outlet                 ; work         ;
-;    |outlet:gso|                                         ; 48 (48)             ; 15 (15)                   ; 0                 ; 1          ; 0    ; 0            ; |VGAtest|outlet:gso                                                                                             ; outlet                 ; work         ;
+;    |outlet:g0|                                          ; 35 (35)             ; 15 (15)                   ; 0                 ; 1          ; 0    ; 0            ; |VGAtest|outlet:g0                                                                                              ; outlet                 ; work         ;
+;    |outlet:gso|                                         ; 47 (47)             ; 15 (15)                   ; 0                 ; 1          ; 0    ; 0            ; |VGAtest|outlet:gso                                                                                             ; outlet                 ; work         ;
 ;    |vga_RateDivider:vrd0|                               ; 9 (9)               ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |VGAtest|vga_RateDivider:vrd0                                                                                   ; vga_RateDivider        ; work         ;
 ;    |vga_adapter:VGA|                                    ; 66 (2)              ; 30 (0)                    ; 57600             ; 0          ; 0    ; 0            ; |VGAtest|vga_adapter:VGA                                                                                        ; vga_adapter            ; work         ;
 ;       |altsyncram:VideoMemory|                          ; 10 (0)              ; 4 (0)                     ; 57600             ; 0          ; 0    ; 0            ; |VGAtest|vga_adapter:VGA|altsyncram:VideoMemory                                                                 ; altsyncram             ; work         ;
@@ -1440,9 +1439,9 @@ Note: In order to hide this table in the UI and the text report file, please set
 +--------------+--------+----------+------------------------+
 ; xin[5..4]    ; Input  ; Info     ; Stuck at VCC           ;
 ; xin[7..6]    ; Input  ; Info     ; Stuck at GND           ;
-; xin[3..2]    ; Input  ; Info     ; Stuck at GND           ;
-; xin[1]       ; Input  ; Info     ; Stuck at VCC           ;
-; xin[0]       ; Input  ; Info     ; Stuck at GND           ;
+; xin[1..0]    ; Input  ; Info     ; Stuck at GND           ;
+; xin[3]       ; Input  ; Info     ; Stuck at GND           ;
+; xin[2]       ; Input  ; Info     ; Stuck at VCC           ;
 ; yin[4..0]    ; Input  ; Info     ; Stuck at VCC           ;
 ; yin[6]       ; Input  ; Info     ; Stuck at VCC           ;
 ; yin[5]       ; Input  ; Info     ; Stuck at GND           ;
@@ -1472,12 +1471,12 @@ Note: In order to hide this table in the UI and the text report file, please set
 +--------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------+
 ; Port         ; Type   ; Severity ; Details                                                                                                                    ;
 +--------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------+
-; xin[1..0]    ; Input  ; Info     ; Stuck at VCC                                                                                                               ;
+; xin[3..2]    ; Input  ; Info     ; Stuck at VCC                                                                                                               ;
 ; xin[5..4]    ; Input  ; Info     ; Stuck at GND                                                                                                               ;
 ; xin[7]       ; Input  ; Info     ; Stuck at GND                                                                                                               ;
 ; xin[6]       ; Input  ; Info     ; Stuck at VCC                                                                                                               ;
-; xin[3]       ; Input  ; Info     ; Stuck at VCC                                                                                                               ;
-; xin[2]       ; Input  ; Info     ; Stuck at GND                                                                                                               ;
+; xin[1]       ; Input  ; Info     ; Stuck at GND                                                                                                               ;
+; xin[0]       ; Input  ; Info     ; Stuck at VCC                                                                                                               ;
 ; yin[4..0]    ; Input  ; Info     ; Stuck at VCC                                                                                                               ;
 ; yin[6]       ; Input  ; Info     ; Stuck at VCC                                                                                                               ;
 ; yin[5]       ; Input  ; Info     ; Stuck at GND                                                                                                               ;
@@ -1509,11 +1508,10 @@ Note: In order to hide this table in the UI and the text report file, please set
 +--------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------+
 ; Port         ; Type   ; Severity ; Details                                                                                                                    ;
 +--------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------+
+; xin[1..0]    ; Input  ; Info     ; Stuck at VCC                                                                                                               ;
 ; xin[7..6]    ; Input  ; Info     ; Stuck at GND                                                                                                               ;
 ; xin[4..2]    ; Input  ; Info     ; Stuck at GND                                                                                                               ;
 ; xin[5]       ; Input  ; Info     ; Stuck at VCC                                                                                                               ;
-; xin[1]       ; Input  ; Info     ; Stuck at VCC                                                                                                               ;
-; xin[0]       ; Input  ; Info     ; Stuck at GND                                                                                                               ;
 ; yin[6..5]    ; Input  ; Info     ; Stuck at VCC                                                                                                               ;
 ; yin[1..0]    ; Input  ; Info     ; Stuck at VCC                                                                                                               ;
 ; yin[4..2]    ; Input  ; Info     ; Stuck at GND                                                                                                               ;
@@ -1599,7 +1597,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -1609,7 +1607,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-    Info: Processing started: Sun Nov 25 16:14:00 2018
+    Info: Processing started: Sun Nov 25 18:03:45 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off VPAtest -c VPAtest
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -1836,9 +1834,9 @@ Info (21057): Implemented 361 device resources after synthesis - the final resou
     Info (21065): Implemented 1 PLLs
     Info (21062): Implemented 5 DSP elements
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 19 warnings
-    Info: Peak virtual memory: 4878 megabytes
-    Info: Processing ended: Sun Nov 25 16:14:15 2018
+    Info: Peak virtual memory: 4881 megabytes
+    Info: Processing ended: Sun Nov 25 18:04:00 2018
     Info: Elapsed time: 00:00:15
-    Info: Total CPU time (on all processors): 00:00:30
+    Info: Total CPU time (on all processors): 00:00:29
 
 
