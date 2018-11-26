@@ -12639,7 +12639,7 @@ y[6] <= y[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 colour[0] <= colour[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 colour[1] <= colour[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 colour[2] <= colour[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-writeEn <= BGoutlet:bg.wren
+writeEn <= BGoutlet:bgg.wren
 
 
 |FPGATrumpet|note_info:ni|vga_RateDivider:vrd0
@@ -13844,7 +13844,7 @@ wren_a => ram_block1a1.PORTAWE
 wren_a => ram_block1a2.PORTAWE
 
 
-|FPGATrumpet|note_info:ni|newscale:sc
+|FPGATrumpet|note_info:ni|newscale2:sc
 address[0] => address[0].IN1
 address[1] => address[1].IN1
 address[2] => address[2].IN1
@@ -13870,34 +13870,34 @@ q[1] <= altsyncram:altsyncram_component.q_a
 q[2] <= altsyncram:altsyncram_component.q_a
 
 
-|FPGATrumpet|note_info:ni|newscale:sc|altsyncram:altsyncram_component
-wren_a => altsyncram_ocq1:auto_generated.wren_a
+|FPGATrumpet|note_info:ni|newscale2:sc|altsyncram:altsyncram_component
+wren_a => altsyncram_urp1:auto_generated.wren_a
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
 rden_b => ~NO_FANOUT~
-data_a[0] => altsyncram_ocq1:auto_generated.data_a[0]
-data_a[1] => altsyncram_ocq1:auto_generated.data_a[1]
-data_a[2] => altsyncram_ocq1:auto_generated.data_a[2]
+data_a[0] => altsyncram_urp1:auto_generated.data_a[0]
+data_a[1] => altsyncram_urp1:auto_generated.data_a[1]
+data_a[2] => altsyncram_urp1:auto_generated.data_a[2]
 data_b[0] => ~NO_FANOUT~
-address_a[0] => altsyncram_ocq1:auto_generated.address_a[0]
-address_a[1] => altsyncram_ocq1:auto_generated.address_a[1]
-address_a[2] => altsyncram_ocq1:auto_generated.address_a[2]
-address_a[3] => altsyncram_ocq1:auto_generated.address_a[3]
-address_a[4] => altsyncram_ocq1:auto_generated.address_a[4]
-address_a[5] => altsyncram_ocq1:auto_generated.address_a[5]
-address_a[6] => altsyncram_ocq1:auto_generated.address_a[6]
-address_a[7] => altsyncram_ocq1:auto_generated.address_a[7]
-address_a[8] => altsyncram_ocq1:auto_generated.address_a[8]
-address_a[9] => altsyncram_ocq1:auto_generated.address_a[9]
-address_a[10] => altsyncram_ocq1:auto_generated.address_a[10]
-address_a[11] => altsyncram_ocq1:auto_generated.address_a[11]
-address_a[12] => altsyncram_ocq1:auto_generated.address_a[12]
-address_a[13] => altsyncram_ocq1:auto_generated.address_a[13]
-address_a[14] => altsyncram_ocq1:auto_generated.address_a[14]
+address_a[0] => altsyncram_urp1:auto_generated.address_a[0]
+address_a[1] => altsyncram_urp1:auto_generated.address_a[1]
+address_a[2] => altsyncram_urp1:auto_generated.address_a[2]
+address_a[3] => altsyncram_urp1:auto_generated.address_a[3]
+address_a[4] => altsyncram_urp1:auto_generated.address_a[4]
+address_a[5] => altsyncram_urp1:auto_generated.address_a[5]
+address_a[6] => altsyncram_urp1:auto_generated.address_a[6]
+address_a[7] => altsyncram_urp1:auto_generated.address_a[7]
+address_a[8] => altsyncram_urp1:auto_generated.address_a[8]
+address_a[9] => altsyncram_urp1:auto_generated.address_a[9]
+address_a[10] => altsyncram_urp1:auto_generated.address_a[10]
+address_a[11] => altsyncram_urp1:auto_generated.address_a[11]
+address_a[12] => altsyncram_urp1:auto_generated.address_a[12]
+address_a[13] => altsyncram_urp1:auto_generated.address_a[13]
+address_a[14] => altsyncram_urp1:auto_generated.address_a[14]
 address_b[0] => ~NO_FANOUT~
 addressstall_a => ~NO_FANOUT~
 addressstall_b => ~NO_FANOUT~
-clock0 => altsyncram_ocq1:auto_generated.clock0
+clock0 => altsyncram_urp1:auto_generated.clock0
 clock1 => ~NO_FANOUT~
 clocken0 => ~NO_FANOUT~
 clocken1 => ~NO_FANOUT~
@@ -13907,16 +13907,16 @@ aclr0 => ~NO_FANOUT~
 aclr1 => ~NO_FANOUT~
 byteena_a[0] => ~NO_FANOUT~
 byteena_b[0] => ~NO_FANOUT~
-q_a[0] <= altsyncram_ocq1:auto_generated.q_a[0]
-q_a[1] <= altsyncram_ocq1:auto_generated.q_a[1]
-q_a[2] <= altsyncram_ocq1:auto_generated.q_a[2]
+q_a[0] <= altsyncram_urp1:auto_generated.q_a[0]
+q_a[1] <= altsyncram_urp1:auto_generated.q_a[1]
+q_a[2] <= altsyncram_urp1:auto_generated.q_a[2]
 q_b[0] <= <GND>
 eccstatus[0] <= <GND>
 eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|FPGATrumpet|note_info:ni|newscale:sc|altsyncram:altsyncram_component|altsyncram_ocq1:auto_generated
+|FPGATrumpet|note_info:ni|newscale2:sc|altsyncram:altsyncram_component|altsyncram_urp1:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -14065,7 +14065,7 @@ q_a[2] <= mux_ifb:mux2.result[2]
 wren_a => decode_7la:decode3.enable
 
 
-|FPGATrumpet|note_info:ni|newscale:sc|altsyncram:altsyncram_component|altsyncram_ocq1:auto_generated|decode_7la:decode3
+|FPGATrumpet|note_info:ni|newscale2:sc|altsyncram:altsyncram_component|altsyncram_urp1:auto_generated|decode_7la:decode3
 data[0] => w_anode105w[1].IN0
 data[0] => w_anode118w[1].IN1
 data[0] => w_anode126w[1].IN0
@@ -14083,7 +14083,7 @@ eq[1] <= w_anode118w[2].DB_MAX_OUTPUT_PORT_TYPE
 eq[2] <= w_anode126w[2].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|FPGATrumpet|note_info:ni|newscale:sc|altsyncram:altsyncram_component|altsyncram_ocq1:auto_generated|decode_01a:rden_decode
+|FPGATrumpet|note_info:ni|newscale2:sc|altsyncram:altsyncram_component|altsyncram_urp1:auto_generated|decode_01a:rden_decode
 data[0] => w_anode143w[1].IN0
 data[0] => w_anode157w[1].IN1
 data[0] => w_anode166w[1].IN0
@@ -14097,7 +14097,7 @@ eq[1] <= w_anode157w[2].DB_MAX_OUTPUT_PORT_TYPE
 eq[2] <= w_anode166w[2].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|FPGATrumpet|note_info:ni|newscale:sc|altsyncram:altsyncram_component|altsyncram_ocq1:auto_generated|mux_ifb:mux2
+|FPGATrumpet|note_info:ni|newscale2:sc|altsyncram:altsyncram_component|altsyncram_urp1:auto_generated|mux_ifb:mux2
 data[0] => data0_wire[0].IN0
 data[1] => data0_wire[1].IN0
 data[2] => data0_wire[2].IN0
@@ -14120,7 +14120,7 @@ sel[1] => data2_wire[0].IN1
 sel[1] => _.IN0
 
 
-|FPGATrumpet|note_info:ni|BGoutlet:bg
+|FPGATrumpet|note_info:ni|BGoutlet:bgg
 clock => yCounter[0].CLK
 clock => yCounter[1].CLK
 clock => yCounter[2].CLK

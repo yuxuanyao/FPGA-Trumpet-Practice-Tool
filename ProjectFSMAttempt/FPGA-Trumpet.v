@@ -225,6 +225,9 @@ defparam VGA.BACKGROUND_IMAGE = "scalestaffshift.mif";
 	.colour(colour), 
 	.writeEn(VGAwriteEn)
 );
+
+
+ 
  
 /*****************************************************************************
  *                         Microphone Input Module 		                    *
@@ -287,6 +290,93 @@ defparam VGA.BACKGROUND_IMAGE = "scalestaffshift.mif";
 	
 	
 	
+endmodule
+/*****************************************************************************
+ *                         			FSM				 		                    *
+ *****************************************************************************/
+
+module control(
+    input clk,
+    input resetn,
+    input go,
+	 input [3:0] id;
+    output reg  [3:0] drawid,
+	 output reg clear;
+    );
+	
+	 
+    reg [5:0] current_state, next_state; 
+    
+    localparam  S_clear          = 5'd0,
+                S_draw			   = 5'd1,
+                S_wait 	         = 5'd2;
+    
+    // Next state logic aka our state table
+    always@(*)
+    begin: state_table 
+            case (current_state)
+                S_LOAD_A: next_state = go ? S_LOAD_A_WAIT : S_LOAD_A; // Loop in current state until value is input
+   
+
+            default:     next_state = S_clear;
+        endcase
+    end // state_table
+   
+
+    // Output logic aka all of our datapath control signals
+    always @(*)
+    begin: enable_signals
+        // By default make all our signals 0 to avoid latches.
+        // This is a different style from using a default statement.
+        // It makes the code easier to read.  If you add other out
+        // signals be sure to assign a default value for them here.
+        ld_alu_out = 1'b0;
+        ld_a = 1'b0;
+        ld_b = 1'b0;
+        ld_c = 1'b0;
+        ld_x = 1'b0;
+        ld_r = 1'b0;
+        alu_select_a = 2'b0;
+        alu_select_b = 2'b0;
+        alu_op       = 1'b0;
+
+        case (current_state)
+            S_LOAD_A: begin
+                ld_a = 1'b1;
+                end
+            S_LOAD_B: begin
+                ld_b = 1'b1;
+                end
+            S_LOAD_C: begin
+                ld_c = 1'b1;
+                end
+            S_LOAD_X: begin
+                ld_x = 1'b1;
+                end
+            S_CYCLE_0: begin // Do A <- A * A 
+                ld_alu_out = 1'b1; ld_a = 1'b1; // store result back into A
+                alu_select_a = 2'b00; // Select register A
+                alu_select_b = 2'b00; // Also select register A
+                alu_op = 1'b1; // Do multiply operation
+            end
+            S_CYCLE_1: begin
+                ld_r = 1'b1; // store result in result register
+                alu_select_a = 2'b00; // Select register A
+                alu_select_b = 2'b10; // Select register C
+                alu_op = 1'b0; // Do Add operation
+            end
+        // default:    // don't need default since we already made sure all of our outputs were assigned a value at the start of the always block
+        endcase
+    end // enable_signals
+   
+    // current_state registers
+    always@(posedge clk)
+    begin: state_FFs
+        if(!resetn)
+            current_state <= S_LOAD_A;
+        else
+            current_state <= next_state;
+    end // state_FFS
 endmodule
 
 /*****************************************************************************

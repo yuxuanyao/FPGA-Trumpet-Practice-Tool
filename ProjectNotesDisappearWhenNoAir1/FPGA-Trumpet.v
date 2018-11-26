@@ -518,7 +518,7 @@ endmodule
 	.q(ascolour));
 
 // Scale/background RAM 	
-	newscale sc(
+	newscale2 sc(
 	.address(scaddress),
 	.clock(clock),
 	.data(),
@@ -528,7 +528,7 @@ endmodule
 // outlet/ drawing module instantiation 
 
 // Background outlet
-BGoutlet bg (
+BGoutlet bgg (
 	.clock(clock), 
 	.resetn(resetn), 
 	.xin(0),
