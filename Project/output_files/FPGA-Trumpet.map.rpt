@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FPGA-Trumpet
-Sun Nov 25 20:58:25 2018
+Sun Nov 25 21:43:47 2018
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -117,7 +117,7 @@ Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 109. Port Connectivity Checks: "note_info:ni|outlet:noted"
 110. Port Connectivity Checks: "note_info:ni|outlet:notecs"
 111. Port Connectivity Checks: "note_info:ni|outlet:notec"
-112. Port Connectivity Checks: "note_info:ni|BGoutlet:bg"
+112. Port Connectivity Checks: "note_info:ni|BGoutlet:bgg"
 113. Port Connectivity Checks: "note_info:ni|newscale:sc"
 114. Port Connectivity Checks: "note_info:ni|spacesharpnote:asram"
 115. Port Connectivity Checks: "note_info:ni|spacesharpnote:fsram"
@@ -179,13 +179,13 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun Nov 25 20:58:25 2018       ;
+; Analysis & Synthesis Status     ; Successful - Sun Nov 25 21:43:47 2018       ;
 ; Quartus Prime Version           ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                   ; FPGA-Trumpet                                ;
 ; Top-level Entity Name           ; FPGATrumpet                                 ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 518                                         ;
+; Total registers                 ; 530                                         ;
 ; Total pins                      ; 96                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 2,261,512                                   ;
@@ -424,16 +424,16 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimate of Logic utilization (ALMs needed) ; 796            ;
+; Estimate of Logic utilization (ALMs needed) ; 838            ;
 ;                                             ;                ;
-; Combinational ALUT usage for logic          ; 1240           ;
-;     -- 7 input functions                    ; 5              ;
-;     -- 6 input functions                    ; 338            ;
-;     -- 5 input functions                    ; 159            ;
-;     -- 4 input functions                    ; 107            ;
-;     -- <=3 input functions                  ; 631            ;
+; Combinational ALUT usage for logic          ; 1315           ;
+;     -- 7 input functions                    ; 6              ;
+;     -- 6 input functions                    ; 345            ;
+;     -- 5 input functions                    ; 193            ;
+;     -- 4 input functions                    ; 121            ;
+;     -- <=3 input functions                  ; 650            ;
 ;                                             ;                ;
-; Dedicated logic registers                   ; 518            ;
+; Dedicated logic registers                   ; 530            ;
 ;                                             ;                ;
 ; I/O pins                                    ; 96             ;
 ; Total MLAB memory bits                      ; 0              ;
@@ -445,9 +445,9 @@ refer to the applicable agreement for further details.
 ;     -- PLLs                                 ; 2              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 739            ;
-; Total fan-out                               ; 12766          ;
-; Average fan-out                             ; 5.35           ;
+; Maximum fan-out                             ; 751            ;
+; Total fan-out                               ; 13127          ;
+; Average fan-out                             ; 5.31           ;
 +---------------------------------------------+----------------+
 
 
@@ -456,8 +456,8 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------+--------------+
 ; Compilation Hierarchy Node                                    ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                                                                          ; Entity Name                     ; Library Name ;
 +---------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------+--------------+
-; |FPGATrumpet                                                  ; 1240 (39)           ; 518 (0)                   ; 2261512           ; 15         ; 96   ; 0            ; |FPGATrumpet                                                                                                                                                                                                                                 ; FPGATrumpet                     ; work         ;
-;    |Audio_Controller:Audio_Controller|                        ; 234 (4)             ; 201 (4)                   ; 12288             ; 0          ; 0    ; 0            ; |FPGATrumpet|Audio_Controller:Audio_Controller                                                                                                                                                                                               ; Audio_Controller                ; work         ;
+; |FPGATrumpet                                                  ; 1315 (39)           ; 530 (0)                   ; 2261512           ; 15         ; 96   ; 0            ; |FPGATrumpet                                                                                                                                                                                                                                 ; FPGATrumpet                     ; work         ;
+;    |Audio_Controller:Audio_Controller|                        ; 232 (4)             ; 201 (4)                   ; 12288             ; 0          ; 0    ; 0            ; |FPGATrumpet|Audio_Controller:Audio_Controller                                                                                                                                                                                               ; Audio_Controller                ; work         ;
 ;       |Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer| ; 76 (5)              ; 87 (36)                   ; 4096              ; 0          ; 0    ; 0            ; |FPGATrumpet|Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer                                                                                                                                         ; Altera_UP_Audio_In_Deserializer ; work         ;
 ;          |Altera_UP_Audio_Bit_Counter:Audio_Out_Bit_Counter|  ; 9 (9)               ; 6 (6)                     ; 0                 ; 0          ; 0    ; 0            ; |FPGATrumpet|Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer|Altera_UP_Audio_Bit_Counter:Audio_Out_Bit_Counter                                                                                       ; Altera_UP_Audio_Bit_Counter     ; work         ;
 ;          |Altera_UP_SYNC_FIFO:Audio_In_Left_Channel_FIFO|     ; 46 (0)              ; 33 (0)                    ; 4096              ; 0          ; 0    ; 0            ; |FPGATrumpet|Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer|Altera_UP_SYNC_FIFO:Audio_In_Left_Channel_FIFO                                                                                          ; Altera_UP_SYNC_FIFO             ; work         ;
@@ -473,7 +473,7 @@ refer to the applicable agreement for further details.
 ;                |scfifo_7ba1:auto_generated|                   ; 16 (0)              ; 12 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |FPGATrumpet|Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer|Altera_UP_SYNC_FIFO:Audio_In_Right_Channel_FIFO|scfifo:Sync_FIFO|scfifo_7ba1:auto_generated                                             ; scfifo_7ba1                     ; work         ;
 ;                   |a_dpfifo_q2a1:dpfifo|                      ; 16 (8)              ; 12 (5)                    ; 0                 ; 0          ; 0    ; 0            ; |FPGATrumpet|Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer|Altera_UP_SYNC_FIFO:Audio_In_Right_Channel_FIFO|scfifo:Sync_FIFO|scfifo_7ba1:auto_generated|a_dpfifo_q2a1:dpfifo                        ; a_dpfifo_q2a1                   ; work         ;
 ;                      |cntr_u27:usedw_counter|                 ; 8 (8)               ; 7 (7)                     ; 0                 ; 0          ; 0    ; 0            ; |FPGATrumpet|Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer|Altera_UP_SYNC_FIFO:Audio_In_Right_Channel_FIFO|scfifo:Sync_FIFO|scfifo_7ba1:auto_generated|a_dpfifo_q2a1:dpfifo|cntr_u27:usedw_counter ; cntr_u27                        ; work         ;
-;       |Altera_UP_Audio_Out_Serializer:Audio_Out_Serializer|   ; 151 (57)            ; 104 (38)                  ; 8192              ; 0          ; 0    ; 0            ; |FPGATrumpet|Audio_Controller:Audio_Controller|Altera_UP_Audio_Out_Serializer:Audio_Out_Serializer                                                                                                                                           ; Altera_UP_Audio_Out_Serializer  ; work         ;
+;       |Altera_UP_Audio_Out_Serializer:Audio_Out_Serializer|   ; 149 (55)            ; 104 (38)                  ; 8192              ; 0          ; 0    ; 0            ; |FPGATrumpet|Audio_Controller:Audio_Controller|Altera_UP_Audio_Out_Serializer:Audio_Out_Serializer                                                                                                                                           ; Altera_UP_Audio_Out_Serializer  ; work         ;
 ;          |Altera_UP_SYNC_FIFO:Audio_Out_Left_Channel_FIFO|    ; 47 (0)              ; 33 (0)                    ; 4096              ; 0          ; 0    ; 0            ; |FPGATrumpet|Audio_Controller:Audio_Controller|Altera_UP_Audio_Out_Serializer:Audio_Out_Serializer|Altera_UP_SYNC_FIFO:Audio_Out_Left_Channel_FIFO                                                                                           ; Altera_UP_SYNC_FIFO             ; work         ;
 ;             |scfifo:Sync_FIFO|                                ; 47 (0)              ; 33 (0)                    ; 4096              ; 0          ; 0    ; 0            ; |FPGATrumpet|Audio_Controller:Audio_Controller|Altera_UP_Audio_Out_Serializer:Audio_Out_Serializer|Altera_UP_SYNC_FIFO:Audio_Out_Left_Channel_FIFO|scfifo:Sync_FIFO                                                                          ; scfifo                          ; work         ;
 ;                |scfifo_7ba1:auto_generated|                   ; 47 (0)              ; 33 (0)                    ; 4096              ; 0          ; 0    ; 0            ; |FPGATrumpet|Audio_Controller:Audio_Controller|Altera_UP_Audio_Out_Serializer:Audio_Out_Serializer|Altera_UP_SYNC_FIFO:Audio_Out_Left_Channel_FIFO|scfifo:Sync_FIFO|scfifo_7ba1:auto_generated                                               ; scfifo_7ba1                     ; work         ;
@@ -546,8 +546,8 @@ refer to the applicable agreement for further details.
 ;       |newnewfs4:fs0|                                         ; 0 (0)               ; 0 (0)                     ; 163840            ; 0          ; 0    ; 0            ; |FPGATrumpet|note_Select:n0|newnewfs4:fs0                                                                                                                                                                                                    ; newnewfs4                       ; work         ;
 ;          |altsyncram:altsyncram_component|                    ; 0 (0)               ; 0 (0)                     ; 163840            ; 0          ; 0    ; 0            ; |FPGATrumpet|note_Select:n0|newnewfs4:fs0|altsyncram:altsyncram_component                                                                                                                                                                    ; altsyncram                      ; work         ;
 ;             |altsyncram_8ko1:auto_generated|                  ; 0 (0)               ; 0 (0)                     ; 163840            ; 0          ; 0    ; 0            ; |FPGATrumpet|note_Select:n0|newnewfs4:fs0|altsyncram:altsyncram_component|altsyncram_8ko1:auto_generated                                                                                                                                     ; altsyncram_8ko1                 ; work         ;
-;    |note_info:ni|                                             ; 467 (119)           ; 107 (19)                  ; 61704             ; 15         ; 0    ; 0            ; |FPGATrumpet|note_info:ni                                                                                                                                                                                                                    ; note_info                       ; work         ;
-;       |BGoutlet:bg|                                           ; 66 (66)             ; 15 (15)                   ; 0                 ; 2          ; 0    ; 0            ; |FPGATrumpet|note_info:ni|BGoutlet:bg                                                                                                                                                                                                        ; BGoutlet                        ; work         ;
+;    |note_info:ni|                                             ; 544 (196)           ; 119 (31)                  ; 61704             ; 15         ; 0    ; 0            ; |FPGATrumpet|note_info:ni                                                                                                                                                                                                                    ; note_info                       ; work         ;
+;       |BGoutlet:bgg|                                          ; 66 (66)             ; 15 (15)                   ; 0                 ; 2          ; 0    ; 0            ; |FPGATrumpet|note_info:ni|BGoutlet:bgg                                                                                                                                                                                                       ; BGoutlet                        ; work         ;
 ;       |Dsharp:dsram|                                          ; 0 (0)               ; 0 (0)                     ; 546               ; 0          ; 0    ; 0            ; |FPGATrumpet|note_info:ni|Dsharp:dsram                                                                                                                                                                                                       ; Dsharp                          ; work         ;
 ;          |altsyncram:altsyncram_component|                    ; 0 (0)               ; 0 (0)                     ; 546               ; 0          ; 0    ; 0            ; |FPGATrumpet|note_info:ni|Dsharp:dsram|altsyncram:altsyncram_component                                                                                                                                                                       ; altsyncram                      ; work         ;
 ;             |altsyncram_28q1:auto_generated|                  ; 0 (0)               ; 0 (0)                     ; 546               ; 0          ; 0    ; 0            ; |FPGATrumpet|note_info:ni|Dsharp:dsram|altsyncram:altsyncram_component|altsyncram_28q1:auto_generated                                                                                                                                        ; altsyncram_28q1                 ; work         ;
@@ -919,12 +919,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 518   ;
+; Total registers                              ; 530   ;
 ; Number of registers using Synchronous Clear  ; 289   ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 59    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 220   ;
+; Number of registers using Clock Enable       ; 231   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -952,31 +952,32 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                                                            ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 11 bits   ; 22 LEs        ; 0 LEs                ; 22 LEs                 ; Yes        ; |FPGATrumpet|micCheck:tm0|lCount[10]                                                                                                                                  ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 0 LEs                ; 22 LEs                 ; Yes        ; |FPGATrumpet|micCheck:tm0|hCount[10]                                                                                                                                  ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 0 LEs                ; 22 LEs                 ; Yes        ; |FPGATrumpet|micCheck:tm0|lCount[7]                                                                                                                                   ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 0 LEs                ; 22 LEs                 ; Yes        ; |FPGATrumpet|micCheck:tm0|hCount[0]                                                                                                                                   ;
 ; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |FPGATrumpet|vga_adapter:VGA|vga_controller:controller|yCounter[1]                                                                                                    ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |FPGATrumpet|Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer|data_in_shift_reg[17]                                            ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |FPGATrumpet|note_info:ni|BGoutlet:bg|xCounter[4]                                                                                                                     ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |FPGATrumpet|note_info:ni|outlet:noteb|xCounter[0]                                                                                                                    ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |FPGATrumpet|note_info:ni|outlet:notecs|xCounter[7]                                                                                                                   ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |FPGATrumpet|note_info:ni|outlet:notea|xCounter[0]                                                                                                                    ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |FPGATrumpet|note_info:ni|outlet:noteas|xCounter[0]                                                                                                                   ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 0 LEs                ; 22 LEs                 ; Yes        ; |FPGATrumpet|micCheck:tm0|mCount[5]                                                                                                                                   ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |FPGATrumpet|note_info:ni|BGoutlet:bg|yCounter[6]                                                                                                                     ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |FPGATrumpet|note_info:ni|outlet:noteb|yCounter[5]                                                                                                                    ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |FPGATrumpet|note_info:ni|outlet:notecs|yCounter[0]                                                                                                                   ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |FPGATrumpet|note_info:ni|outlet:notea|yCounter[2]                                                                                                                    ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |FPGATrumpet|note_info:ni|outlet:noteas|yCounter[5]                                                                                                                   ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |FPGATrumpet|Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer|data_in_shift_reg[30]                                            ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |FPGATrumpet|note_info:ni|BGoutlet:bgg|xCounter[7]                                                                                                                    ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |FPGATrumpet|note_info:ni|outlet:notea|xCounter[6]                                                                                                                    ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |FPGATrumpet|note_info:ni|outlet:noteb|xCounter[2]                                                                                                                    ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |FPGATrumpet|note_info:ni|outlet:notecs|xCounter[0]                                                                                                                   ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |FPGATrumpet|note_info:ni|outlet:noteas|xCounter[1]                                                                                                                   ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 0 LEs                ; 22 LEs                 ; Yes        ; |FPGATrumpet|micCheck:tm0|mCount[0]                                                                                                                                   ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |FPGATrumpet|note_info:ni|BGoutlet:bgg|yCounter[0]                                                                                                                    ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |FPGATrumpet|note_info:ni|outlet:notea|yCounter[6]                                                                                                                    ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |FPGATrumpet|note_info:ni|outlet:noteb|yCounter[2]                                                                                                                    ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |FPGATrumpet|note_info:ni|outlet:notecs|yCounter[1]                                                                                                                   ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |FPGATrumpet|note_info:ni|outlet:noteas|yCounter[0]                                                                                                                   ;
 ; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |FPGATrumpet|Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer|Altera_UP_Audio_Bit_Counter:Audio_Out_Bit_Counter|bit_counter[0] ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |FPGATrumpet|micCheck:tm0|air[1]                                                                                                                                      ;
-; 6:1                ; 31 bits   ; 124 LEs       ; 62 LEs               ; 62 LEs                 ; Yes        ; |FPGATrumpet|Audio_Controller:Audio_Controller|Altera_UP_Audio_Out_Serializer:Audio_Out_Serializer|data_out_shift_reg[21]                                             ;
-; 17:1               ; 7 bits    ; 77 LEs        ; 56 LEs               ; 21 LEs                 ; Yes        ; |FPGATrumpet|note_info:ni|x[7]                                                                                                                                        ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |FPGATrumpet|micCheck:tm0|air[0]                                                                                                                                      ;
+; 6:1                ; 31 bits   ; 124 LEs       ; 62 LEs               ; 62 LEs                 ; Yes        ; |FPGATrumpet|Audio_Controller:Audio_Controller|Altera_UP_Audio_Out_Serializer:Audio_Out_Serializer|data_out_shift_reg[32]                                             ;
 ; 17:1               ; 2 bits    ; 22 LEs        ; 16 LEs               ; 6 LEs                  ; Yes        ; |FPGATrumpet|note_info:ni|y[0]                                                                                                                                        ;
+; 17:1               ; 7 bits    ; 77 LEs        ; 56 LEs               ; 21 LEs                 ; Yes        ; |FPGATrumpet|note_info:ni|x[5]                                                                                                                                        ;
 ; 17:1               ; 5 bits    ; 55 LEs        ; 45 LEs               ; 10 LEs                 ; Yes        ; |FPGATrumpet|note_info:ni|y[2]                                                                                                                                        ;
-; 16:1               ; 3 bits    ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; Yes        ; |FPGATrumpet|note_info:ni|colour[0]                                                                                                                                   ;
-; 31:1               ; 10 bits   ; 200 LEs       ; 170 LEs              ; 30 LEs                 ; Yes        ; |FPGATrumpet|note_Select:n0|note[8]                                                                                                                                   ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |FPGATrumpet|avconf:avc|I2C_Controller:u0|SD_COUNTER[3]                                                                                                               ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |FPGATrumpet|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_j8n1:auto_generated|mux_ifb:mux3|result_node[2]                                                        ;
+; 19:1               ; 3 bits    ; 36 LEs        ; 30 LEs               ; 6 LEs                  ; Yes        ; |FPGATrumpet|note_info:ni|colour[0]                                                                                                                                   ;
+; 31:1               ; 10 bits   ; 200 LEs       ; 170 LEs              ; 30 LEs                 ; Yes        ; |FPGATrumpet|note_Select:n0|note[9]                                                                                                                                   ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |FPGATrumpet|avconf:avc|I2C_Controller:u0|SD_COUNTER[4]                                                                                                               ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |FPGATrumpet|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_j8n1:auto_generated|mux_ifb:mux3|result_node[0]                                                        ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |FPGATrumpet|note_info:ni|bg                                                                                                                                          ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -4708,7 +4709,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "note_info:ni|BGoutlet:bg"                                                                                                                                                                 ;
+; Port Connectivity Checks: "note_info:ni|BGoutlet:bgg"                                                                                                                                                                ;
 +--------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port         ; Type  ; Severity ; Details                                                                                                                                                                            ;
 +--------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -5100,31 +5101,31 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 518                         ;
+; arriav_ff             ; 530                         ;
 ;     CLR               ; 19                          ;
 ;     CLR SCLR          ; 26                          ;
-;     ENA               ; 43                          ;
+;     ENA               ; 54                          ;
 ;     ENA CLR           ; 4                           ;
 ;     ENA CLR SCLR      ; 10                          ;
 ;     ENA SCLR          ; 163                         ;
 ;     SCLR              ; 90                          ;
-;     plain             ; 163                         ;
+;     plain             ; 164                         ;
 ; arriav_io_obuf        ; 4                           ;
-; arriav_lcell_comb     ; 1247                        ;
+; arriav_lcell_comb     ; 1322                        ;
 ;     arith             ; 499                         ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 471                         ;
 ;         2 data inputs ; 27                          ;
-;     extend            ; 5                           ;
-;         7 data inputs ; 5                           ;
-;     normal            ; 723                         ;
+;     extend            ; 6                           ;
+;         7 data inputs ; 6                           ;
+;     normal            ; 797                         ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 8                           ;
-;         2 data inputs ; 60                          ;
-;         3 data inputs ; 49                          ;
-;         4 data inputs ; 107                         ;
-;         5 data inputs ; 159                         ;
-;         6 data inputs ; 338                         ;
+;         1 data inputs ; 7                           ;
+;         2 data inputs ; 68                          ;
+;         3 data inputs ; 61                          ;
+;         4 data inputs ; 121                         ;
+;         5 data inputs ; 193                         ;
+;         6 data inputs ; 345                         ;
 ;     shared            ; 20                          ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 4                           ;
@@ -5135,8 +5136,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; generic_pll           ; 2                           ;
 ; stratixv_ram_block    ; 413                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 6.60                        ;
-; Average LUT depth     ; 2.65                        ;
+; Max LUT depth         ; 7.00                        ;
+; Average LUT depth     ; 2.79                        ;
 +-----------------------+-----------------------------+
 
 
@@ -5145,7 +5146,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:03     ;
+; Top            ; 00:00:04     ;
 +----------------+--------------+
 
 
@@ -5155,7 +5156,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-    Info: Processing started: Sun Nov 25 20:58:01 2018
+    Info: Processing started: Sun Nov 25 21:43:23 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FPGA-Trumpet -c FPGA-Trumpet
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -5188,13 +5189,13 @@ Info (12021): Found 1 design units, including 1 entities, in source file audioco
 Info (12021): Found 9 design units, including 9 entities, in source file fpga-trumpet.v
     Info (12023): Found entity 1: FPGATrumpet File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 5
     Info (12023): Found entity 2: note_info File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 295
-    Info (12023): Found entity 3: note_Select File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 743
-    Info (12023): Found entity 4: micCheck File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 964
-    Info (12023): Found entity 5: outlet File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 1018
-    Info (12023): Found entity 6: BGoutlet File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 1074
-    Info (12023): Found entity 7: vga_RateDivider File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 1130
-    Info (12023): Found entity 8: hex_decoder File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 1149
-    Info (12023): Found entity 9: RateDivider File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 1175
+    Info (12023): Found entity 3: note_Select File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 838
+    Info (12023): Found entity 4: micCheck File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 1059
+    Info (12023): Found entity 5: outlet File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 1113
+    Info (12023): Found entity 6: BGoutlet File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 1169
+    Info (12023): Found entity 7: vga_RateDivider File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 1225
+    Info (12023): Found entity 8: hex_decoder File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 1244
+    Info (12023): Found entity 9: RateDivider File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 1270
 Info (12021): Found 1 design units, including 1 entities, in source file c4.v
     Info (12023): Found entity 1: c4 File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/c4.v Line: 39
 Info (12021): Found 1 design units, including 1 entities, in source file cs4.v
@@ -5236,8 +5237,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file newscal
 Info (12127): Elaborating entity "FPGATrumpet" for the top level hierarchy
 Warning (10230): Verilog HDL assignment warning at FPGA-Trumpet.v(252): truncated value with size 32 to match size of target (1) File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 252
 Info (12128): Elaborating entity "note_Select" for hierarchy "note_Select:n0" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 122
-Warning (10230): Verilog HDL assignment warning at FPGA-Trumpet.v(870): truncated value with size 32 to match size of target (16) File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 870
-Info (12128): Elaborating entity "c4" for hierarchy "note_Select:n0|c4:c0" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 777
+Warning (10230): Verilog HDL assignment warning at FPGA-Trumpet.v(965): truncated value with size 32 to match size of target (16) File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 965
+Info (12128): Elaborating entity "c4" for hierarchy "note_Select:n0|c4:c0" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 872
 Info (12128): Elaborating entity "altsyncram" for hierarchy "note_Select:n0|c4:c0|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/c4.v Line: 85
 Info (12130): Elaborated megafunction instantiation "note_Select:n0|c4:c0|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/c4.v Line: 85
 Info (12133): Instantiated megafunction "note_Select:n0|c4:c0|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/c4.v Line: 85
@@ -5268,7 +5269,7 @@ Info (12128): Elaborating entity "decode_u0a" for hierarchy "note_Select:n0|c4:c
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_ugb.tdf
     Info (12023): Found entity 1: mux_ugb File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/db/mux_ugb.tdf Line: 22
 Info (12128): Elaborating entity "mux_ugb" for hierarchy "note_Select:n0|c4:c0|altsyncram:altsyncram_component|altsyncram_vom1:auto_generated|mux_ugb:mux2" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/db/altsyncram_vom1.tdf Line: 46
-Info (12128): Elaborating entity "cs4" for hierarchy "note_Select:n0|cs4:cs0" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 784
+Info (12128): Elaborating entity "cs4" for hierarchy "note_Select:n0|cs4:cs0" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 879
 Info (12128): Elaborating entity "altsyncram" for hierarchy "note_Select:n0|cs4:cs0|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/cs4.v Line: 85
 Info (12130): Elaborated megafunction instantiation "note_Select:n0|cs4:cs0|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/cs4.v Line: 85
 Info (12133): Instantiated megafunction "note_Select:n0|cs4:cs0|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/cs4.v Line: 85
@@ -5290,7 +5291,7 @@ Info (12133): Instantiated megafunction "note_Select:n0|cs4:cs0|altsyncram:altsy
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_hvn1.tdf
     Info (12023): Found entity 1: altsyncram_hvn1 File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/db/altsyncram_hvn1.tdf Line: 33
 Info (12128): Elaborating entity "altsyncram_hvn1" for hierarchy "note_Select:n0|cs4:cs0|altsyncram:altsyncram_component|altsyncram_hvn1:auto_generated" File: c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "d4" for hierarchy "note_Select:n0|d4:d0" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 791
+Info (12128): Elaborating entity "d4" for hierarchy "note_Select:n0|d4:d0" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 886
 Info (12128): Elaborating entity "altsyncram" for hierarchy "note_Select:n0|d4:d0|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/d4.v Line: 85
 Info (12130): Elaborated megafunction instantiation "note_Select:n0|d4:d0|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/d4.v Line: 85
 Info (12133): Instantiated megafunction "note_Select:n0|d4:d0|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/d4.v Line: 85
@@ -5312,7 +5313,7 @@ Info (12133): Instantiated megafunction "note_Select:n0|d4:d0|altsyncram:altsync
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_vrn1.tdf
     Info (12023): Found entity 1: altsyncram_vrn1 File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/db/altsyncram_vrn1.tdf Line: 33
 Info (12128): Elaborating entity "altsyncram_vrn1" for hierarchy "note_Select:n0|d4:d0|altsyncram:altsyncram_component|altsyncram_vrn1:auto_generated" File: c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "ds4" for hierarchy "note_Select:n0|ds4:ds0" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 798
+Info (12128): Elaborating entity "ds4" for hierarchy "note_Select:n0|ds4:ds0" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 893
 Info (12128): Elaborating entity "altsyncram" for hierarchy "note_Select:n0|ds4:ds0|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/ds4.v Line: 85
 Info (12130): Elaborated megafunction instantiation "note_Select:n0|ds4:ds0|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/ds4.v Line: 85
 Info (12133): Instantiated megafunction "note_Select:n0|ds4:ds0|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/ds4.v Line: 85
@@ -5334,7 +5335,7 @@ Info (12133): Instantiated megafunction "note_Select:n0|ds4:ds0|altsyncram:altsy
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ivn1.tdf
     Info (12023): Found entity 1: altsyncram_ivn1 File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/db/altsyncram_ivn1.tdf Line: 33
 Info (12128): Elaborating entity "altsyncram_ivn1" for hierarchy "note_Select:n0|ds4:ds0|altsyncram:altsyncram_component|altsyncram_ivn1:auto_generated" File: c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "e4" for hierarchy "note_Select:n0|e4:e0" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 805
+Info (12128): Elaborating entity "e4" for hierarchy "note_Select:n0|e4:e0" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 900
 Info (12128): Elaborating entity "altsyncram" for hierarchy "note_Select:n0|e4:e0|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/e4.v Line: 85
 Info (12130): Elaborated megafunction instantiation "note_Select:n0|e4:e0|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/e4.v Line: 85
 Info (12133): Instantiated megafunction "note_Select:n0|e4:e0|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/e4.v Line: 85
@@ -5356,7 +5357,7 @@ Info (12133): Instantiated megafunction "note_Select:n0|e4:e0|altsyncram:altsync
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_0sn1.tdf
     Info (12023): Found entity 1: altsyncram_0sn1 File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/db/altsyncram_0sn1.tdf Line: 33
 Info (12128): Elaborating entity "altsyncram_0sn1" for hierarchy "note_Select:n0|e4:e0|altsyncram:altsyncram_component|altsyncram_0sn1:auto_generated" File: c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "f4" for hierarchy "note_Select:n0|f4:f0" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 812
+Info (12128): Elaborating entity "f4" for hierarchy "note_Select:n0|f4:f0" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 907
 Info (12128): Elaborating entity "altsyncram" for hierarchy "note_Select:n0|f4:f0|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/f4.v Line: 85
 Info (12130): Elaborated megafunction instantiation "note_Select:n0|f4:f0|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/f4.v Line: 85
 Info (12133): Instantiated megafunction "note_Select:n0|f4:f0|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/f4.v Line: 85
@@ -5378,7 +5379,7 @@ Info (12133): Instantiated megafunction "note_Select:n0|f4:f0|altsyncram:altsync
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_1sn1.tdf
     Info (12023): Found entity 1: altsyncram_1sn1 File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/db/altsyncram_1sn1.tdf Line: 33
 Info (12128): Elaborating entity "altsyncram_1sn1" for hierarchy "note_Select:n0|f4:f0|altsyncram:altsyncram_component|altsyncram_1sn1:auto_generated" File: c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "newnewfs4" for hierarchy "note_Select:n0|newnewfs4:fs0" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 819
+Info (12128): Elaborating entity "newnewfs4" for hierarchy "note_Select:n0|newnewfs4:fs0" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 914
 Info (12128): Elaborating entity "altsyncram" for hierarchy "note_Select:n0|newnewfs4:fs0|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/newnewfs4.v Line: 85
 Info (12130): Elaborated megafunction instantiation "note_Select:n0|newnewfs4:fs0|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/newnewfs4.v Line: 85
 Info (12133): Instantiated megafunction "note_Select:n0|newnewfs4:fs0|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/newnewfs4.v Line: 85
@@ -5400,7 +5401,7 @@ Info (12133): Instantiated megafunction "note_Select:n0|newnewfs4:fs0|altsyncram
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_8ko1.tdf
     Info (12023): Found entity 1: altsyncram_8ko1 File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/db/altsyncram_8ko1.tdf Line: 33
 Info (12128): Elaborating entity "altsyncram_8ko1" for hierarchy "note_Select:n0|newnewfs4:fs0|altsyncram:altsyncram_component|altsyncram_8ko1:auto_generated" File: c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "g4" for hierarchy "note_Select:n0|g4:g0" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 826
+Info (12128): Elaborating entity "g4" for hierarchy "note_Select:n0|g4:g0" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 921
 Info (12128): Elaborating entity "altsyncram" for hierarchy "note_Select:n0|g4:g0|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/g4.v Line: 85
 Info (12130): Elaborated megafunction instantiation "note_Select:n0|g4:g0|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/g4.v Line: 85
 Info (12133): Instantiated megafunction "note_Select:n0|g4:g0|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/g4.v Line: 85
@@ -5422,7 +5423,7 @@ Info (12133): Instantiated megafunction "note_Select:n0|g4:g0|altsyncram:altsync
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_2sn1.tdf
     Info (12023): Found entity 1: altsyncram_2sn1 File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/db/altsyncram_2sn1.tdf Line: 33
 Info (12128): Elaborating entity "altsyncram_2sn1" for hierarchy "note_Select:n0|g4:g0|altsyncram:altsyncram_component|altsyncram_2sn1:auto_generated" File: c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "gs4" for hierarchy "note_Select:n0|gs4:gs0" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 833
+Info (12128): Elaborating entity "gs4" for hierarchy "note_Select:n0|gs4:gs0" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 928
 Info (12128): Elaborating entity "altsyncram" for hierarchy "note_Select:n0|gs4:gs0|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/gs4.v Line: 85
 Info (12130): Elaborated megafunction instantiation "note_Select:n0|gs4:gs0|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/gs4.v Line: 85
 Info (12133): Instantiated megafunction "note_Select:n0|gs4:gs0|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/gs4.v Line: 85
@@ -5444,7 +5445,7 @@ Info (12133): Instantiated megafunction "note_Select:n0|gs4:gs0|altsyncram:altsy
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_lvn1.tdf
     Info (12023): Found entity 1: altsyncram_lvn1 File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/db/altsyncram_lvn1.tdf Line: 33
 Info (12128): Elaborating entity "altsyncram_lvn1" for hierarchy "note_Select:n0|gs4:gs0|altsyncram:altsyncram_component|altsyncram_lvn1:auto_generated" File: c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "a4" for hierarchy "note_Select:n0|a4:a0" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 840
+Info (12128): Elaborating entity "a4" for hierarchy "note_Select:n0|a4:a0" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 935
 Info (12128): Elaborating entity "altsyncram" for hierarchy "note_Select:n0|a4:a0|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/a4.v Line: 85
 Info (12130): Elaborated megafunction instantiation "note_Select:n0|a4:a0|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/a4.v Line: 85
 Info (12133): Instantiated megafunction "note_Select:n0|a4:a0|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/a4.v Line: 85
@@ -5466,7 +5467,7 @@ Info (12133): Instantiated megafunction "note_Select:n0|a4:a0|altsyncram:altsync
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_srn1.tdf
     Info (12023): Found entity 1: altsyncram_srn1 File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/db/altsyncram_srn1.tdf Line: 33
 Info (12128): Elaborating entity "altsyncram_srn1" for hierarchy "note_Select:n0|a4:a0|altsyncram:altsyncram_component|altsyncram_srn1:auto_generated" File: c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "as4" for hierarchy "note_Select:n0|as4:as0" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 847
+Info (12128): Elaborating entity "as4" for hierarchy "note_Select:n0|as4:as0" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 942
 Info (12128): Elaborating entity "altsyncram" for hierarchy "note_Select:n0|as4:as0|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/as4.v Line: 85
 Info (12130): Elaborated megafunction instantiation "note_Select:n0|as4:as0|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/as4.v Line: 85
 Info (12133): Instantiated megafunction "note_Select:n0|as4:as0|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/as4.v Line: 85
@@ -5488,7 +5489,7 @@ Info (12133): Instantiated megafunction "note_Select:n0|as4:as0|altsyncram:altsy
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_fvn1.tdf
     Info (12023): Found entity 1: altsyncram_fvn1 File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/db/altsyncram_fvn1.tdf Line: 33
 Info (12128): Elaborating entity "altsyncram_fvn1" for hierarchy "note_Select:n0|as4:as0|altsyncram:altsyncram_component|altsyncram_fvn1:auto_generated" File: c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "b4" for hierarchy "note_Select:n0|b4:b0" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 854
+Info (12128): Elaborating entity "b4" for hierarchy "note_Select:n0|b4:b0" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 949
 Info (12128): Elaborating entity "altsyncram" for hierarchy "note_Select:n0|b4:b0|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/b4.v Line: 85
 Info (12130): Elaborated megafunction instantiation "note_Select:n0|b4:b0|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/b4.v Line: 85
 Info (12133): Instantiated megafunction "note_Select:n0|b4:b0|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/b4.v Line: 85
@@ -5510,7 +5511,7 @@ Info (12133): Instantiated megafunction "note_Select:n0|b4:b0|altsyncram:altsync
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_trn1.tdf
     Info (12023): Found entity 1: altsyncram_trn1 File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/db/altsyncram_trn1.tdf Line: 33
 Info (12128): Elaborating entity "altsyncram_trn1" for hierarchy "note_Select:n0|b4:b0|altsyncram:altsyncram_component|altsyncram_trn1:auto_generated" File: c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "c5" for hierarchy "note_Select:n0|c5:hc0" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 861
+Info (12128): Elaborating entity "c5" for hierarchy "note_Select:n0|c5:hc0" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 956
 Info (12128): Elaborating entity "altsyncram" for hierarchy "note_Select:n0|c5:hc0|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/c5.v Line: 85
 Info (12130): Elaborated megafunction instantiation "note_Select:n0|c5:hc0|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/c5.v Line: 85
 Info (12133): Instantiated megafunction "note_Select:n0|c5:hc0|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/c5.v Line: 85
@@ -5697,8 +5698,8 @@ Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_adapter:VGA
 Info (12128): Elaborating entity "note_info" for hierarchy "note_info:ni" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 227
 Warning (10230): Verilog HDL assignment warning at FPGA-Trumpet.v(324): truncated value with size 32 to match size of target (1) File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 324
 Info (12128): Elaborating entity "vga_RateDivider" for hierarchy "note_info:ni|vga_RateDivider:vrd0" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 329
-Warning (10230): Verilog HDL assignment warning at FPGA-Trumpet.v(1142): truncated value with size 32 to match size of target (9) File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 1142
-Info (12128): Elaborating entity "Dsharp" for hierarchy "note_info:ni|Dsharp:dsram" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 439
+Warning (10230): Verilog HDL assignment warning at FPGA-Trumpet.v(1237): truncated value with size 32 to match size of target (9) File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 1237
+Info (12128): Elaborating entity "Dsharp" for hierarchy "note_info:ni|Dsharp:dsram" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 534
 Info (12128): Elaborating entity "altsyncram" for hierarchy "note_info:ni|Dsharp:dsram|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/Dsharp.v Line: 85
 Info (12130): Elaborated megafunction instantiation "note_info:ni|Dsharp:dsram|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/Dsharp.v Line: 85
 Info (12133): Instantiated megafunction "note_info:ni|Dsharp:dsram|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/Dsharp.v Line: 85
@@ -5720,7 +5721,7 @@ Info (12133): Instantiated megafunction "note_info:ni|Dsharp:dsram|altsyncram:al
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_28q1.tdf
     Info (12023): Found entity 1: altsyncram_28q1 File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/db/altsyncram_28q1.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_28q1" for hierarchy "note_info:ni|Dsharp:dsram|altsyncram:altsyncram_component|altsyncram_28q1:auto_generated" File: c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "linenote" for hierarchy "note_info:ni|linenote:cram" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 447
+Info (12128): Elaborating entity "linenote" for hierarchy "note_info:ni|linenote:cram" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 542
 Info (12128): Elaborating entity "altsyncram" for hierarchy "note_info:ni|linenote:cram|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/linenote.v Line: 85
 Info (12130): Elaborated megafunction instantiation "note_info:ni|linenote:cram|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/linenote.v Line: 85
 Info (12133): Instantiated megafunction "note_info:ni|linenote:cram|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/linenote.v Line: 85
@@ -5742,7 +5743,7 @@ Info (12133): Instantiated megafunction "note_info:ni|linenote:cram|altsyncram:a
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_7dq1.tdf
     Info (12023): Found entity 1: altsyncram_7dq1 File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/db/altsyncram_7dq1.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_7dq1" for hierarchy "note_info:ni|linenote:cram|altsyncram:altsyncram_component|altsyncram_7dq1:auto_generated" File: c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "linesharpnote" for hierarchy "note_info:ni|linesharpnote:csram" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 476
+Info (12128): Elaborating entity "linesharpnote" for hierarchy "note_info:ni|linesharpnote:csram" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 571
 Info (12128): Elaborating entity "altsyncram" for hierarchy "note_info:ni|linesharpnote:csram|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/linesharpnote.v Line: 85
 Info (12130): Elaborated megafunction instantiation "note_info:ni|linesharpnote:csram|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/linesharpnote.v Line: 85
 Info (12133): Instantiated megafunction "note_info:ni|linesharpnote:csram|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/linesharpnote.v Line: 85
@@ -5764,7 +5765,7 @@ Info (12133): Instantiated megafunction "note_info:ni|linesharpnote:csram|altsyn
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_00r1.tdf
     Info (12023): Found entity 1: altsyncram_00r1 File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/db/altsyncram_00r1.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_00r1" for hierarchy "note_info:ni|linesharpnote:csram|altsyncram:altsyncram_component|altsyncram_00r1:auto_generated" File: c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "spacenote" for hierarchy "note_info:ni|spacenote:dram" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 491
+Info (12128): Elaborating entity "spacenote" for hierarchy "note_info:ni|spacenote:dram" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 586
 Info (12128): Elaborating entity "altsyncram" for hierarchy "note_info:ni|spacenote:dram|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/spacenote.v Line: 85
 Info (12130): Elaborated megafunction instantiation "note_info:ni|spacenote:dram|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/spacenote.v Line: 85
 Info (12133): Instantiated megafunction "note_info:ni|spacenote:dram|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/spacenote.v Line: 85
@@ -5786,7 +5787,7 @@ Info (12133): Instantiated megafunction "note_info:ni|spacenote:dram|altsyncram:
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_hgq1.tdf
     Info (12023): Found entity 1: altsyncram_hgq1 File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/db/altsyncram_hgq1.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_hgq1" for hierarchy "note_info:ni|spacenote:dram|altsyncram:altsyncram_component|altsyncram_hgq1:auto_generated" File: c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "spacesharpnote" for hierarchy "note_info:ni|spacesharpnote:fsram" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 520
+Info (12128): Elaborating entity "spacesharpnote" for hierarchy "note_info:ni|spacesharpnote:fsram" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 615
 Info (12128): Elaborating entity "altsyncram" for hierarchy "note_info:ni|spacesharpnote:fsram|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/spacesharpnote.v Line: 85
 Info (12130): Elaborated megafunction instantiation "note_info:ni|spacesharpnote:fsram|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/spacesharpnote.v Line: 85
 Info (12133): Instantiated megafunction "note_info:ni|spacesharpnote:fsram|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/spacesharpnote.v Line: 85
@@ -5808,7 +5809,7 @@ Info (12133): Instantiated megafunction "note_info:ni|spacesharpnote:fsram|altsy
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_03r1.tdf
     Info (12023): Found entity 1: altsyncram_03r1 File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/db/altsyncram_03r1.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_03r1" for hierarchy "note_info:ni|spacesharpnote:fsram|altsyncram:altsyncram_component|altsyncram_03r1:auto_generated" File: c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "newscale" for hierarchy "note_info:ni|newscale:sc" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 535
+Info (12128): Elaborating entity "newscale" for hierarchy "note_info:ni|newscale:sc" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 630
 Info (12128): Elaborating entity "altsyncram" for hierarchy "note_info:ni|newscale:sc|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/newscale.v Line: 85
 Info (12130): Elaborated megafunction instantiation "note_info:ni|newscale:sc|altsyncram:altsyncram_component" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/newscale.v Line: 85
 Info (12133): Instantiated megafunction "note_info:ni|newscale:sc|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/newscale.v Line: 85
@@ -5830,18 +5831,18 @@ Info (12133): Instantiated megafunction "note_info:ni|newscale:sc|altsyncram:alt
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ocq1.tdf
     Info (12023): Found entity 1: altsyncram_ocq1 File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/db/altsyncram_ocq1.tdf Line: 33
 Info (12128): Elaborating entity "altsyncram_ocq1" for hierarchy "note_info:ni|newscale:sc|altsyncram:altsyncram_component|altsyncram_ocq1:auto_generated" File: c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "BGoutlet" for hierarchy "note_info:ni|BGoutlet:bg" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 551
-Warning (10230): Verilog HDL assignment warning at FPGA-Trumpet.v(1122): truncated value with size 32 to match size of target (15) File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 1122
-Info (12128): Elaborating entity "outlet" for hierarchy "note_info:ni|outlet:notec" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 567
-Warning (10230): Verilog HDL assignment warning at FPGA-Trumpet.v(1066): truncated value with size 32 to match size of target (8) File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 1066
+Info (12128): Elaborating entity "BGoutlet" for hierarchy "note_info:ni|BGoutlet:bgg" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 646
+Warning (10230): Verilog HDL assignment warning at FPGA-Trumpet.v(1217): truncated value with size 32 to match size of target (15) File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 1217
+Info (12128): Elaborating entity "outlet" for hierarchy "note_info:ni|outlet:notec" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 662
+Warning (10230): Verilog HDL assignment warning at FPGA-Trumpet.v(1161): truncated value with size 32 to match size of target (8) File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 1161
 Info (12128): Elaborating entity "micCheck" for hierarchy "micCheck:tm0" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 250
-Warning (10230): Verilog HDL assignment warning at FPGA-Trumpet.v(997): truncated value with size 26 to match size of target (11) File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 997
-Warning (10230): Verilog HDL assignment warning at FPGA-Trumpet.v(1004): truncated value with size 32 to match size of target (11) File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 1004
-Warning (10230): Verilog HDL assignment warning at FPGA-Trumpet.v(1006): truncated value with size 32 to match size of target (11) File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 1006
-Warning (10230): Verilog HDL assignment warning at FPGA-Trumpet.v(1008): truncated value with size 32 to match size of target (11) File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 1008
-Warning (10230): Verilog HDL assignment warning at FPGA-Trumpet.v(1010): truncated value with size 32 to match size of target (11) File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 1010
+Warning (10230): Verilog HDL assignment warning at FPGA-Trumpet.v(1092): truncated value with size 26 to match size of target (11) File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 1092
+Warning (10230): Verilog HDL assignment warning at FPGA-Trumpet.v(1099): truncated value with size 32 to match size of target (11) File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 1099
+Warning (10230): Verilog HDL assignment warning at FPGA-Trumpet.v(1101): truncated value with size 32 to match size of target (11) File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 1101
+Warning (10230): Verilog HDL assignment warning at FPGA-Trumpet.v(1103): truncated value with size 32 to match size of target (11) File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 1103
+Warning (10230): Verilog HDL assignment warning at FPGA-Trumpet.v(1105): truncated value with size 32 to match size of target (11) File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 1105
 Info (12128): Elaborating entity "RateDivider" for hierarchy "RateDivider:rd0" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 257
-Warning (10230): Verilog HDL assignment warning at FPGA-Trumpet.v(1187): truncated value with size 32 to match size of target (26) File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 1187
+Warning (10230): Verilog HDL assignment warning at FPGA-Trumpet.v(1282): truncated value with size 32 to match size of target (26) File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 1282
 Info (12128): Elaborating entity "hex_decoder" for hierarchy "hex_decoder:H0" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 264
 Warning (14284): Synthesized away the following node(s):
     Warning (14285): Synthesized away the following RAM node(s):
@@ -5900,17 +5901,17 @@ Warning (21074): Design contains 9 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 59
     Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 59
     Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/Tony Luo/Desktop/FPGA-Trumpet-Practice-Tool/Project/FPGA-Trumpet.v Line: 59
-Info (21057): Implemented 1843 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1918 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 16 input pins
     Info (21059): Implemented 76 output pins
     Info (21060): Implemented 4 bidirectional pins
-    Info (21061): Implemented 1317 logic cells
+    Info (21061): Implemented 1392 logic cells
     Info (21064): Implemented 413 RAM segments
     Info (21065): Implemented 2 PLLs
     Info (21062): Implemented 15 DSP elements
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 69 warnings
-    Info: Peak virtual memory: 4922 megabytes
-    Info: Processing ended: Sun Nov 25 20:58:25 2018
+    Info: Peak virtual memory: 4925 megabytes
+    Info: Processing ended: Sun Nov 25 21:43:47 2018
     Info: Elapsed time: 00:00:24
     Info: Total CPU time (on all processors): 00:00:40
 

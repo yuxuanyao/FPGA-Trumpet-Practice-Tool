@@ -328,7 +328,7 @@ endmodule
 		.q(vRDiv)
 	);
 	
-	reg drewBG;
+	reg [12:0] bg;
 	
 	
 // select which to draw
@@ -336,90 +336,185 @@ endmodule
 	always@(posedge clock)begin
 	
 	if(air != 2'b0)begin
-		if(drewBG)begin
 			if(id == 4'd0) begin
 				x <= scalex;
 				y <= scaley;
 				colour <= scalecolour;
 			end
 			if(id == 4'd1) begin
-				x <= cx;
-				y <= cy;
-				colour <= ccolour;
+				if (bg[0] ==0)begin
+					x <= scalex;
+					y <= scaley;
+					colour <= scalecolour;
+					bg <= 13'b0000000000001;
+				end
+				else begin
+					x <= cx;
+					y <= cy;
+					colour <= ccolour;
+				end
 			end
 			else if(id == 4'd2) begin
-				x <= csx;
-				y <= csy;
-				colour <= cscolour;
+				if (bg[1] ==0)begin
+					x <= scalex;
+					y <= scaley;
+					colour <= scalecolour;
+					bg <= 13'b0000000000010;
+				end
+				else begin
+					x <= csx;
+					y <= csy;
+					colour <= cscolour;
+				end
 			end
 			else if(id == 4'd3) begin
-				x <= dx;
-				y <= dy;
-				colour <= dcolour;
+				if (bg[2] ==0)begin
+					x <= scalex;
+					y <= scaley;
+					colour <= scalecolour;
+					bg <= 13'b0000000000100;
+				end
+				else begin
+					x <= dx;
+					y <= dy;
+					colour <= dcolour;
+				end
 			end
 			else if(id == 4'd4) begin
-				x <= dsx;
-				y <= dsy;
-				colour <= dscolour;
+				if (bg[3] ==0)begin
+					x <= scalex;
+					y <= scaley;
+					colour <= scalecolour;
+					bg <= 13'b0000000001000;
+				end
+				else begin
+					x <= dsx;
+					y <= dsy;
+					colour <= dscolour;
+				end
 			end
 			else if(id == 4'd5) begin
-				x <= ex;
-				y <= ey;
-				colour <= ecolour;
+				if (bg[4] ==0)begin
+					x <= scalex;
+					y <= scaley;
+					colour <= scalecolour;
+					bg <= 13'b0000000010000;
+				end
+				else begin
+					x <= ex;
+					y <= ey;
+					colour <= ecolour;
+				end
 			end
 			else if(id == 4'd6) begin
-				x <= fx;
-				y <= fy;
-				colour <= fcolour;
+				if (bg[5] ==0)begin
+					x <= scalex;
+					y <= scaley;
+					colour <= scalecolour;
+					bg <= 13'b0000000100000;
+				end
+				else begin
+					x <= fx;
+					y <= fy;
+					colour <= fcolour;
+				end
 			end
 			else if(id == 4'd7) begin
-				x <= fsx;
-				y <= fsy;
-				colour <= fscolour;
+				if (bg[6] ==0)begin
+					x <= scalex;
+					y <= scaley;
+					colour <= scalecolour;
+					bg <= 13'b0000001000000;
+				end
+				else begin
+					x <= fsx;
+					y <= fsy;
+					colour <= fscolour;
+				end
 			end
 			else if(id == 4'd8) begin
-				x <= gx;
-				y <= gy;
-				colour <= gcolour;
+				if (bg[7] ==0)begin
+					x <= scalex;
+					y <= scaley;
+					colour <= scalecolour;
+					bg <= 13'b0000010000000;
+				end
+				else begin
+					x <= gx;
+					y <= gy;
+					colour <= gcolour;
+				end
 			end
 			else if(id == 4'd9) begin
-				x <= gsx;
-				y <= gsy;
-				colour <= gscolour;
+				if (bg[8] ==0)begin
+					x <= scalex;
+					y <= scaley;
+					colour <= scalecolour;
+					bg <= 13'b0000100000000;
+				end
+				else begin
+					x <= gsx;
+					y <= gsy;
+					colour <= gscolour;
+				end
 			end
 			else if(id == 4'd10) begin
-				x <= ax;
-				y <= ay;
-				colour <= acolour;
+				if (bg[9] ==0)begin
+					x <= scalex;
+					y <= scaley;
+					colour <= scalecolour;
+					bg <= 13'b0001000000000;
+				end
+				else begin
+					x <= ax;
+					y <= ay;
+					colour <= acolour;
+				end
 			end
 			else if(id == 4'd11) begin
-				x <= asx;
-				y <= asy;
-				colour <= ascolour;
+				if (bg[10] ==0)begin
+					x <= scalex;
+					y <= scaley;
+					colour <= scalecolour;
+					bg <= 13'b0010000000000;
+				end
+				else begin
+					x <= asx;
+					y <= asy;
+					colour <= ascolour;
+				end
 			end
 			else if(id == 4'd12) begin
-				x <= bx;
-				y <= by;
-				colour <= bcolour;
+				if (bg[11] ==0)begin
+					x <= scalex;
+					y <= scaley;
+					colour <= scalecolour;
+					bg <= 13'b0100000000000;
+				end
+				else begin
+					x <= bx;
+					y <= by;
+					colour <= bcolour;
+				end
 			end
 			else if(id == 4'd13) begin
-				x <= hcx;
-				y <= hcy;
-				colour <= hccolour;
+				if (bg[12] ==0)begin
+					x <= scalex;
+					y <= scaley;
+					colour <= scalecolour;
+					bg <= 13'b1000000000000;
+				end
+				else begin
+					x <= hcx;
+					y <= hcy;
+					colour <= hccolour;
+				end
 			end
 			else begin
 				x <= scalex;
 				y <= scaley;
 				colour <= scalecolour;
 			end
-			drewBG <= 0;
-		end
-		else begin
-				x <= scalex;
-				y <= scaley;
-				colour <= scalecolour;
-				drewBG <= 1;
-		end
 	end
 	else begin
 			x <= scalex;
@@ -537,7 +632,7 @@ end
 // outlet/ drawing module instantiation 
 
 // Background outlet
-BGoutlet bg (
+BGoutlet bgg (
 	.clock(clock), 
 	.resetn(resetn), 
 	.xin(0),
