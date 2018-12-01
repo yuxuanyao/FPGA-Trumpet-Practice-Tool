@@ -1,13 +1,13 @@
 
 /*****************************************************************************
- 	                          Top Level Module                              
+ *                            Top Level Entity                               *
  *****************************************************************************/
 module FPGATrumpet(
 //KEY[0] is reset
-	// DE1 SoC ports
+
+	// Inputs
 	CLOCK_50,
 	KEY,
-	SW,
 	LEDR,
 	HEX0,
 	HEX1,
@@ -18,15 +18,21 @@ module FPGATrumpet(
 
 	// Audio ports
 	AUD_ADCDAT,
-		// Bidirectionals
+
+	// Bidirectionals
 	AUD_BCLK,
 	AUD_ADCLRCK,
 	AUD_DACLRCK,
+
 	FPGA_I2C_SDAT,
-		// Outputs
+
+	// Outputs
 	AUD_XCK,
 	AUD_DACDAT,
+
 	FPGA_I2C_SCLK,
+	SW,
+	
 	
 	// VGA ports
 	VGA_CLK,   						//	VGA Clock
@@ -40,9 +46,14 @@ module FPGATrumpet(
 );
 
 /*****************************************************************************
- 	                            Port Declarations                        
+ *                           Parameter Declarations                          *
  *****************************************************************************/
-// Ports for DE1 SoC
+
+
+/*****************************************************************************
+ *                            Audio Port Declarations                        *
+ *****************************************************************************/
+// Inputs
 input				CLOCK_50;
 input		[3:0]	KEY;
 input		[9:0]	SW;
@@ -54,19 +65,24 @@ output	[6:0]HEX3;
 output	[6:0]HEX4;
 output	[6:0]HEX5;
 
-// Ports for Audio Core
 input				AUD_ADCDAT;
-	// Bidirectionals
+
+// Bidirectionals
 inout				AUD_BCLK;
 inout				AUD_ADCLRCK;
 inout				AUD_DACLRCK;
+
 inout				FPGA_I2C_SDAT;
-	// Outputs
+
+// Outputs
 output				AUD_XCK;
 output				AUD_DACDAT;
+
 output				FPGA_I2C_SCLK;
 
-// Ports for VGA
+/*****************************************************************************
+ *                            VGA Port Declarations                          *
+ *****************************************************************************/
 output			VGA_CLK;   				//	VGA Clock
 output			VGA_HS;					//	VGA H_SYNC
 output			VGA_VS;					//	VGA V_SYNC
@@ -76,34 +92,25 @@ output	[7:0]	VGA_R;   				//	VGA Red[7:0] Changed from 10 to 8-bit DAC
 output	[7:0]	VGA_G;	 				//	VGA Green[7:0]
 output	[7:0]	VGA_B;   				//	VGA Blue[7:0]
 
-/*****************************************************************************
- 	                            Wire Declarations                        
- *****************************************************************************/
 wire resetn;
 assign resetn = KEY[0];
 /*****************************************************************************
-                 			     Trumpet Sound		       	                 
+ *                 			     Trumpet Sound		       	                 *
  *****************************************************************************/
- // wires required for the Audio controller
-	// wires for Audio In
 wire				audio_in_available;
 wire		[31:0]	left_channel_audio_in;
 wire		[31:0]	right_channel_audio_in;
 wire				read_audio_in;
-	// wires for Audio Out
+
 wire				audio_out_allowed;
 wire		[31:0]	left_channel_audio_out;
 wire		[31:0]	right_channel_audio_out;
 wire				write_audio_out;
 
-// wires to read from ram and select note
 wire [9:0] audio_from_ram;
 wire write;
 wire [3:0]note_id;
-wire [31:0] sound;
 
-// Note Select Module instantiation 
-	//(selects which note to play based on input)
 note_Select n0 (
 	.clock(CLOCK_50), 
 	.keys(~KEY[3:1]), 
@@ -115,41 +122,59 @@ note_Select n0 (
 	);
 
 
-// playing the audio from RAM
 assign write_audio_out			= write & audio_out_allowed;
+
+
+wire [31:0] sound;
+
+
 assign sound = {audio_from_ram, 22'b0};
+
+
 assign read_audio_in = audio_in_available & audio_out_allowed;
+
+
+
 assign left_channel_audio_out	= sound;
 assign right_channel_audio_out	= sound;
 
 /*****************************************************************************
-                   Audio Controller Module Instantiation	                 
+ *                         Audio Controller Module 		                    *
  *****************************************************************************/
-// Instantiating the Audio controller
+
 Audio_Controller Audio_Controller (
 	// Inputs
 	.CLOCK_50						(CLOCK_50),
 	.reset						(~KEY[0]),
+
 	.clear_audio_in_memory		(),
 	.read_audio_in				(read_audio_in),
+	
 	.clear_audio_out_memory		(),
 	.left_channel_audio_out		(left_channel_audio_out),
 	.right_channel_audio_out	(right_channel_audio_out),
 	.write_audio_out			(write_audio_out),
+
 	.AUD_ADCDAT					(AUD_ADCDAT),
+
 	// Bidirectionals
 	.AUD_BCLK					(AUD_BCLK),
 	.AUD_ADCLRCK				(AUD_ADCLRCK),
 	.AUD_DACLRCK				(AUD_DACLRCK),
+
+
 	// Outputs
 	.audio_in_available			(audio_in_available),
 	.left_channel_audio_in		(left_channel_audio_in),
 	.right_channel_audio_in		(right_channel_audio_in),
+
 	.audio_out_allowed			(audio_out_allowed),
+
 	.AUD_XCK					(AUD_XCK),
 	.AUD_DACDAT					(AUD_DACDAT)
+
 );
-	// av configuration
+
 avconf #(.USE_MIC_INPUT(1)) avc (
 	.FPGA_I2C_SCLK					(FPGA_I2C_SCLK),
 	.FPGA_I2C_SDAT					(FPGA_I2C_SDAT),
@@ -158,8 +183,9 @@ avconf #(.USE_MIC_INPUT(1)) avc (
 );
 	
 /*****************************************************************************
-                          VGA Adapter Module 		 		                    
+ *                         VGA Adapter Module 		 		                    *
  *****************************************************************************/
+
 // wires  
 wire [2:0] colour;
 wire [7:0] x;
@@ -184,15 +210,12 @@ vga_adapter VGA(
 		.VGA_BLANK(VGA_BLANK_N),
 		.VGA_SYNC(VGA_SYNC_N),
 		.VGA_CLK(VGA_CLK));
-
 defparam VGA.RESOLUTION = "160x120";
 defparam VGA.MONOCHROME = "FALSE";
 defparam VGA.BITS_PER_COLOUR_CHANNEL = 1;
 defparam VGA.BACKGROUND_IMAGE = "scalestaffshift.mif";
 
-// Instantiate the Note Info module
-	//(this module outputs x, y, and colour to be displayed on the VGA based on the inputted note ID)
-note_info ni(
+ note_info ni(
 	.id(note_id), 
 	.clock(CLOCK_50), 
 	.air(air),
@@ -204,19 +227,20 @@ note_info ni(
 );
  
 /*****************************************************************************
- 	                        Microphone Input Module 		                    
+ *                         Microphone Input Module 		                    *
  *****************************************************************************/
 	wire [1:0] air;
 	
-	// LEDs to test air flow level
+	
 	assign LEDR[0]=air[0];
 	assign LEDR[1]=air[1];
 	
 	wire Enable;
 	wire [25:0]RDiv;
 	wire [31:0] outp;
-	// convert to positive 
+	
 	assign outp = (left_channel_audio_in[31] ==1)? -left_channel_audio_in: left_channel_audio_in;
+	
 	
 	wire [10:0] lCount;
 	wire [10:0] mCount;
@@ -259,14 +283,16 @@ note_info ni(
         .hex_digit(hCount[7:4]), 
         .segments(HEX5)
         );
-
+	
+	
+	
+	
 endmodule
 
 /*****************************************************************************
-                          	Note Graphics Module		 		                 
+ *                         	Note Graphics Module		 		                 *
  *****************************************************************************/
  module note_info (id, clock, air, resetn, x, y, colour, writeEn);
-	// Ports
 	input [3:0]id;
 	input clock;
 	input [1:0] air;
@@ -276,19 +302,20 @@ endmodule
 	output reg [2:0] colour;
 	output writeEn;
 	
-	// wires for address reading
 	wire [7:0] caddress, csaddress, daddress, dsaddress, eaddress, faddress, fsaddress, gaddress, gsaddress, aaddress, asaddress, baddress, hcaddress;
 	wire [14:0] scaddress;
 	
-	// wires for x, y 
+	
+	// wires for x, y, and colour 
 	wire [7:0] cx, csx, dx, dsx, ex, fx, fsx, gx, gsx, ax, asx, bx, hcx;
 	wire [6:0] cy, csy, dy, dsy, ey, fy, fsy, gy, gsy, ay, asy, by, hcy;
 
 	wire [7:0] scalex;
 	wire [6:0] scaley;
 
-	// wires for colour
+	
 	wire [2:0] ccolour, cscolour, dcolour, dscolour, ecolour, fcolour, fscolour, gcolour, gscolour, acolour, ascolour, bcolour, hccolour;
+
 	wire [2:0] scalecolour;
 	
 	
@@ -300,11 +327,14 @@ endmodule
 		.Clock(clock),
 		.q(vRDiv)
 	);
+	
 	reg bg;
 	
 	
-// selects what to draw based on note ID
+// select which to draw
+
 	always@(posedge clock)begin
+	
 	if(air != 2'b0)begin
 		if(id == 4'd0) begin
 			x <= scalex;
@@ -695,11 +725,12 @@ outlet notehc (
 	.address(hcaddress)
 );	
 
+
+ 
 endmodule 
 /*****************************************************************************
- 	                         Note Select Module 				                    
+ *                          Note Select Module 				                    *
  *****************************************************************************/
- // selects what note to play based on air flow and keys pressed
 module note_Select (clock, keys, airflow, audio_out_allowed, note, write, id);
 	input clock;
 	input [2:0] keys;
@@ -710,11 +741,9 @@ module note_Select (clock, keys, airflow, audio_out_allowed, note, write, id);
 	output reg write;
 	output reg [3:0] id;
 	
-	// wires for reading ram
 	wire [15:0] address_count;
 	reg [15:0] address_count_reg;
 	
-	// wires for audio from ram
 	wire [9:0] c4_audio;
 	wire [9:0] cs4_audio;
 	wire [9:0] d4_audio;
@@ -730,6 +759,7 @@ module note_Select (clock, keys, airflow, audio_out_allowed, note, write, id);
 	wire [9:0] c5_audio;
 
 // instantiating ram for each note
+	
 	c4 c0(
 	.address(address_count),
 	.clock(clock),
@@ -821,7 +851,7 @@ module note_Select (clock, keys, airflow, audio_out_allowed, note, write, id);
 	.wren(1'b0),
 	.q(c5_audio));
 	
-	// Reading audio from RAM 
+	
 	always @(posedge clock) begin
 		if(address_count_reg >= 16'd16383 && audio_out_allowed) begin
 				address_count_reg <= 16'b0;
@@ -837,9 +867,8 @@ module note_Select (clock, keys, airflow, audio_out_allowed, note, write, id);
 	
 	assign address_count = address_count_reg;
 
-	// determining output note 
-		//sends the id to note_info
-		// sends the output note to speaker in top level
+// determining output note	
+
 	always @(posedge clock)	
 	begin
 		case (airflow[1:0])
@@ -920,7 +949,7 @@ module note_Select (clock, keys, airflow, audio_out_allowed, note, write, id);
 endmodule
 
 /*****************************************************************************
-                        Microphone Input/ Airflow Module             		  
+ *                       Microphone Input/ Airflow Module             		  *
  *****************************************************************************/
 
 module micCheck (audio_in, clk, mute, lCount, mCount, hCount, q, air);
@@ -975,9 +1004,8 @@ module micCheck (audio_in, clk, mute, lCount, mCount, hCount, q, air);
 endmodule
 
 /*****************************************************************************
- 	                         Draw Note Module 					                 
+ *                          Draw Note Module 					                 *
  *****************************************************************************/
- // reads ram and outputs x, y, locations to draw 
 module outlet(clock, resetn, xin, yin, width, height, x, y, wren, address);
 	input clock, resetn;
 	input [7:0] xin;
@@ -994,8 +1022,9 @@ module outlet(clock, resetn, xin, yin, width, height, x, y, wren, address);
 
 	wire xCounter_clear;
 	wire yCounter_clear;
-
 	/* A counter to scan through a horizontal line. */
+	
+	
 	always @(posedge clock)
 	begin
 		if (resetn)
@@ -1007,10 +1036,10 @@ module outlet(clock, resetn, xin, yin, width, height, x, y, wren, address);
 			xCounter <= xCounter + 1'b1;
 		end
 	end
-	// when at the end of the line, reset
+	
 	assign xCounter_clear = (xCounter == (width));
 
-	/* A counter to scan through a vertical line. */
+
 	always @(posedge clock)
 	begin
 		if (resetn)
@@ -1020,10 +1049,9 @@ module outlet(clock, resetn, xin, yin, width, height, x, y, wren, address);
 		else if (xCounter_clear)		//Increment when x counter resets
 			yCounter <= yCounter + 1'b1;
 	end
-	// when at the end of the line, reach max y
+	
 	assign yCounter_clear = (yCounter == (height)); 
 	
-	// outputs
 	assign x = xCounter + xin;
 	assign y = yCounter + yin;
 	assign address = (xCounter + (yCounter*(width + 1)));
@@ -1032,9 +1060,8 @@ endmodule
 
 		
 /*****************************************************************************
-                           Draw Background Module 			                 
+ *                          Draw Background Module 			                 *
  *****************************************************************************/
- // Same as draw note module, but has different address bitwidth 
 module BGoutlet(clock, resetn, xin, yin, width, height, x, y, wren, address);
 	input clock, resetn;
 	input [7:0] xin;
@@ -1051,8 +1078,9 @@ module BGoutlet(clock, resetn, xin, yin, width, height, x, y, wren, address);
 
 	wire xCounter_clear;
 	wire yCounter_clear;
-
 	/* A counter to scan through a horizontal line. */
+	
+	
 	always @(posedge clock)
 	begin
 		if (resetn)
@@ -1067,7 +1095,7 @@ module BGoutlet(clock, resetn, xin, yin, width, height, x, y, wren, address);
 	
 	assign xCounter_clear = (xCounter == (width));
 
-	/* A counter to scan through a vertical line. */
+
 	always @(posedge clock)
 	begin
 		if (resetn)
@@ -1087,9 +1115,9 @@ module BGoutlet(clock, resetn, xin, yin, width, height, x, y, wren, address);
 endmodule
 
 /*****************************************************************************
- 	                         VGA Rate Divider Module 			                 
+ *                          VGA Rate Divider Module 			                 *
  *****************************************************************************/
-// to slow down the RAM reading to avoid RAM delays		
+		
 module vga_RateDivider (Clock, q);
 	input Clock;
 	
@@ -1107,7 +1135,7 @@ module vga_RateDivider (Clock, q);
 
 endmodule
 /*****************************************************************************
-                           Hex Decoder Module 			                    
+ *                          Rate Divider Module 			                    *
  *****************************************************************************/
 module hex_decoder(hex_digit, segments);
     input [3:0] hex_digit;
